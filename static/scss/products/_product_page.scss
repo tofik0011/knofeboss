@@ -1,0 +1,528 @@
+.page__product {
+  .product_photos {
+    position: relative;
+    margin-bottom: 15px;
+
+    .main_carousel {
+      margin-bottom: 27px;
+    }
+
+    .secondary_carousel {
+      padding: 0px 22px;
+    }
+
+    .discount {
+      position: absolute;
+      z-index: 3;
+      top: -3px;
+      left: -3px;
+      background: $c1;
+      color: #fff;
+      padding: 2px 8px;
+      font-size: $h3;
+      display: inline-block;
+      margin-bottom: 8px;
+    }
+
+    .slide {
+      img {
+        width: 100%;
+         border-radius: 10px;
+      }
+    }
+  }
+
+  .product_name {
+    margin-bottom: 5px;
+    font-size: $h4;
+    text-transform: uppercase;
+    color: $text3;
+    line-height: 1em;
+  }
+
+  .price_data {
+    padding: 5px 0;
+
+    .stable_price {
+      margin-left: 5px;
+      color: #aaa;
+      font-size: $h3;
+      text-decoration: line-through;
+      display: inline-block;
+    }
+
+    .current_price {
+      display: inline-block;
+      font-size: $h1;
+      font-weight: 400;
+      color: $text1;
+      line-height: 1;
+
+      &.discounted {
+        color: $c1;
+      }
+
+    }
+  }
+
+  .product_color {
+    font-size: $h5;
+    color: $text2;
+    text-transform: uppercase;
+    padding: 5px 0;
+  }
+
+  .product_rating {
+    .stars {
+      i {
+        color: #d8dbe0;
+        font-size: 16px;
+        width: 13px;
+
+        &.active {
+          color: $c1;
+        }
+      }
+    }
+
+    .reviews_count {
+      color: $text3;
+    }
+  }
+
+  #nav_product_data {
+    margin-top: 20px;
+
+    .indicator {
+      background: $c1;
+    }
+
+    .tab {
+      border-bottom: 1px solid #ccc;
+
+      a {
+        font-size: $h5;
+        color: $text3;
+
+        &.active {
+          color: $c1;
+        }
+
+        &:focus {
+          background: transparent;
+        }
+      }
+
+    }
+  }
+
+  .product_info {
+    //position: sticky;
+    top: 30px;
+
+    .similar_products {
+      padding: 8px 0;
+
+      a {
+
+      }
+    }
+
+    .buttons_bar {
+      width: 500px;
+      max-width: 100%;
+      margin-bottom: 30px;
+
+      .btn_v2 {
+        padding: 12px 15px;
+      }
+
+      & > * {
+        margin-bottom: 8px;
+      }
+
+      .add_to_cart {
+        width: 100%;
+
+      }
+
+      .toggle_wishlist {
+        &.active {
+          color: $c1;
+        }
+      }
+      .add_to_comparison {
+        &.active {
+          color: $c1;
+        }
+      }
+    }
+
+    .reviews_info {
+      display: flex;
+      align-items: center;
+
+      .reviews_count {
+        font-size: 14px;
+        padding: 0 22px;
+        margin: 0 14px;
+        border-right: #ddd 1px solid;
+        border-left: #ddd 1px solid;
+        color: #999;
+      }
+
+      .add_review {
+        font-size: 14px;
+        display: block;
+        color: #999;
+        text-decoration: none;
+        cursor: pointer;
+      }
+    }
+
+    .options {
+      &.badges {
+        .option {
+          margin-bottom: 14px;
+
+          .option-title {
+            color: $text2;
+            font-weight: 500;
+            font-size: $h5;
+            text-transform: uppercase;
+            transition: .2s;
+            margin-bottom: 5px;
+
+            &.required-s {
+              color: $c3;
+            }
+          }
+
+          .values_wrapper {
+            .value {
+              color: $text2;
+              background: transparent;
+              padding: 10px 20px;
+              display: inline-block;
+              transition: .1s;
+              cursor: pointer;
+              border: 1px #ddd solid;
+
+              &:hover {
+                border: 1px $c1 solid;
+              }
+
+              &.active {
+                background: $c1;
+                color: #fff;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .product_attributes {
+      padding: 0 14px;
+
+      table {
+        tr {
+          td {
+            &:last-child {
+              text-align: right;
+              font-family: 'Museo Sans Cyrl 300', Serif;
+              color: #99a3b5;
+            }
+
+            font-family: 'Museo Sans Cyrl 700', Serif;
+            color: #81858d;
+            font-size: 17px;
+            border-top: none;
+            border-bottom: 1px solid #dee2e6;
+          }
+        }
+      }
+    }
+
+    .product_description {
+      padding: 10px 14px;
+      font-size: 15px;
+      color: #99a3b5;
+      line-height: 1.2em;
+      font-family: 'Museo Sans Cyrl 300', serif;
+      max-width: 100%;
+      overflow: hidden;
+    }
+
+    .additional_info {
+      padding: 15px 0;
+      font-size: $h5;
+      color: $text2;
+      font-weight: 500;
+
+      tr {
+        border: none;
+
+        td {
+          text-transform: uppercase;
+          padding: 5px 20px 5px 0;
+
+          &:nth-child(1) {
+
+            width: 50px;
+            color: $text3;
+            font-size: $h5;
+          }
+
+          &:nth-child(2) {
+            font-weight: 600;
+            color: $text2;
+
+            a {
+              color: $text2;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  #nav_reviews {
+    .buttons {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+  }
+
+  #nav_description {
+    color: $text2;
+    font-size: $h4;
+    @media (max-width: 575px) {
+      font-size: $h5;
+    }
+  }
+
+  .product_reviews {
+    .review {
+      padding: 16px 0;
+      border-bottom: 2px solid #ebebeb;
+      display: flex;
+      flex-wrap: nowrap;
+
+      .img {
+        height: 60px;
+        margin-right: 15px;
+      }
+
+      .rating-mini {
+        display: inline-block;
+        font-size: 0;
+
+        span {
+          padding: 0;
+          font-size: 20px;
+          line-height: 1;
+          color: lightgrey;
+
+          &:before {
+            content: '★';
+          }
+
+          &.active {
+            color: gold;
+          }
+        }
+      }
+
+      .text {
+        font-size: $h4;
+        margin-bottom: 8px;
+        line-height: 1.2em;
+        color: $text1;
+        text-align: justify;
+      }
+
+      .author {
+        font-size: $h5;
+        text-transform: uppercase;
+        color: $text3;
+      }
+    }
+  }
+}
+
+#product_review_modal {
+  max-height: 322px;
+  max-width: 570px;
+  border-radius: 15px;
+
+  .rating-area {
+    overflow: hidden;
+    max-width: 265px;
+    margin: 20px auto 0px;
+    width: fit-content;
+
+    &:not(:checked) {
+      input {
+        display: none;
+      }
+
+      label {
+        float: right;
+        width: 42px;
+        padding: 0;
+        cursor: pointer;
+        font-size: 32px;
+        line-height: 32px;
+        color: lightgrey;
+        text-shadow: 1px 1px #bbb;
+        @media (max-width: 500px) {
+          width: 32px;
+        }
+
+        &:before {
+          content: '★';
+        }
+      }
+
+      label:hover,
+      label:hover ~ label {
+        color: gold;
+      }
+    }
+
+    input:checked ~ label {
+      color: gold;
+      text-shadow: 1px 1px #c60;
+    }
+
+    input:checked + label:hover,
+    input:checked + label:hover ~ label,
+    input:checked ~ label:hover,
+    input:checked ~ label:hover ~ label,
+    label:hover ~ input:checked ~ label {
+      color: gold;
+      text-shadow: 1px 1px goldenrod;
+    }
+
+    label:active {
+      position: relative;
+    }
+  }
+
+  .modal-content {
+    .title {
+      margin-bottom: 10px;
+      font-size: 24px;
+      font-weight: bold;
+      @media (max-width: 450px) {
+        font-size: 21px;
+      }
+    }
+
+    .input_v1 {
+      background: none;
+      border-bottom: 1px solid #9e9e9e;
+
+      &:focus {
+        border-bottom: 1px solid #26a69a !important;
+      }
+    }
+  }
+
+  .modal-footer {
+    padding: 4px 24px;
+  }
+
+  .close {
+    width: 100%;
+    position: absolute;
+    text-align: end;
+    padding: 10px 0px;
+
+    .modal-close {
+      position: relative;
+      right: 10px;
+      font-size: 20px;
+      @media (max-width: 500px) {
+        right: 0px;
+      }
+    }
+  }
+
+}
+
+.secondary_carousel {
+  .slick-list {
+    .featurette-image {
+      margin: 0px 22px;
+      filter: drop-shadow(0px 2px 5px rgba(0, 0, 0, 0.15));
+      border-radius: 10px;
+      @media (max-width: 992px) {
+        margin: 0px 10px;
+      }
+      @media (max-width: 825px) {
+        margin: 0px 5px;
+      }
+    }
+  }
+
+  .slick-prev {
+    left: 0 !important;
+
+    &:before {
+      content: none;
+    }
+  }
+
+  .slick-arrow {
+    right: 0 !important;
+
+    &:before {
+      content: none;
+    }
+  }
+
+  .arrow_color {
+    color: $c1;
+  }
+}
+
+.bottom_section {
+  width: 100%;
+  margin-top: 70px;
+
+  .min_heading {
+    font-size: 25px;
+    font-family: 'Museo Sans Cyrl 700', Serif;
+    color: $text1;
+    padding: 15px;
+    text-align: center;
+  }
+
+  .products_carousel {
+    position: relative;
+
+    .navigation {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      z-index: 10;
+
+      & > div {
+        cursor: pointer;
+        padding: 9px 16px;
+        width: 40px;
+        height: 40px;
+        background: #fff;
+        border-radius: 50%;
+        box-shadow: 0px 3px 6px #42424257;
+      }
+    }
+  }
+
+}

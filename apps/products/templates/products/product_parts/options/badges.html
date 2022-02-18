@@ -1,0 +1,14 @@
+{% load i18n %}
+<div class="options badges">
+    {% for option in product.options %}
+        <div class="option {% if option.is_required %}js-required{% endif %}">
+            <div class="option-title" data-product-id="{{ product.id }}" data-option-id="{{ option.option_pk }}">
+                {{ option.option_name }}{% if option.is_required %}*{% endif %}</div>
+            <div class="values_wrapper">
+                {% for value in option.values %}
+                    <div class="value" data-product-id="{{ product.id }}" data-value-id="{{ value.option_value_pk }}"
+                         data-option-id="{{ option.option_pk }}">{{ value.option_value_name }}</div>{% endfor %}
+            </div>
+        </div>
+    {% endfor %}
+</div>

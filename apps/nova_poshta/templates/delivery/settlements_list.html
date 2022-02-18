@@ -1,0 +1,8 @@
+{% load i18n %}
+<div class="autocomplete-dropdown">
+    {% for s in settlements %}
+        <div class="dropdown-item" data-id="{{ s.id }}">{{ s.name }}</div>
+    {% empty %}
+        <div class="dropdown-item-none">{% trans 'not_found' %}</div>
+    {% endfor %}
+</div>

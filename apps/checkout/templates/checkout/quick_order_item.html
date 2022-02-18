@@ -1,0 +1,19 @@
+{% load i18n %}
+{% load currency_tags %}
+<div class="left_col">
+    <img src="{{ data.product.image.url }}" class="img-thumbnail mb-2" alt="">
+</div>
+<div class="right_col">
+    <div class="title"> {{ data.product }}</div>
+    {% if data.options %}
+        <div class="options">{% for option in data.options %}<span>{{ option.option_name }}: {{ option.values.0.option_value_name }}{% if not forloop.last %}, {% endif %}</span>{% endfor %}</div>{% endif %}
+    <div class="price">{% tag_convert_currency_price request data.price_data.current_price %}</div>
+    <div class="order_data">
+        <input type="text" class="input_v1" id="bioc_name" placeholder="{% trans 'account__first_name' %}">
+        <input type="text" class="input_v1" id="bioc_phone" placeholder="{% trans 'phone' %}">
+    </div>
+    <div class="buttons_bar">
+        <a href="javascript:void(0);" id="buy_in_one_click_submit" data-product-id="{{ product.id }}" class="btn_v1 w-100">{% trans 'products__bioc_btn' %}</a>
+    </div>
+</div>
+

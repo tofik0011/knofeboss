@@ -1,0 +1,2479 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-12-01 16:28+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n % 1 == 0 && n % 10 == 1 && n % 100 != "
+"11 ? 0 : n % 1 == 0 && n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % "
+"100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || "
+"(n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
+
+#: .\apps\banner\apps.py:6
+msgid "admin__banner"
+msgstr "Банер"
+
+#: .\apps\banner\models.py:12
+msgid "admin__mainpage"
+msgstr "Баннер на головній"
+
+#: .\apps\banner\models.py:17 .\apps\products\models.py:488
+#: .\apps\products\models.py:570 .\mainapp\models.py:28 .\mainapp\models.py:38
+msgid "admin__keyword"
+msgstr "Ключове слово"
+
+#: .\apps\banner\models.py:18
+msgid "admin__overlay_opacity"
+msgstr "Прозорість"
+
+#: .\apps\banner\models.py:19
+msgid "admin__overlay_color"
+msgstr "Колір"
+
+#: .\apps\banner\models.py:20
+msgid "admin__content_position"
+msgstr "Позиція"
+
+#: .\apps\banner\models.py:21
+msgid "admin__content_color"
+msgstr "Колір вмісту"
+
+#: .\apps\banner\models.py:22 .\apps\blog\models.py:21
+#: .\apps\custom_page\models.py:20 .\apps\menu\models.py:11
+#: .\apps\menu\models.py:47 .\apps\products\models.py:69
+#: .\apps\products\models.py:179 .\apps\testimonials\models.py:11
+msgid "admin__active"
+msgstr "Відображення на сайті"
+
+#: .\apps\banner\models.py:23 .\apps\blog\models.py:19
+#: .\apps\products\models.py:59 .\apps\products\models.py:178
+#: .\apps\products\models.py:427 .\apps\profile\models.py:47
+#: .\apps\testimonials\models.py:9
+msgid "admin__image"
+msgstr "Зображення"
+
+#: .\apps\banner\models.py:24
+msgid "admin__content_text"
+msgstr "Контент"
+
+#: .\apps\banner\models.py:25
+msgid "admin__button_text"
+msgstr "Текст кнопки"
+
+#: .\apps\banner\models.py:26
+msgid "admin__button_link"
+msgstr "URL"
+
+#: .\apps\banner\models.py:29
+msgid "admin__banner_model"
+msgstr "Банер"
+
+#: .\apps\banner\models.py:30
+msgid "admin__banners_model"
+msgstr "Банери"
+
+#: .\apps\blog\apps.py:7
+msgid "admin__blog"
+msgstr "Блог"
+
+#: .\apps\blog\models.py:20 .\apps\contacts\models.py:17
+#: .\apps\contacts\models.py:30 .\apps\custom_page\models.py:19
+#: .\apps\menu\models.py:10 .\apps\menu\models.py:46
+#: .\apps\products\models.py:61
+msgid "admin__order"
+msgstr "Порядок"
+
+#: .\apps\blog\models.py:22 .\apps\blog\models.py:117
+#: .\apps\custom_page\models.py:22 .\apps\menu\models.py:13
+#: .\apps\menu\models.py:49 .\apps\products\models.py:189
+msgid "admin__link"
+msgstr "URL"
+
+#: .\apps\blog\models.py:23 .\apps\blog\models.py:118
+#: .\apps\custom_page\admin.py:41 .\apps\custom_page\models.py:23
+#: .\apps\products\models.py:65 .\apps\products\models.py:190
+#: .\apps\products\models.py:492 .\apps\products\models.py:572
+#: .\apps\products\models.py:621 .\apps\products\models.py:668
+#: .\mainapp\models.py:12
+msgid "admin__name"
+msgstr "Назва"
+
+#: .\apps\blog\models.py:24 .\apps\menu\models.py:15 .\apps\menu\models.py:51
+#: .\mainapp\models.py:29 .\mainapp\models.py:39
+msgid "admin__title"
+msgstr "Заголовок"
+
+#: .\apps\blog\models.py:25 .\apps\blog\models.py:120
+#: .\apps\products\models.py:67 .\apps\products\models.py:193
+msgid "admin__seo_description"
+msgstr "SEO опис"
+
+#: .\apps\blog\models.py:26 .\apps\custom_page\models.py:24
+#: .\apps\products\models.py:68 .\apps\products\models.py:191
+#: .\mainapp\models.py:30 .\mainapp\models.py:40
+msgid "admin__description"
+msgstr "Опис"
+
+#: .\apps\blog\models.py:27 .\apps\custom_page\models.py:21
+#: .\apps\products\models.py:70
+msgid "admin__parent"
+msgstr "Батьківська категорія"
+
+#: .\apps\blog\models.py:28 .\apps\custom_page\models.py:27
+#: .\apps\products\models.py:71 .\apps\products\models.py:195
+#: .\apps\products\models.py:673
+msgid "admin__added_date"
+msgstr "Дата добавлення"
+
+#: .\apps\blog\models.py:29 .\apps\custom_page\models.py:28
+#: .\apps\products\models.py:72 .\apps\products\models.py:196
+msgid "admin__update_date"
+msgstr "Дата оновлення"
+
+#: .\apps\blog\models.py:35 .\apps\products\models.py:79
+#: .\apps\products\models.py:194
+msgid "admin__category"
+msgstr "Категорія"
+
+#: .\apps\blog\models.py:36 .\apps\products\models.py:80
+msgid "admin__categories"
+msgstr "Категорії"
+
+#: .\apps\blog\models.py:113
+msgid "admin__article_image"
+msgstr "Зображення статті"
+
+#: .\apps\blog\models.py:114
+msgid "admin__article_category"
+msgstr "Категорії статей"
+
+#: .\apps\blog\models.py:115
+msgid "admin__article_show_in_categories"
+msgstr "Відображати саттю в категорії"
+
+#: .\apps\blog\models.py:116
+msgid "admin__article_active"
+msgstr "Показати на сайті"
+
+#: .\apps\blog\models.py:119 .\apps\products\models.py:66
+#: .\apps\products\models.py:192
+msgid "admin__seo_title"
+msgstr "SEO назва"
+
+#: .\apps\blog\models.py:121
+msgid "admin__short_content"
+msgstr "Короткий зміст"
+
+#: .\apps\blog\models.py:122
+msgid "admin__content"
+msgstr "Контент"
+
+#: .\apps\blog\models.py:123
+msgid "admin__article_added_date"
+msgstr ""
+
+#: .\apps\blog\models.py:124
+msgid "admin__article_update_date"
+msgstr ""
+
+#: .\apps\blog\models.py:127
+msgid "admin__article"
+msgstr "Статтю"
+
+#: .\apps\blog\models.py:128
+msgid "admin__articles"
+msgstr "Статті"
+
+#: .\apps\blog\templates\blog\article.html:32
+msgid "blog__other_articles"
+msgstr "Інші статті"
+
+#: .\apps\blog\templates\blog\blog.html:8
+msgid "blog__h1"
+msgstr "Блог"
+
+#: .\apps\blog\templates\blog\blog.html:11
+msgid "blog__categories_title"
+msgstr "Категорії"
+
+#: .\apps\blog\templates\blog\blog_widget.html:38
+msgid "blog__article_read_more"
+msgstr "Читати далі"
+
+#: .\apps\blog\templates\blog\categoties_menu.html:4
+msgid "blog__categories"
+msgstr ""
+
+#: .\apps\blog\templates\blog\categoties_menu.html:7
+msgid "blog__all_categories"
+msgstr ""
+
+#: .\apps\blog\templates\blog\pagination.html:9
+#: .\apps\products\templates\products\pagination.html:16
+msgid "prev"
+msgstr "Назад"
+
+#: .\apps\blog\templates\blog\pagination.html:39
+#: .\apps\products\templates\products\pagination.html:46
+msgid "next"
+msgstr "Вперед"
+
+#: .\apps\checkout\admin.py:50
+msgid "admin__general"
+msgstr "Загальне"
+
+#: .\apps\checkout\admin.py:51 .\apps\products\apps.py:7
+#: .\apps\products\models.py:200 .\apps\products_comparison\models.py:7
+msgid "admin__products"
+msgstr "Товари"
+
+#: .\apps\checkout\admin.py:52
+msgid "admin__order_statuses"
+msgstr "Статус замовлення"
+
+#: .\apps\checkout\api.py:131
+msgid "checkout__added_to_cart_notification"
+msgstr "Товар додано у корзину"
+
+#: .\apps\checkout\api.py:147
+msgid "checkout__select_required_options"
+msgstr "Оберіть обов'язкові опції"
+
+#: .\apps\checkout\api.py:174 .\apps\checkout\forms.py:53
+#: .\apps\checkout\models.py:115 .\apps\profile\forms.py:65
+#: .\apps\profile\forms.py:154 .\apps\profile\models.py:117
+#: .\apps\profile\models.py:187
+msgid "error__invalid_phone"
+msgstr "Некоректний телефон"
+
+#: .\apps\checkout\api.py:193 .\apps\feedback_form\views.py:58
+#: .\apps\newsletter\views.py:22 .\apps\testimonials\views.py:62
+msgid "unknown_error"
+msgstr "Помилка сервера"
+
+#: .\apps\checkout\api.py:194
+msgid "checkout__bioc_success_message"
+msgstr ""
+
+#: .\apps\checkout\apps.py:7
+msgid "admin__checkout"
+msgstr "Корзина"
+
+#: .\apps\checkout\forms.py:14
+#: .\apps\checkout\templates\checkout\checkout.html:22
+#: .\apps\checkout\templates\checkout\quick_order_item.html:12
+#: .\apps\checkout\templates\checkout\quick_order_modal.html:5
+#: .\apps\products\templates\products\product_parts\add_review_modal.html:8
+#: .\apps\profile\forms.py:23 .\apps\profile\forms.py:121
+#: .\apps\profile\templates\account\parts\edit_profile.html:10
+#: .\apps\profile\templates\account\registration.html:17
+msgid "account__first_name"
+msgstr "Ім'я"
+
+#: .\apps\checkout\forms.py:15
+#: .\apps\checkout\templates\checkout\checkout.html:23
+#: .\apps\profile\forms.py:24 .\apps\profile\forms.py:122
+#: .\apps\profile\templates\account\parts\edit_profile.html:11
+#: .\apps\profile\templates\account\registration.html:19
+msgid "account__last_name"
+msgstr "Прізвище"
+
+#: .\apps\checkout\forms.py:16
+#: .\apps\checkout\templates\checkout\checkout.html:25
+#: .\apps\feedback_form\templates\feedback_form\feedback_form_modal.html:16
+#: .\apps\newsletter\models.py:8 .\apps\profile\forms.py:22
+#: .\apps\profile\forms.py:91 .\apps\profile\forms.py:94
+#: .\apps\profile\forms.py:120 .\apps\profile\templates\account\login.html:13
+#: .\apps\profile\templates\account\parts\edit_profile.html:9
+#: .\apps\profile\templates\account\parts\order_detail.html:21
+#: .\apps\profile\templates\account\registration.html:13
+msgid "email"
+msgstr "Email"
+
+#: .\apps\checkout\forms.py:17
+#: .\apps\checkout\templates\checkout\checkout.html:24
+#: .\apps\checkout\templates\checkout\quick_order_item.html:13
+#: .\apps\checkout\templates\checkout\quick_order_modal.html:6
+#: .\apps\feedback_form\templates\feedback_form\feedback_form_modal.html:15
+#: .\apps\profile\forms.py:25 .\apps\profile\forms.py:123
+#: .\apps\profile\templates\account\parts\edit_profile.html:12
+#: .\apps\profile\templates\account\parts\order_detail.html:25
+#: .\apps\profile\templates\account\registration.html:30
+msgid "phone"
+msgstr "Телефон"
+
+#: .\apps\checkout\forms.py:18
+#: .\apps\checkout\templates\checkout\checkout.html:27
+#: .\apps\email_notifications\templates\email_notifications\checkout__order_to_admin.html:78
+#: .\apps\email_notifications\templates\email_notifications\checkout__order_to_buyer.html:78
+#: .\apps\profile\templates\account\parts\delivery_address.html:24
+#: .\apps\profile\templates\account\parts\order_detail.html:35
+msgid "checkout__delivery_type"
+msgstr "Спосіб доставки"
+
+#: .\apps\checkout\forms.py:18
+msgid "select"
+msgstr "Не вибрано"
+
+#: .\apps\checkout\forms.py:19
+#: .\apps\checkout\templates\checkout\checkout.html:70
+#: .\apps\email_notifications\templates\email_notifications\checkout__order_to_admin.html:94
+#: .\apps\email_notifications\templates\email_notifications\checkout__order_to_buyer.html:94
+#: .\apps\profile\templates\account\parts\delivery_address.html:66
+#: .\apps\profile\templates\account\parts\delivery_address.html:69
+#: .\apps\profile\templates\account\parts\order_detail.html:46
+msgid "checkout__payment_type"
+msgstr "Спосіб оплати"
+
+#: .\apps\checkout\forms.py:20
+#: .\apps\checkout\templates\checkout\checkout.html:37
+#: .\apps\checkout\templates\checkout\checkout.html:56
+#: .\apps\profile\templates\account\parts\delivery_address.html:36
+#: .\apps\profile\templates\account\parts\delivery_address.html:48
+msgid "checkout__settlement"
+msgstr "Місто"
+
+#: .\apps\checkout\forms.py:21
+#: .\apps\profile\templates\account\parts\delivery_address.html:39
+msgid "checkout__address"
+msgstr "Адреса"
+
+#: .\apps\checkout\forms.py:22
+#: .\apps\profile\templates\account\parts\delivery_address.html:42
+msgid "checkout__post_index"
+msgstr "Поштовий індекс"
+
+#: .\apps\checkout\forms.py:36
+#: .\apps\checkout\templates\checkout\checkout.html:79
+msgid "checkout__comment"
+msgstr "Коментар"
+
+#: .\apps\checkout\forms.py:41
+msgid "error__first_name_min_length"
+msgstr "Ім'я введено невірно"
+
+#: .\apps\checkout\forms.py:47
+msgid "error__last_name_min_length"
+msgstr "Некоректний телефон"
+
+#: .\apps\checkout\forms.py:59
+msgid "error__incorrect_email"
+msgstr "Форма заповнена некоректно"
+
+#: .\apps\checkout\forms.py:68 .\apps\checkout\forms.py:70
+msgid "error__empty_field"
+msgstr "Заповніть поле"
+
+#: .\apps\checkout\models.py:27
+msgid "admin__user"
+msgstr "Користувач"
+
+#: .\apps\checkout\models.py:28
+msgid "admin__first_name"
+msgstr "Імя"
+
+#: .\apps\checkout\models.py:29
+msgid "admin__last_name"
+msgstr "Фамілія"
+
+#: .\apps\checkout\models.py:30 .\apps\contacts\models.py:29
+#: .\apps\contacts\models.py:40 .\apps\feedback_form\models.py:8
+msgid "admin__phone"
+msgstr "Телефон"
+
+#: .\apps\checkout\models.py:31
+msgid "admin__delivery_settlement"
+msgstr "Місто"
+
+#: .\apps\checkout\models.py:32
+msgid "admin__delivery_address"
+msgstr "Адресу"
+
+#: .\apps\checkout\models.py:33
+msgid "admin__post_index"
+msgstr "Поштовий індекс"
+
+#: .\apps\checkout\models.py:34 .\apps\contacts\models.py:9
+#: .\apps\contacts\models.py:12 .\apps\feedback_form\models.py:9
+msgid "admin__email"
+msgstr "Ел. пошта"
+
+#: .\apps\checkout\models.py:35
+msgid "admin__delivery_type"
+msgstr "Спосіб доставки"
+
+#: .\apps\checkout\models.py:36
+msgid "admin__payment_type"
+msgstr "Спосіб оплати"
+
+#: .\apps\checkout\models.py:37 .\apps\feedback_form\models.py:10
+msgid "admin__comment"
+msgstr "Коментар"
+
+#: .\apps\checkout\models.py:38 .\apps\checkout\models.py:264
+#: .\apps\feedback_form\models.py:11
+msgid "admin__date"
+msgstr "Дата"
+
+#: .\apps\checkout\models.py:39
+msgid "admin__currency_data"
+msgstr "Дані валюти"
+
+#: .\apps\checkout\models.py:40
+msgid "admin__is_paid"
+msgstr "Оплачено"
+
+#: .\apps\checkout\models.py:41
+msgid "admin__is_one_click_order"
+msgstr "Купити в 1 клік"
+
+#: .\apps\checkout\models.py:42
+msgid "admin__total"
+msgstr "Загальна сума"
+
+#: .\apps\checkout\models.py:45
+msgid "admin_order_model"
+msgstr "Статус замовлення"
+
+#: .\apps\checkout\models.py:46
+msgid "admin_orders_model"
+msgstr "Замовлення"
+
+#: .\apps\checkout\models.py:108 .\apps\checkout\models.py:110
+#: .\apps\checkout\models.py:113 .\apps\checkout\models.py:118
+#: .\apps\checkout\models.py:139 .\apps\checkout\models.py:142
+#: .\apps\checkout\models.py:145 .\apps\profile\forms.py:41
+#: .\apps\profile\forms.py:51 .\apps\profile\forms.py:57
+#: .\apps\profile\forms.py:63 .\apps\profile\forms.py:71
+#: .\apps\profile\forms.py:82 .\apps\profile\forms.py:140
+#: .\apps\profile\forms.py:146 .\apps\profile\forms.py:152
+#: .\apps\profile\forms.py:161 .\apps\profile\models.py:109
+#: .\apps\profile\models.py:112 .\apps\profile\models.py:115
+#: .\apps\profile\models.py:120 .\apps\profile\models.py:123
+#: .\apps\profile\models.py:173 .\apps\profile\models.py:180
+#: .\apps\profile\models.py:182 .\apps\profile\models.py:185
+#: .\apps\profile\models.py:190 .\apps\profile\models.py:193
+#: .\apps\profile\models.py:197
+msgid "error__required_field"
+msgstr "Обов'язкове поле"
+
+#: .\apps\checkout\models.py:120 .\apps\profile\forms.py:43
+#: .\apps\profile\models.py:175
+msgid "error__invalid_email"
+msgstr "Некоректний email"
+
+#: .\apps\checkout\models.py:126 .\apps\checkout\models.py:128
+#: .\apps\checkout\models.py:131 .\apps\checkout\models.py:133
+#: .\apps\checkout\models.py:135 .\apps\checkout\models.py:137
+#: .\apps\feedback_form\views.py:25 .\apps\feedback_form\views.py:27
+#: .\apps\feedback_form\views.py:29
+msgid "empty_field"
+msgstr "Заповніть поле"
+
+#: .\apps\checkout\models.py:203 .\apps\products\models.py:185
+#: .\apps\products\models.py:535
+msgid "admin__qty"
+msgstr "Кількість"
+
+#: .\apps\checkout\models.py:204 .\apps\checkout\models.py:205
+#: .\apps\checkout\models.py:359
+msgid "admin__total_price"
+msgstr "Кінцева ціна"
+
+#: .\apps\checkout\models.py:206 .\apps\checkout\models.py:208
+#: .\apps\products\models.py:199 .\apps\products\models.py:439
+#: .\apps\products\models.py:532 .\apps\products\models.py:607
+#: .\apps\products\models.py:655 .\apps\products\models.py:671
+msgid "admin__product"
+msgstr "товар"
+
+#: .\apps\checkout\models.py:211
+msgid "admin__cart_item"
+msgstr "Товар в корзину"
+
+#: .\apps\checkout\models.py:212
+msgid "admin__cart_items"
+msgstr "Товари"
+
+#: .\apps\checkout\models.py:263
+msgid "admin__order_code"
+msgstr "Код"
+
+#: .\apps\checkout\models.py:265
+msgid "admin_order_fk"
+msgstr "Замовлення"
+
+#: .\apps\checkout\models.py:266
+msgid "admin_notify_user"
+msgstr "Повідомте користувача"
+
+#: .\apps\checkout\models.py:269
+msgid "admin__order_status"
+msgstr "Статус замовлення"
+
+#: .\apps\checkout\models.py:270
+msgid "admin__orders_status"
+msgstr "Статуси замовлення"
+
+#: .\apps\checkout\models.py:297 .\apps\currency\models.py:12
+msgid "admin__status"
+msgstr "Показувати на сайті"
+
+#: .\apps\checkout\models.py:298
+msgid "admin__text"
+msgstr "Текст"
+
+#: .\apps\checkout\models.py:299
+msgid "admin__subject"
+msgstr "Тема письма"
+
+#: .\apps\checkout\models.py:302
+msgid "admin__order_message_template"
+msgstr "Шаблон листа"
+
+#: .\apps\checkout\models.py:303
+msgid "admin__orders_message_templates"
+msgstr "Шаблони листів"
+
+#: .\apps\checkout\models.py:357
+msgid "admin__items"
+msgstr ""
+
+#: .\apps\checkout\models.py:358
+msgid "admin__items_count"
+msgstr "Знижку"
+
+#: .\apps\checkout\models.py:397 .\apps\checkout\models.py:437
+msgid "Out_of_stock"
+msgstr "Немає в наявності"
+
+#: .\apps\checkout\models.py:455 .\apps\profile\models.py:48
+msgid "admin__cart"
+msgstr ""
+
+#: .\apps\checkout\models.py:456
+msgid "admin__carts"
+msgstr ""
+
+#: .\apps\checkout\templates\checkout\admin_order_form.html:15
+#: .\apps\profile\templates\account\password_change_form.html:10
+msgid "Please correct the error below."
+msgstr ""
+
+#: .\apps\checkout\templates\checkout\admin_order_form.html:15
+#: .\apps\profile\templates\account\password_change_form.html:12
+msgid "Please correct the errors below."
+msgstr ""
+
+#: .\apps\checkout\templates\checkout\admin_order_form_detail.html:11
+msgid "admin_order_info"
+msgstr ""
+
+#: .\apps\checkout\templates\checkout\admin_order_form_detail.html:31
+msgid "admin_order_customer_info"
+msgstr ""
+
+#: .\apps\checkout\templates\checkout\cart_item_dropdown.html:17
+#: .\apps\profile\templates\account\parts\order_detail.html:90
+#: .\mainapp\templates\mainapp\parts\cart_dropdown.html:18
+msgid "pcs"
+msgstr "шт."
+
+#: .\apps\checkout\templates\checkout\cart_items_checkout.html:6
+#: .\mainapp\templates\header.html:102
+msgid "checkout__cart"
+msgstr "Загальна сума:"
+
+#: .\apps\checkout\templates\checkout\cart_items_checkout.html:19
+#: .\apps\checkout\views.py:28
+#: .\mainapp\templates\mainapp\parts\cart_dropdown.html:48
+msgid "checkout__cart_is_empty"
+msgstr "Немає товарів"
+
+#: .\apps\checkout\templates\checkout\cart_items_list_modal.html:45
+msgid "Cart_EmptyCart"
+msgstr ""
+
+#: .\apps\checkout\templates\checkout\cart_modal.html:6
+msgid "Checkout_CartTitle"
+msgstr ""
+
+#: .\apps\checkout\templates\checkout\cart_modal.html:17
+msgid "Checkout_GoToCheckout"
+msgstr ""
+
+#: .\apps\checkout\templates\checkout\cart_modal.html:18
+msgid "Checkout_KeepShoping"
+msgstr ""
+
+#: .\apps\checkout\templates\checkout\checkout.html:8
+#: .\apps\checkout\templates\checkout\checkout.html:12
+#: .\mainapp\templatetags\mainapp_tags.py:63
+msgid "checkout"
+msgstr "Оформлення замовлення"
+
+#: .\apps\checkout\templates\checkout\checkout.html:21
+msgid "checkout__personal_information"
+msgstr "Особисті дані"
+
+#: .\apps\checkout\templates\checkout\checkout.html:44
+msgid "checkout__warehouse"
+msgstr "Номер відділення"
+
+#: .\apps\checkout\templates\checkout\checkout.html:52
+msgid "checkout__obl"
+msgstr "Політика конфіденційності"
+
+#: .\apps\checkout\templates\checkout\checkout.html:60
+msgid "checkout__street"
+msgstr "Місто"
+
+#: .\apps\checkout\templates\checkout\checkout.html:64
+msgid "checkout__house"
+msgstr "Номер відділення"
+
+#: .\apps\checkout\templates\checkout\checkout.html:82
+msgid "checkout__min_order_price"
+msgstr "Мін. сума замовлення"
+
+#: .\apps\checkout\templates\checkout\checkout.html:86
+msgid "checkout__police"
+msgstr "Політика конфіденційності"
+
+#: .\apps\checkout\templates\checkout\checkout.html:88
+msgid "checkout__submit_btn"
+msgstr "Оформити замовлення"
+
+#: .\apps\checkout\templates\checkout\checkout.html:96
+#, fuzzy
+#| msgid "checkout__payment_type"
+msgid "checkout__liqpay_continue_payment"
+msgstr "Спосіб оплати"
+
+#: .\apps\checkout\templates\checkout\emails\order_products_list.html:21
+#: .\apps\email_notifications\templates\email_notifications\checkout__order_to_admin.html:26
+#: .\apps\email_notifications\templates\email_notifications\checkout__order_to_buyer.html:26
+msgid "products__product"
+msgstr "Продукт"
+
+#: .\apps\checkout\templates\checkout\emails\order_products_list.html:24
+#: .\apps\email_notifications\templates\email_notifications\checkout__order_to_admin.html:29
+#: .\apps\email_notifications\templates\email_notifications\checkout__order_to_buyer.html:29
+msgid "products__product_code"
+msgstr "Код товару"
+
+#: .\apps\checkout\templates\checkout\emails\order_products_list.html:27
+#: .\apps\email_notifications\templates\email_notifications\checkout__order_to_admin.html:32
+#: .\apps\email_notifications\templates\email_notifications\checkout__order_to_buyer.html:32
+msgid "checkout__qty"
+msgstr "Кількість"
+
+#: .\apps\checkout\templates\checkout\emails\order_products_list.html:30
+#: .\apps\email_notifications\templates\email_notifications\checkout__order_to_admin.html:35
+#: .\apps\email_notifications\templates\email_notifications\checkout__order_to_buyer.html:35
+msgid "checkout__price"
+msgstr "Ціна"
+
+#: .\apps\checkout\templates\checkout\emails\order_products_list.html:52
+#: .\apps\email_notifications\templates\email_notifications\checkout__order_to_admin.html:59
+#: .\apps\email_notifications\templates\email_notifications\checkout__order_to_buyer.html:59
+#: .\apps\profile\templates\account\parts\order_detail.html:51
+#: .\apps\profile\templates\account\parts\order_history.html:36
+msgid "checkout__total_price"
+msgstr "Загальна сума"
+
+#: .\apps\checkout\templates\checkout\order_success.html:4
+msgid "checkout_your_order_has_been_successfully_completed"
+msgstr ""
+
+#: .\apps\checkout\templates\checkout\order_success_liqpay.html:6
+msgid "checkout_your_order_will_be_processed_after_payment"
+msgstr ""
+
+#: .\apps\checkout\templates\checkout\order_success_liqpay.html:7
+#: .\mainapp\templates\404.html:10
+msgid "404__go_to_main_page"
+msgstr "Перейти на головну"
+
+#: .\apps\checkout\templates\checkout\quick_order_item.html:16
+msgid "products__bioc_btn"
+msgstr ""
+
+#: .\apps\checkout\templates\checkout\quick_order_modal.html:4
+msgid "products__quick_order_title"
+msgstr "Швидке замовлення"
+
+#: .\apps\checkout\templates\checkout\quick_order_modal.html:11
+msgid "submit"
+msgstr ""
+
+#: .\apps\checkout\templates\checkout\quick_order_modal.html:12
+msgid "close"
+msgstr "Закрити"
+
+#: .\apps\checkout\views.py:33
+msgid "checkout__order_success_message"
+msgstr "Статуси замовлення"
+
+#: .\apps\contacts\apps.py:6
+msgid "admin__contacts"
+msgstr "Контакти"
+
+#: .\apps\contacts\models.py:8 .\apps\contacts\models.py:18
+#: .\apps\contacts\models.py:31 .\apps\contacts\models.py:44
+msgid "admin__keyword_contacts"
+msgstr "Ключове слово"
+
+#: .\apps\contacts\models.py:13
+msgid "admin__emails"
+msgstr "Ел. пошти"
+
+#: .\apps\contacts\models.py:19 .\apps\contacts\models.py:25
+msgid "admin__address"
+msgstr "Адресу"
+
+#: .\apps\contacts\models.py:26
+msgid "admin__addresses"
+msgstr "Адреси"
+
+#: .\apps\contacts\models.py:41
+msgid "admin__phones"
+msgstr "Мобільный номер"
+
+#: .\apps\contacts\models.py:45
+msgid "admin__link_social_network"
+msgstr "Посилання на соц. мережа"
+
+#: .\apps\contacts\models.py:51
+msgid "admin__social_network"
+msgstr "Соц. мережа"
+
+#: .\apps\contacts\models.py:52
+msgid "admin__social_networks"
+msgstr "Соц. мережі"
+
+#: .\apps\crm\models.py:12 .\apps\crm\models.py:25
+#: .\apps\products_comparison\templates\products_comparison\comparison_page.html:62
+msgid "name"
+msgstr ""
+
+#: .\apps\crm\models.py:13
+msgid "duration"
+msgstr ""
+
+#: .\apps\crm\models.py:23
+msgid "lang"
+msgstr ""
+
+#: .\apps\crm\models.py:33
+msgid "account__date_of_birth"
+msgstr ""
+
+#: .\apps\crm\models.py:40
+#: .\apps\profile\templates\account\parts\account_menu.html:16
+#: .\apps\profile\templates\account\parts\wishlist.html:5
+#: .\mainapp\templates\header.html:78
+msgid "account__wishlist"
+msgstr "Список бажань"
+
+#: .\apps\currency\apps.py:7 .\apps\currency\models.py:28
+msgid "admin__currency"
+msgstr "Валюту"
+
+#: .\apps\currency\models.py:7
+msgid "admin__name_currency"
+msgstr "Валюта"
+
+#: .\apps\currency\models.py:8
+msgid "admin__code"
+msgstr "Код"
+
+#: .\apps\currency\models.py:9
+msgid "admin__symbol_left"
+msgstr "Символ ліворуч"
+
+#: .\apps\currency\models.py:10
+msgid "admin__symbol_right"
+msgstr "Символ праворуч"
+
+#: .\apps\currency\models.py:11 .\apps\products\models.py:443
+#: .\apps\products\models.py:514 .\apps\products\models.py:590
+#: .\apps\products\models.py:638
+msgid "admin__value"
+msgstr "Значення"
+
+#: .\apps\currency\models.py:13
+msgid "admin__is_default"
+msgstr "Валюта за замовчуванням"
+
+#: .\apps\currency\models.py:29
+msgid "admin__currencies"
+msgstr "Валюти"
+
+#: .\apps\custom_page\apps.py:7 .\apps\custom_page\models.py:35
+msgid "admin__custom_pages"
+msgstr "Користувацькі сторінки"
+
+#: .\apps\custom_page\models.py:25
+msgid "meta_title"
+msgstr "SEO заголовок"
+
+#: .\apps\custom_page\models.py:26
+msgid "meta_description"
+msgstr "SEO опис"
+
+#: .\apps\custom_page\models.py:34
+msgid "admin__custom_page"
+msgstr "Користувацьку сторінку"
+
+#: .\apps\delivery\apps.py:7 .\apps\nova_poshta\apps.py:7
+msgid "admin__delivery"
+msgstr ""
+
+#: .\apps\delivery\templates\delivery\np_cities_list.html:6
+#: .\apps\delivery\templates\delivery\np_warehouses_list.html:6
+#: .\apps\delivery\templates\delivery\settlements_list.html:6
+#: .\apps\nova_poshta\templates\delivery\np_cities_list.html:6
+#: .\apps\nova_poshta\templates\delivery\np_warehouses_list.html:6
+#: .\apps\nova_poshta\templates\delivery\settlements_list.html:6
+msgid "not_found"
+msgstr ""
+
+#: .\apps\email_notifications\templates\email_notifications\checkout__order_to_admin.html:16
+#: .\apps\email_notifications\templates\email_notifications\checkout__order_to_buyer.html:16
+msgid "one_click_order"
+msgstr ""
+
+#: .\apps\email_notifications\templates\email_notifications\checkout__order_to_admin.html:16
+#: .\apps\email_notifications\templates\email_notifications\checkout__order_to_buyer.html:16
+#: .\apps\profile\templates\account\parts\order_detail.html:7
+msgid "order"
+msgstr "Замовлення"
+
+#: .\apps\email_notifications\templates\email_notifications\checkout__order_to_admin.html:71
+#: .\apps\email_notifications\templates\email_notifications\checkout__order_to_buyer.html:71
+msgid "checkout__recipient"
+msgstr ""
+
+#: .\apps\email_notifications\templates\email_notifications\checkout__order_to_admin.html:86
+#: .\apps\email_notifications\templates\email_notifications\checkout__order_to_buyer.html:86
+#: .\apps\profile\templates\account\parts\delivery_address.html:11
+#: .\apps\profile\templates\account\parts\order_detail.html:40
+msgid "checkout__delivery_address"
+msgstr "Адреса доставки"
+
+#: .\apps\feedback_form\apps.py:7
+msgid "feedback_form"
+msgstr "Форма зворотного зв’язку"
+
+#: .\apps\feedback_form\models.py:5
+msgid "admin__name_form_form_request"
+msgstr "Назва"
+
+#: .\apps\feedback_form\models.py:6
+msgid "admin__country"
+msgstr "Країна"
+
+#: .\apps\feedback_form\models.py:7
+msgid "admin__cooperation_type"
+msgstr "Тип співпраці"
+
+#: .\apps\feedback_form\models.py:14
+msgid "admin__form_request"
+msgstr "Форму зворотнього зв’язку"
+
+#: .\apps\feedback_form\models.py:15
+msgid "admin__forms_request"
+msgstr "Форма зворотного зв’язку"
+
+#: .\apps\feedback_form\templates\feedback_form\feedback_form_modal.html:7
+#: .\mainapp\templates\mainapp\pages\index.html:153
+msgid "form__heading"
+msgstr "Форми зворотного зв’язку"
+
+#: .\apps\feedback_form\templates\feedback_form\feedback_form_modal.html:11
+#: .\apps\testimonials\templates\testimonials\modal.html:8
+msgid "form__fio"
+msgstr "ПІП"
+
+#: .\apps\feedback_form\templates\feedback_form\feedback_form_modal.html:12
+msgid "form__country"
+msgstr "Країна"
+
+#: .\apps\feedback_form\templates\feedback_form\feedback_form_modal.html:13
+msgid "form__cooperation"
+msgstr "Вид співпраці"
+
+#: .\apps\feedback_form\templates\feedback_form\feedback_form_modal.html:17
+#: .\apps\testimonials\templates\testimonials\modal.html:9
+msgid "form__comment"
+msgstr "Коментар"
+
+#: .\apps\feedback_form\templates\feedback_form\feedback_form_modal.html:20
+#: .\apps\testimonials\templates\testimonials\modal.html:28
+msgid "form__submit"
+msgstr "Відправити"
+
+#: .\apps\feedback_form\templates\feedback_form\feedback_form_modal.html:21
+#: .\apps\testimonials\templates\testimonials\modal.html:29
+msgid "form__close"
+msgstr "Закрити"
+
+#: .\apps\feedback_form\views.py:31
+msgid "invalid_phone"
+msgstr "Некоректний телефон"
+
+#: .\apps\feedback_form\views.py:33 .\apps\newsletter\views.py:14
+msgid "invalid_email"
+msgstr "Некоректний email"
+
+#: .\apps\feedback_form\views.py:56
+msgid "feedback_form__success"
+msgstr "Успішно відправлено"
+
+#: .\apps\menu\models.py:12 .\apps\menu\models.py:48
+msgid "admin__parent_menu"
+msgstr "Батьківській елемент"
+
+#: .\apps\menu\models.py:14 .\apps\menu\models.py:50
+msgid ""
+"Пример: '/ru/catalog/'. Указывать со / вначале и в конце. Код языка также "
+"указывается (кроме ссылок на основном языке сайта)."
+msgstr ""
+"Приклад: '/ ru / catalog /'. Вказувати з / спочатку і в кінці. Код мови "
+"також вказується (крім посилань на основній мові сайту)."
+
+#: .\apps\menu\models.py:31 .\apps\menu\models.py:67
+msgid "Номер пункта меню уже используется"
+msgstr "Номер пункту меню вже використовується"
+
+#: .\apps\menu\models.py:40
+msgid "admin__menu_item"
+msgstr "Пункт меню"
+
+#: .\apps\menu\models.py:41
+msgid "admin__menu_items"
+msgstr "Пункти меню"
+
+#: .\apps\menu\models.py:76
+msgid "admin__menu_item_top"
+msgstr "Пункт меню TOP"
+
+#: .\apps\menu\models.py:77
+msgid "admin__menu_items_top"
+msgstr "Пункти меню TOPS"
+
+#: .\apps\newsletter\apps.py:7
+msgid "admin__news_letter"
+msgstr "Розсилка"
+
+#: .\apps\newsletter\models.py:15
+msgid "newsletter"
+msgstr "Ел. пошта"
+
+#: .\apps\newsletter\models.py:16
+msgid "newsletters"
+msgstr "Ел. пошта"
+
+#: .\apps\newsletter\models.py:20
+msgid "admin_subject"
+msgstr "Тема письма"
+
+#: .\apps\newsletter\models.py:21
+msgid "admin_content"
+msgstr "Контент"
+
+#: .\apps\newsletter\models.py:28 .\apps\newsletter\models.py:29
+msgid "admin__mailing"
+msgstr "Розсилку"
+
+#: .\apps\newsletter\views.py:17
+msgid "newsletter_alredy_exists"
+msgstr ""
+
+#: .\apps\newsletter\views.py:19
+msgid "newsletter_success"
+msgstr ""
+
+#: .\apps\products\admin.py:19 .\apps\products\models.py:584
+msgid "admin__attributes"
+msgstr "атрибути"
+
+#: .\apps\products\admin.py:26 .\apps\products\models.py:633
+msgid "admin__filters"
+msgstr "фільтри"
+
+#: .\apps\products\admin.py:34 .\apps\products\models.py:496
+msgid "admin__options"
+msgstr "Опції"
+
+#: .\apps\products\admin.py:41 .\apps\products\models.py:446
+msgid "admin__discount"
+msgstr "Знижку"
+
+#: .\apps\products\admin.py:47
+msgid "admin__images"
+msgstr "Зображення"
+
+#: .\apps\products\api.py:124
+msgid "error__incorrect_form"
+msgstr "Форма заповнена некоректно"
+
+#: .\apps\products\models.py:60
+#, fuzzy
+#| msgid "admin__banner"
+msgid "image_banner"
+msgstr "Банер"
+
+#: .\apps\products\models.py:62
+#, fuzzy
+#| msgid "admin__phone"
+msgid "admin__h1"
+msgstr "Телефон"
+
+#: .\apps\products\models.py:63 .\apps\products\models.py:512
+#: .\apps\products\models.py:569 .\apps\products\models.py:588
+msgid "admin__id_1c"
+msgstr "Іідентифікатор 1c"
+
+#: .\apps\products\models.py:159
+msgid "admin__min_amount"
+msgstr "Вартість"
+
+#: .\apps\products\models.py:160
+msgid "admin__symbol_unit"
+msgstr "Символ одиниці"
+
+#: .\apps\products\models.py:161
+msgid "admin__name_unit"
+msgstr "Назва одиниці"
+
+#: .\apps\products\models.py:170 .\apps\products\models.py:171
+#: .\apps\products\models.py:177
+msgid "admin__unit"
+msgstr "Одиниця"
+
+#: .\apps\products\models.py:175
+msgid "admin__id_import"
+msgstr "ID 1c"
+
+#: .\apps\products\models.py:176
+msgid "admin__article_p"
+msgstr "Артикль"
+
+#: .\apps\products\models.py:180 .\apps\products\models.py:536
+msgid "admin__price"
+msgstr "Ціна"
+
+#: .\apps\products\models.py:181
+msgid "admin__calc_price"
+msgstr "Ціна"
+
+#: .\apps\products\models.py:183
+msgid "admin__show_in_categories"
+msgstr "Показувати в категоріях"
+
+#: .\apps\products\models.py:184
+msgid "admin__similar"
+msgstr "Подібні"
+
+#: .\apps\products\models.py:186
+msgid "admin__is_bestseller"
+msgstr "Хіт продаж"
+
+#: .\apps\products\models.py:187
+msgid "admin__is_special"
+msgstr "Особливий"
+
+#: .\apps\products\models.py:188 .\apps\products\models.py:670
+#: .\apps\testimonials\models.py:14
+msgid "admin__rating"
+msgstr "Рейтинг"
+
+#: .\apps\products\models.py:431
+msgid "admin__product_image"
+msgstr ""
+
+#: .\apps\products\models.py:432
+msgid "admin__product_images"
+msgstr "Додаткові фото"
+
+#: .\apps\products\models.py:440
+msgid "admin__start_date"
+msgstr "Початок акції"
+
+#: .\apps\products\models.py:441
+msgid "admin__end_date"
+msgstr "Закінчення акції"
+
+#: .\apps\products\models.py:442
+msgid "admin__type"
+msgstr "Тип знижки"
+
+#: .\apps\products\models.py:447
+msgid "admin__discounts"
+msgstr "Акції"
+
+#: .\apps\products\models.py:489
+msgid "admin__operation"
+msgstr "Операція"
+
+#: .\apps\products\models.py:490
+msgid "admin__required"
+msgstr "Обовязкове поле"
+
+#: .\apps\products\models.py:491 .\apps\products\models.py:571
+msgid "admin__show_in_filters"
+msgstr "Показати у фільтрах"
+
+#: .\apps\products\models.py:495 .\apps\products\models.py:513
+#: .\apps\products\models.py:531
+msgid "admin__option"
+msgstr "Опції"
+
+#: .\apps\products\models.py:517 .\apps\products\models.py:533
+msgid "admin__option_value"
+msgstr "Значення опції"
+
+#: .\apps\products\models.py:518
+msgid "admin__option_values"
+msgstr "Значення опцій"
+
+#: .\apps\products\models.py:542
+msgid "admin__option_of_product"
+msgstr "Опції товару"
+
+#: .\apps\products\models.py:543
+msgid "admin__options_of_products"
+msgstr "Опції товара"
+
+#: .\apps\products\models.py:583 .\apps\products\models.py:589
+#: .\apps\products\models.py:606
+msgid "admin__attribute"
+msgstr "Атрибут"
+
+#: .\apps\products\models.py:593 .\apps\products\models.py:608
+msgid "admin__attribute_value"
+msgstr "Значення атрибута"
+
+#: .\apps\products\models.py:594
+msgid "admin__attributes_values"
+msgstr "Значення атрибутів"
+
+#: .\apps\products\models.py:615
+msgid "admin__attribute_of_product"
+msgstr ""
+
+#: .\apps\products\models.py:616
+msgid "admin__attributes_of_products"
+msgstr "Атрибути товарів"
+
+#: .\apps\products\models.py:632 .\apps\products\models.py:637
+#: .\apps\products\models.py:654
+msgid "admin__filter"
+msgstr "Фільтри"
+
+#: .\apps\products\models.py:641 .\apps\products\models.py:656
+msgid "admin__filter_value"
+msgstr "Значення фільтра"
+
+#: .\apps\products\models.py:642
+msgid "admin__filters_values"
+msgstr "Значення фільтрів"
+
+#: .\apps\products\models.py:663
+msgid "admin__filter_of_product"
+msgstr ""
+
+#: .\apps\products\models.py:664
+msgid "admin__filters_of_products"
+msgstr "Фільтри продуктів"
+
+#: .\apps\products\models.py:669 .\apps\products\models.py:676
+msgid "admin__review"
+msgstr "Відгук"
+
+#: .\apps\products\models.py:672
+msgid "admin__is_approved"
+msgstr "Показувати на сайті"
+
+#: .\apps\products\models.py:677
+msgid "admin__reviews"
+msgstr "Відгуки"
+
+#: .\apps\products\templates\products\attributes_list.html:10
+#: .\apps\products\templates\products\category_left_menu.html:55
+#: .\apps\products\templates\products\filters_list.html:7
+msgid "products__filter_price_range"
+msgstr "Діапазон цін"
+
+#: .\apps\products\templates\products\catalog.html:8
+#: .\mainapp\templatetags\mainapp_tags.py:87
+msgid "products__catalog"
+msgstr "Каталог"
+
+#: .\apps\products\templates\products\category.html:53
+msgid "products__active_filters"
+msgstr "Фільтри"
+
+#: .\apps\products\templates\products\category_content_products.html:14
+#: .\apps\profile\templates\account\parts\wishlist_items.html:8
+msgid "no_products"
+msgstr "Нема товарів"
+
+#: .\apps\products\templates\products\category_left_menu.html:9
+msgid "products__categories"
+msgstr "Категорії"
+
+#: .\apps\products\templates\products\category_left_menu.html:30
+msgid "products__sorting"
+msgstr "Сортування"
+
+#: .\apps\products\templates\products\category_left_menu.html:52
+msgid "products__filters"
+msgstr "Фільтри"
+
+#: .\apps\products\templates\products\category_left_menu.html:136
+msgid "products__reset_filter"
+msgstr "Скинути фільтри"
+
+#: .\apps\products\templates\products\fast_search__list_items.html:39
+msgid "search_by_query_no_results"
+msgstr "За запитом нічого не знайдено"
+
+#: .\apps\products\templates\products\product.html:52
+msgid "products__attributes"
+msgstr "Фільтри"
+
+#: .\apps\products\templates\products\product.html:53
+msgid "products__description"
+msgstr "Опис"
+
+#: .\apps\products\templates\products\product.html:54
+msgid "products__reviews"
+msgstr "Відгуки"
+
+#: .\apps\products\templates\products\product.html:79
+#: .\apps\testimonials\templates\testimonials\modal.html:6
+#: .\mainapp\templates\mainapp\pages\index.html:103
+msgid "products__add_review"
+msgstr "Додати відгук"
+
+#: .\apps\products\templates\products\product.html:82
+msgid "products__load_more_btn"
+msgstr "Завантажити ще"
+
+#: .\apps\products\templates\products\product.html:94
+msgid "products__similar_products"
+msgstr "Схожі товари"
+
+#: .\apps\products\templates\products\product_min.html:11
+#: .\apps\products\templates\products\product_min.html:64
+#: .\apps\products\templates\products\product_parts\info.html:47
+msgid "products__not_in_stock"
+msgstr "Немає в наявності"
+
+#: .\apps\products\templates\products\product_min.html:26
+msgid "products__new_mark"
+msgstr "Новинка"
+
+#: .\apps\products\templates\products\product_parts\add_review_modal.html:7
+#: .\apps\products\templates\products\product_parts\add_review_modal.html:24
+msgid "products__leave_review"
+msgstr "Залишити відгук"
+
+#: .\apps\products\templates\products\product_parts\add_review_modal.html:9
+msgid "products__review"
+msgstr "Відгук"
+
+#: .\apps\products\templates\products\product_parts\info.html:45
+msgid "products__add_to_cart"
+msgstr "В кошик"
+
+#: .\apps\products\templates\products\product_parts\info.html:50
+msgid "products__quick_order_btn"
+msgstr "Швидке замовлення"
+
+#: .\apps\products\templates\products\product_parts\info.html:52
+msgid "add_to_wishlist"
+msgstr "Додати до списку бажань"
+
+#: .\apps\products\templates\products\product_parts\info.html:55
+msgid "toggle"
+msgstr ""
+
+#: .\apps\products\templates\products\product_parts\info.html:61
+msgid "products__article"
+msgstr "Пошук"
+
+#: .\apps\products\templates\products\product_parts\info.html:66
+msgid "products__category"
+msgstr "Категорія"
+
+#: .\apps\products\templates\products\product_parts\options\select.html:9
+#: .\mainapp\templates\js_vars.html:66
+msgid "not_selected"
+msgstr "Не вибрано"
+
+#: .\apps\products\templates\products\search.html:4
+#: .\mainapp\templatetags\mainapp_tags.py:66
+msgid "products__search"
+msgstr "Пошук"
+
+#: .\apps\products\templates\products\search.html:7
+msgid "search_placeholder"
+msgstr "Введіть артикул"
+
+#: .\apps\products\templates\products\specials.html:3
+msgid "Specials"
+msgstr "Спеціальні пропозиції"
+
+#: .\apps\products_comparison\templates\products_comparison\comparison_page.html:76
+#, fuzzy
+#| msgid "Image"
+msgid "image"
+msgstr "Зображення"
+
+#: .\apps\products_comparison\templates\products_comparison\comparison_page.html:104
+msgid "price"
+msgstr "Ціна"
+
+#: .\apps\profile\admin.py:33
+msgid "Personal info"
+msgstr "Особисті дані"
+
+#: .\apps\profile\admin.py:34
+msgid "Permissions"
+msgstr ""
+
+#: .\apps\profile\admin.py:37
+msgid "Important dates"
+msgstr ""
+
+#: .\apps\profile\api.py:60
+msgid "account__added_to_wishlist"
+msgstr ""
+
+#: .\apps\profile\api.py:61
+msgid "go_to"
+msgstr ""
+
+#: .\apps\profile\api.py:80
+msgid "account_password_reset_success_message"
+msgstr "На вказану пошту було відправлено лист з відновленням паролю"
+
+#: .\apps\profile\api.py:82
+msgid "account__password_reset_email_doesnt_exist"
+msgstr "Користувача не знайдено"
+
+#: .\apps\profile\api.py:84
+msgid "account__incorrect_email"
+msgstr "Некоректний email"
+
+#: .\apps\profile\api.py:102
+msgid "bad_token_try_again"
+msgstr "Невірний токен"
+
+#: .\apps\profile\apps.py:7
+msgid "admin__account"
+msgstr "Акаунти"
+
+#: .\apps\profile\forms.py:26 .\apps\profile\forms.py:124
+msgid "account__client_type"
+msgstr "Представник (опт, роздріб)"
+
+#: .\apps\profile\forms.py:27 .\apps\profile\forms.py:92
+#: .\apps\profile\forms.py:95 .\apps\profile\forms.py:126
+#: .\apps\profile\templates\account\login.html:14
+#: .\apps\profile\templates\account\registration.html:33
+msgid "account__password"
+msgstr "Пароль"
+
+#: .\apps\profile\forms.py:28 .\apps\profile\forms.py:127
+msgid "account__repeat_password"
+msgstr "Повторіть пароль"
+
+#: .\apps\profile\forms.py:45 .\apps\profile\models.py:177
+msgid "error__email_is_already_in_use"
+msgstr "Email вже використовується"
+
+#: .\apps\profile\forms.py:73 .\apps\profile\forms.py:172
+#: .\apps\profile\models.py:129 .\apps\profile\models.py:195
+msgid "error__min_length"
+msgstr "Мінімальна довжина {} символів"
+
+#: .\apps\profile\forms.py:84 .\apps\profile\forms.py:174
+#: .\apps\profile\models.py:131 .\apps\profile\models.py:199
+msgid "error__passwords_are_not_equal"
+msgstr "Паролі не співпадають"
+
+#: .\apps\profile\forms.py:100
+msgid "error__enter_email"
+msgstr "Введіть email"
+
+#: .\apps\profile\forms.py:106
+msgid "error__enter_password"
+msgstr "Введіть пароль"
+
+#: .\apps\profile\forms.py:116 .\apps\profile\forms.py:163
+#: .\apps\profile\models.py:125 .\apps\profile\models.py:154
+msgid "error__invalid_credentials"
+msgstr "Хибний пароль"
+
+#: .\apps\profile\forms.py:125
+#: .\apps\profile\templates\account\parts\edit_profile.html:20
+msgid "account__current_password"
+msgstr "Поточний пароль"
+
+#: .\apps\profile\models.py:19
+msgid "group_proxy"
+msgstr "Групу"
+
+#: .\apps\profile\models.py:20
+msgid "groups_proxy"
+msgstr "Групи"
+
+#: .\apps\profile\models.py:24
+msgid "admin_profile_type"
+msgstr "Тип профілю"
+
+#: .\apps\profile\models.py:25
+msgid "admin__percent_discount"
+msgstr "Відсоткова знижка"
+
+#: .\apps\profile\models.py:26
+msgid "admin__min_price"
+msgstr "Мінімальна ціна заказу"
+
+#: .\apps\profile\models.py:27
+msgid "admin__default"
+msgstr "Валюта за замовчуванням"
+
+#: .\apps\profile\models.py:28
+#, fuzzy
+#| msgid "admin__keyword"
+msgid "admin_type_keyword"
+msgstr "Ключове слово"
+
+#: .\apps\profile\models.py:31
+msgid "admin_type_profile"
+msgstr "Тип профілю"
+
+#: .\apps\profile\models.py:32
+msgid "admin_type_profiles"
+msgstr "Типи профілю"
+
+#: .\apps\profile\models.py:45
+msgid "admin_phone"
+msgstr "Телефон"
+
+#: .\apps\profile\models.py:46
+msgid "admin_wishlist"
+msgstr "Додати до списку бажань"
+
+#: .\apps\profile\models.py:57
+msgid "admin_profile"
+msgstr "Профіль"
+
+#: .\apps\profile\models.py:58
+msgid "admin_profiles"
+msgstr "Профілі"
+
+#: .\apps\profile\templates\account\login.html:8
+#: .\apps\profile\templates\account\registration.html:8
+#: .\mainapp\templates\header.html:86
+msgid "account__login_title"
+msgstr "Авторизація"
+
+#: .\apps\profile\templates\account\login.html:9
+#: .\apps\profile\templates\account\login.html:19
+#: .\apps\profile\templates\account\registration.html:9
+#: .\mainapp\templates\header.html:88
+msgid "account__register"
+msgstr "Реєстрація"
+
+#: .\apps\profile\templates\account\login.html:15
+msgid "account__login_btn"
+msgstr "Увійти"
+
+#: .\apps\profile\templates\account\login.html:18
+msgid "account__forgot_password_btn"
+msgstr "Забули пароль?"
+
+#: .\apps\profile\templates\account\parts\account_menu.html:9
+#: .\apps\profile\templates\account\parts\order_history.html:8
+#: .\mainapp\templates\header.html:80
+msgid "account__order_history"
+msgstr "Історія замовлень"
+
+#: .\apps\profile\templates\account\parts\account_menu.html:13
+msgid "account__personal_data"
+msgstr "Особисті дані"
+
+#: .\apps\profile\templates\account\parts\account_menu.html:18
+#: .\mainapp\templates\header.html:83
+msgid "account__logout"
+msgstr "Вийти"
+
+#: .\apps\profile\templates\account\parts\delivery_address.html:15
+msgid "checkout__select_country"
+msgstr "Оберіть країну"
+
+#: .\apps\profile\templates\account\parts\delivery_address.html:33
+msgid "checkout__country"
+msgstr "Країна"
+
+#: .\apps\profile\templates\account\parts\delivery_address.html:56
+msgid "order__delivery_warehouse"
+msgstr "Відділення"
+
+#: .\apps\profile\templates\account\parts\delivery_address.html:76
+#: .\apps\profile\templates\account\parts\edit_profile.html:27
+msgid "save"
+msgstr "Зберегти"
+
+#: .\apps\profile\templates\account\parts\edit_profile.html:4
+msgid "account__edit_profile"
+msgstr "Змінити особисті дані"
+
+#: .\apps\profile\templates\account\parts\edit_profile.html:14
+#: .\apps\profile\templates\account\registration.html:21
+msgid "account__account_type"
+msgstr "Тип рахунку"
+
+#: .\apps\profile\templates\account\parts\edit_profile.html:23
+msgid "account__change_password"
+msgstr "Змінити пароль"
+
+#: .\apps\profile\templates\account\parts\edit_profile.html:24
+msgid "account__new_password"
+msgstr "Новий пароль"
+
+#: .\apps\profile\templates\account\parts\edit_profile.html:25
+#: .\apps\profile\templates\account\registration.html:36
+msgid "account__password_confirm"
+msgstr "Підтвердити пароль"
+
+#: .\apps\profile\templates\account\parts\order_detail.html:17
+msgid "order__recipient"
+msgstr "Отримувач"
+
+#: .\apps\profile\templates\account\parts\order_detail.html:30
+msgid "checkout__order_comment"
+msgstr "Коментар"
+
+#: .\apps\profile\templates\account\parts\order_detail.html:55
+msgid "checkout__order_statuses"
+msgstr "Статуси замовлення"
+
+#: .\apps\profile\templates\account\parts\order_detail.html:94
+msgid "per_pc"
+msgstr "за шт."
+
+#: .\apps\profile\templates\account\parts\order_history.html:28
+msgid "checkout__order_date"
+msgstr "Статуси замовлення"
+
+#: .\apps\profile\templates\account\parts\order_history.html:44
+msgid "checkout__order_number"
+msgstr "Номер замовлення"
+
+#: .\apps\profile\templates\account\parts\order_history.html:52
+msgid "checkout__current_order_status"
+msgstr "Поточний статус"
+
+#: .\apps\profile\templates\account\parts\order_history.html:61
+msgid "account__no_orders"
+msgstr "Немає замовлень"
+
+#: .\apps\profile\templates\account\parts\wishlist.html:14
+msgid "load_more"
+msgstr "Завантажити ще"
+
+#: .\apps\profile\templates\account\password_change_form.html:16
+msgid ""
+"Please enter your old password, for security’s sake, and then enter your new "
+"password twice so we can verify you typed it in correctly."
+msgstr ""
+"Будь ласка, введіть свій старий пароль для забезпечення безпеки, а потім "
+"введіть ваш новийпароль двічі, щоб ми могли перевірити, чи правильно ви його "
+"ввели"
+
+#: .\apps\profile\templates\account\password_change_form.html:44
+msgid "Change my password"
+msgstr "Змінити пароль"
+
+#: .\apps\profile\templates\account\password_reset.html:7
+#: .\mainapp\templatetags\mainapp_tags.py:78
+msgid "account__password_reset"
+msgstr "Відновити пароль"
+
+#: .\apps\profile\templates\account\password_reset.html:14
+msgid "Email address:"
+msgstr "Адреса електронної пошти:"
+
+#: .\apps\profile\templates\account\password_reset.html:17
+msgid "Reset my password"
+msgstr "Відновити пароль"
+
+#: .\apps\profile\templates\account\password_reset_accepting_done.html:6
+msgid "new_password_send_to_attach_email"
+msgstr "Лист з відновленням паролю відправлено на ваш email"
+
+#: .\apps\profile\templates\account\password_reset_accepting_done.html:7
+msgid "go_to_login_page"
+msgstr "Авторизуватись"
+
+#: .\apps\profile\templates\account\password_reset_complete.html:6
+msgid "Log in"
+msgstr ""
+
+#: .\apps\profile\templates\account\password_reset_confirm.html:9
+msgid "New_password:"
+msgstr "Новий пароль"
+
+#: .\apps\profile\templates\account\password_reset_confirm.html:14
+msgid "Confirm_password:"
+msgstr "Підтвердьте пароль"
+
+#: .\apps\profile\templates\account\password_reset_confirm.html:17
+msgid "Change_my_password"
+msgstr "Змінити пароль"
+
+#: .\apps\profile\templates\account\registration.html:44
+msgid "submit_register"
+msgstr "Зарегістріруватісь"
+
+#: .\apps\profile\templates\account\registration.html:46
+msgid "account__already_have_account"
+msgstr "У мене вже є аккаунт"
+
+#: .\apps\profile\views.py:40
+msgid "Password_reset_sent"
+msgstr "Скидання пароля відправлено"
+
+#: .\apps\profile\views.py:45
+msgid "The_two_password_fields_didn’t_match."
+msgstr "Два поля пароля не збігаються!"
+
+#: .\apps\profile\views.py:51
+msgid "Password_reset_complete"
+msgstr "Пароль успішно змінено"
+
+#: .\apps\profile\views.py:116
+msgid "account__registration_success"
+msgstr "Реєстрація пройшла успішно"
+
+#: .\apps\testimonials\apps.py:6
+msgid "apps_testtimonials"
+msgstr "Відгуки"
+
+#: .\apps\testimonials\models.py:8
+msgid "admin__author"
+msgstr "Автор"
+
+#: .\apps\testimonials\models.py:10
+msgid "admin__testimonial"
+msgstr "Відгук"
+
+#: .\apps\testimonials\models.py:20
+msgid "Testimonial"
+msgstr "Відгук"
+
+#: .\apps\testimonials\models.py:21
+msgid "Testimonials"
+msgstr "Відгуки"
+
+#: .\apps\testimonials\templates\testimonials\modal.html:23
+msgid "attach_photo"
+msgstr "Додати фото"
+
+#: .\apps\testimonials\templates\testimonials\testimonials_page.html:12
+msgid "TestimonialsPage_Title"
+msgstr "Відгуки"
+
+#: .\apps\testimonials\templates\testimonials\testimonials_page.html:18
+msgid "TestimonialsPage_AddNew_Title"
+msgstr "Додати відгук"
+
+#: .\apps\testimonials\templates\testimonials\testimonials_page.html:20
+msgid "TestimonialsPage_AddNew_Button"
+msgstr "Додати"
+
+#: .\apps\testimonials\templates\testimonials\testimonials_widget.html:10
+msgid "Testimonials_BlockTitle"
+msgstr ""
+
+#: .\apps\testimonials\templates\testimonials\testimonials_widget.html:12
+msgid "Testimonials_BlockTitle_ReadMore"
+msgstr ""
+
+#: .\apps\testimonials\views.py:53
+msgid "fill_in_fields"
+msgstr "Заповніть поля"
+
+#: .\apps\testimonials\views.py:59
+msgid "testimonials__success_message"
+msgstr "Відгук надіслано"
+
+#: .\custom_admin\apps.py:6
+msgid "admin__custom_admin"
+msgstr ""
+
+#: .\custom_admin\templates\admin\base.html:38
+msgid "Welcome,"
+msgstr ""
+
+#: .\custom_admin\templates\admin\base.html:43
+msgid "View site"
+msgstr ""
+
+#: .\custom_admin\templates\admin\base.html:48
+msgid "Documentation"
+msgstr ""
+
+#: .\custom_admin\templates\admin\base.html:52
+msgid "Change password"
+msgstr ""
+
+#: .\custom_admin\templates\admin\base.html:54
+msgid "Log out"
+msgstr ""
+
+#: .\custom_admin\templates\admin\base.html:64
+msgid "Home"
+msgstr ""
+
+#: .\django_currentuser\db\models\fields.py:14
+msgid "as default value sets the current logged in user if available"
+msgstr ""
+
+#: .\mainapp\admin.py:18 .\mainapp\models.py:23 .\mainapp\models.py:24
+msgid "admin__settings"
+msgstr "Настройки"
+
+#: .\mainapp\apps.py:6
+msgid "admin__mainapp"
+msgstr ""
+
+#: .\mainapp\models.py:13
+msgid "admin__logo"
+msgstr "Логотип"
+
+#: .\mainapp\models.py:14
+msgid "fav_icon"
+msgstr "Фа іконка"
+
+#: .\mainapp\models.py:17
+msgid "admin__google_analytics"
+msgstr "Google аналітика"
+
+#: .\mainapp\models.py:18
+msgid "formula_for_seo_generation_title"
+msgstr "Формула SEO назви"
+
+#: .\mainapp\models.py:19
+msgid "formula_for_seo_generation_description"
+msgstr "Формула SEO опису"
+
+#: .\mainapp\models.py:33
+msgid "admin__text_content"
+msgstr "Текстовий контент"
+
+#: .\mainapp\models.py:34
+msgid "admin__text_contents"
+msgstr "Текстовий контент"
+
+#: .\mainapp\models.py:43 .\mainapp\models.py:44
+msgid "admin__seo_data"
+msgstr "SEO дані"
+
+#: .\mainapp\models.py:48
+msgid "admin__name_marker"
+msgstr "Назва маркера"
+
+#: .\mainapp\models.py:49
+msgid "admin__lng"
+msgstr "Широта"
+
+#: .\mainapp\models.py:50
+msgid "admin__longitude"
+msgstr "Довгота"
+
+#: .\mainapp\models.py:53 .\mainapp\models.py:54
+msgid "admin__google_map"
+msgstr "Google карта"
+
+#: .\mainapp\templates\breadcrumbs.html:4
+msgid "breadcrumb__home"
+msgstr "Головна"
+
+#: .\mainapp\templates\footer.html:30
+msgid "copyright"
+msgstr "Розробка сайту Golden Web Digital"
+
+#: .\mainapp\templates\header.html:109
+msgid "checkout__go_to_checkout"
+msgstr "Оформити замовлення"
+
+#: .\mainapp\templates\js_vars.html:55
+msgid "account__add_to_wishlist_success_response"
+msgstr ""
+
+#: .\mainapp\templates\js_vars.html:56
+msgid "OneClickOrder_ErrorNoRequired"
+msgstr ""
+
+#: .\mainapp\templates\js_vars.html:57
+msgid "OneClickOrder_SuccessMessage"
+msgstr ""
+
+#: .\mainapp\templates\js_vars.html:58
+msgid "OneClickOrder_ErrorPhone"
+msgstr ""
+
+#: .\mainapp\templates\js_vars.html:59
+msgid "contacts__form_success_msg"
+msgstr ""
+
+#: .\mainapp\templates\js_vars.html:60
+msgid "interface__unknown_error"
+msgstr ""
+
+#: .\mainapp\templates\js_vars.html:61
+msgid "Ok"
+msgstr ""
+
+#: .\mainapp\templates\js_vars.html:62
+msgid "Login_error_title"
+msgstr ""
+
+#: .\mainapp\templates\js_vars.html:63 .\mainapp\templates\js_vars.html:64
+msgid "Login_error_message"
+msgstr ""
+
+#: .\mainapp\templates\js_vars.html:65
+msgid "Registration_error_message"
+msgstr ""
+
+#: .\mainapp\templates\js_vars.html:67
+msgid "checkout__success_message"
+msgstr ""
+
+#: .\mainapp\templates\mainapp\modals\search_modal.html:9
+msgid "search_by_query_title"
+msgstr "Пошук товарів"
+
+#: .\mainapp\templates\mainapp\modals\search_modal.html:12
+msgid "search_by_query_placeholder"
+msgstr "Що шукаємо?"
+
+#: .\mainapp\templates\mainapp\pages\contacts.html:10
+#: .\mainapp\templatetags\mainapp_tags.py:84
+msgid "contacts"
+msgstr "Контакти"
+
+#: .\mainapp\templates\mainapp\pages\contacts.html:15
+msgid "contacts__opt_dep"
+msgstr "Відділ по роботі з оптовими покупцями"
+
+#: .\mainapp\templates\mainapp\pages\contacts.html:40
+msgid "contacts__dropship_dep"
+msgstr "Відділ по роботі з інтернет магазинами і дропшиппінгом"
+
+#: .\mainapp\templates\mainapp\pages\contacts.html:65
+msgid "contacts__retail_dep"
+msgstr "Роздрібним покупцям"
+
+#: .\mainapp\templates\mainapp\pages\index.html:51
+msgid "shop_now"
+msgstr "Перейти"
+
+#: .\mainapp\templates\mainapp\pages\index.html:62
+msgid "mainpage__why_trust_heading"
+msgstr "Дитячий одяг оптом від виробника: чому нам довіряють?"
+
+#: .\mainapp\templates\mainapp\pages\index.html:68
+msgid "mainpage__why_trust_1"
+msgstr "Виробництво повного циклу"
+
+#: .\mainapp\templates\mainapp\pages\index.html:74
+msgid "mainpage__why_trust_2"
+msgstr "Якість пошиву"
+
+#: .\mainapp\templates\mainapp\pages\index.html:80
+msgid "mainpage__why_trust_3"
+msgstr "Вигідні умови співпраці"
+
+#: .\mainapp\templates\mainapp\pages\index.html:86
+msgid "mainpage__why_trust_4"
+msgstr "Доступні оптові ціни"
+
+#: .\mainapp\templates\mainapp\pages\index.html:92
+msgid "mainpage__why_trust_5"
+msgstr "Професійне обслуговування"
+
+#: .\mainapp\templates\mainapp\pages\index.html:102
+msgid "mainpage__reviews"
+msgstr "Відгуки наших партнерів"
+
+#: .\mainapp\templates\mainapp\pages\index.html:129
+msgid "read_more"
+msgstr "Читати далі"
+
+#: .\mainapp\templates\mainapp\pages\index.html:130
+msgid "hidden"
+msgstr "Приховати"
+
+#: .\mainapp\templates\mainapp\pages\index.html:154
+msgid "form__description"
+msgstr "Вид співпраці"
+
+#: .\mainapp\templates\mainapp\pages\index.html:155
+msgid "ask_question"
+msgstr "Задати питання"
+
+#: .\mainapp\templates\mainapp\pages\index.html:160
+msgid "blog__last_articles"
+msgstr "Останні статті"
+
+#: .\mainapp\templates\mainapp\pages\index.html:167
+msgid "show_all"
+msgstr "Переглянути всі"
+
+#: .\mainapp\templates\mainapp\pages\production.html:10
+#: .\mainapp\templates\mainapp\pages\retail.html:11
+msgid "retail__page_heading"
+msgstr "Роздрбіним покупцям"
+
+#: .\mainapp\templatetags\mainapp_tags.py:69
+msgid "blog"
+msgstr "Блог"
+
+#: .\mainapp\templatetags\mainapp_tags.py:81
+msgid "account"
+msgstr ""
+
+#: .\mainapp\templatetags\mainapp_tags.py:90
+msgid "specials"
+msgstr "Спеціальні пропозиції"
+
+#: .\unine_engine\globals.py:14
+msgid "price_cheap_to_expensive"
+msgstr "По ціні (А-Я)"
+
+#: .\unine_engine\globals.py:15
+msgid "price_expensive_to_cheap"
+msgstr "По ціні (Я-А)"
+
+#: .\unine_engine\globals.py:25
+msgid "order_status__new"
+msgstr "Нове замовлення"
+
+#: .\unine_engine\globals.py:26
+msgid "order_status__canceled"
+msgstr "Відмінений"
+
+#: .\unine_engine\globals.py:27
+msgid "order_status__pending"
+msgstr "В обробці"
+
+#: .\unine_engine\globals.py:28
+msgid "order_status__sent"
+msgstr "Відправлений"
+
+#: .\unine_engine\globals.py:29
+msgid "order_status__completed"
+msgstr "Завершений"
+
+#: .\unine_engine\globals.py:33
+msgid "menu__main_menu"
+msgstr "Головне меню"
+
+#: .\unine_engine\globals.py:34
+msgid "menu__top_menu"
+msgstr "Вверхнє меню"
+
+#: .\unine_engine\globals.py:35
+msgid "menu__bottom_menu"
+msgstr "Нижнє меню"
+
+#: .\unine_engine\globals.py:39
+msgid "pickup"
+msgstr ""
+
+#: .\unine_engine\globals.py:40
+msgid "new_post"
+msgstr "Нова пошта"
+
+#: .\unine_engine\globals.py:41
+msgid "avtoluks"
+msgstr "Автолюкс"
+
+#: .\unine_engine\globals.py:42
+msgid "in_time"
+msgstr "InTime"
+
+#: .\unine_engine\globals.py:43
+msgid "delivery"
+msgstr "Delivery"
+
+#: .\unine_engine\globals.py:44
+msgid "ukr_post"
+msgstr "Укрпошта"
+
+#: .\unine_engine\globals.py:48
+msgid "products__discount_with_percantage"
+msgstr "%"
+
+#: .\unine_engine\globals.py:49
+msgid "products__discount_with_sum"
+msgstr "Грошова знижка"
+
+#: .\unine_engine\globals.py:53
+msgid "cod"
+msgstr "Накладений платіж"
+
+#: .\unine_engine\globals.py:54
+msgid "liqpay"
+msgstr "LiqPay"
+
+#: .\unine_engine\globals.py:63
+msgid "account__default"
+msgstr "Роздріб"
+
+#: .\unine_engine\globals.py:64
+msgid "account__wholesale"
+msgstr "Опт"
+
+#: .\unine_engine\globals.py:65
+msgid "account__retail"
+msgstr "Роздріб"
+
+#~ msgid "admin__menu_keyword"
+#~ msgstr "Назва меню"
+
+#~ msgid "Image"
+#~ msgstr "Зображення"
+
+#~ msgid "This field is required."
+#~ msgstr "Це поле є обов'язковим"
+
+#~ msgid "None"
+#~ msgstr "Телефон"
+
+#~ msgid "Resource owner password-based"
+#~ msgstr "Введіть пароль"
+
+#~ msgid "admin_type"
+#~ msgstr "Тип співпраці"
+
+#, fuzzy
+#~| msgid "Out_of_stock"
+#~ msgid "Out of stock"
+#~ msgstr "Немає в наявності"
+
+#~ msgid "admin__language_field"
+#~ msgstr "Мова"
+
+#~ msgid "form__company"
+#~ msgstr "Коментар"
+
+#~ msgid "error__first_name_incorrect"
+#~ msgstr "Ім'я введено невірно"
+
+#~ msgid "error__last_name_incorrect"
+#~ msgstr "Некоректний телефон"
+
+#~ msgid "error__phone_incorrect"
+#~ msgstr "Некоректний телефон"
+
+#~ msgid "error__pls_enter_password"
+#~ msgstr "Повторіть пароль"
+
+#~ msgid "incorrect_password"
+#~ msgstr "Неправильний пароль"
+
+#~ msgid "fill_in_field"
+#~ msgstr "Заповніть поле"
+
+#~ msgid "admin__product_fk"
+#~ msgstr "товар"
+
+#~ msgid "admin__category_fk"
+#~ msgstr "Відображення на сайті"
+
+#~ msgid "products__of_reviews"
+#~ msgstr "Відгуків"
+
+#~ msgid "text_send_password_link_to_email"
+#~ msgstr "Посилання для відновлення паролю"
+
+#~ msgid "my_account"
+#~ msgstr "Мій акаунт"
+
+#~ msgid "contract_offer"
+#~ msgstr "Договір оферти"
+
+#~ msgid "payment_and_delivery"
+#~ msgstr "Оплата та доставка"
+
+#~ msgid "whosale_terms"
+#~ msgstr "Умови опту"
+
+#~ msgid "account_short"
+#~ msgstr "Акаунт"
+
+#~ msgid "mainpage__hts_heading"
+#~ msgstr "З чого почати?"
+
+#~ msgid "mainpage__hts_1_0"
+#~ msgstr "Заповнити та надіслати анкету"
+
+#~ msgid "mainpage__hts_1_1"
+#~ msgstr ""
+#~ "Для того щоб побачити ціни та купити дитячий одяг оптом новому клієнтові "
+#~ "необхідно заповнити анкету оптового покупця"
+
+#~ msgid "mainpage__hts_2_0"
+#~ msgstr "Зайти в особистий кабінет"
+
+#~ msgid "mainpage__hts_2_1"
+#~ msgstr "Протягом 24 годин Вам на пошту буде висланий пароль і логін"
+
+#~ msgid "mainpage__hts_3_0"
+#~ msgstr "Оформити замовлення"
+
+#~ msgid "mainpage__hts_3_1"
+#~ msgstr "Вибрати товар, спосіб доставки і оплати"
+
+#~ msgid "mainpage__hts_4_0"
+#~ msgstr "Отримати підтвердження і оплатити товар"
+
+#~ msgid "mainpage__hts_4_1"
+#~ msgstr "Вам прийде SMS з підтвердженням"
+
+#~ msgid "mainpage__opt_form_heading"
+#~ msgstr "Форма реєстрації для оптовиків"
+
+#~ msgid "mainpage__opt_form_description"
+#~ msgstr ""
+#~ "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod "
+#~ "tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim "
+#~ "veniam, quis nostrud exercitation ullamco"
+
+#, fuzzy
+#~| msgid "products__stock"
+#~ msgid "products__stock_has_left"
+#~ msgstr "Наявність"
+
+#~ msgid "qty"
+#~ msgstr "Кількість"
+
+#, fuzzy
+#~| msgid "products__in_stock"
+#~ msgid "products__buy_in_one_click_btn"
+#~ msgstr "Є в наявності"
+
+#~ msgid "account__return_to_order_list"
+#~ msgstr "До списку замовлень"
+
+#~ msgid "wholesale_short"
+#~ msgstr "Опт"
+
+#~ msgid "retail_short"
+#~ msgstr "Розд"
+
+#~ msgid "mainpage"
+#~ msgstr "Головна"
+
+#~ msgid "about_production"
+#~ msgstr "Про виробництво"
+
+#~ msgid "how_to_buy"
+#~ msgstr "Як купити?"
+
+#~ msgid "whosalers_account"
+#~ msgstr "Кабінет оптовика"
+
+#~ msgid "checkout__status_changes_title"
+#~ msgstr "Статуси замовлення №{} від {} змінено на '{}'."
+
+#~ msgid "checkout__status_changes_body"
+#~ msgstr "Деталі замовлення в особистому кабінеті за посиланням: {}"
+
+#~ msgid "saved"
+#~ msgstr "Збережено"
+
+#, fuzzy
+#~| msgid "account__logout"
+#~ msgid "account__login"
+#~ msgstr "Вийти"
+
+#, fuzzy
+#~| msgid "account__repeat_password"
+#~ msgid "error__invalid_password"
+#~ msgstr "Повторіть пароль"
+
+#~ msgid "fill_in_the_field"
+#~ msgstr "Заповніть поля"
+
+#~ msgid "account__login_error_message"
+#~ msgstr "Неправильний пароль"
+
+#~ msgid "email_empty"
+#~ msgstr "Email не введено"
+
+#~ msgid "email_incorrect"
+#~ msgstr "Некоректний email"
+
+#~ msgid "password_empty"
+#~ msgstr "Введіть пароль"
+
+#~ msgid "password_confirm_empty"
+#~ msgstr "Підтвердіть пароль"
+
+#~ msgid "first_name_empty"
+#~ msgstr "Введіть імя"
+
+#~ msgid "last_name_empty"
+#~ msgstr "Введіть прізвище"
+
+#, fuzzy
+#~| msgid "last_name_not_correct"
+#~ msgid "first_name_not_correct"
+#~ msgstr "Прізвище введено невірно"
+
+#~ msgid "last_name_not_correct"
+#~ msgstr "Прізвище введено невірно"
+
+#, fuzzy
+#~| msgid "first_name_not_correct"
+#~ msgid "error__birthdate_incorrect"
+#~ msgstr "Ім'я введено невірно"
+
+#~ msgid "No_products"
+#~ msgstr "Немає товарів"
+
+#~ msgid "account__company_name"
+#~ msgstr "Назва компанії"
+
+#~ msgid "account__how_did_you_hear_about_us"
+#~ msgstr "Звідки Ви дізнались про нас?"
+
+#~ msgid "password_confirm"
+#~ msgstr "Підтвердіть пароль"
+
+#~ msgid "blog__no_articles"
+#~ msgstr "Немає статей"
+
+#~ msgid "select_delivery_type"
+#~ msgstr "Оберіть спосіб доставки"
+
+#~ msgid "select_payment_type"
+#~ msgstr "Оберіть спосіб оплати"
+
+#~ msgid "police_required"
+#~ msgstr "Обов'язкове поле"
+
+#~ msgid "stock_left"
+#~ msgstr "Залишилось"
+
+#~ msgid "checkout__delivery"
+#~ msgstr "Доставка"
+
+#, fuzzy
+#~| msgid "account__register"
+#~ msgid "account__registration"
+#~ msgstr "Реєстрація"
+
+#, fuzzy
+#~| msgid "select_payment_type"
+#~ msgid "Order_PaymentType"
+#~ msgstr "Оберіть спосіб оплати"
+
+#~ msgid "wait_for_verification"
+#~ msgstr "Очікуйте підтвердження адміністратора"
+
+#~ msgid "price_is_hidden_for_not_registered"
+#~ msgstr "Для того щоб побачити ціну ви повинні зареєструватися"
+
+#~ msgid "products__show_similar_products"
+#~ msgstr "Показати товари в цьому кольорі"
+
+#~ msgid "size"
+#~ msgstr "Розмір"
+
+#~ msgid "stock"
+#~ msgstr "Наявність"
+
+#~ msgid "sum"
+#~ msgstr "Сума"
+
+#~ msgid "phone_already_use"
+#~ msgstr "Телефон вже використовується"
+
+#~ msgid "select_at_least"
+#~ msgstr "Оберіть розмір"
+
+#~ msgid "keep_shopping"
+#~ msgstr "Продовжити покупки"
+
+#~ msgid "checkout__items_out_of_stock"
+#~ msgstr "В наявності недостатньо товарів"
+
+#~ msgid "checkout__auth_for_make_order"
+#~ msgstr "Авторизуйтесь для замовлення"
+
+#~ msgid "sent"
+#~ msgstr "Відправлено"
+
+#~ msgid "mcart__modal_heading"
+#~ msgstr "Viber розсилка"
+
+#~ msgid "fill_in_the_fields"
+#~ msgstr "Заповніть поля"
+
+#~ msgid "products__add_review_success_message"
+#~ msgstr "Відгук надіслано"
+
+#, fuzzy
+#~| msgid "add_review_btn"
+#~ msgid "review"
+#~ msgstr "Надіслати"
+
+#, fuzzy
+#~| msgid "form__cooperation"
+#~ msgid "form__addtestimonial"
+#~ msgstr "Вид співпраці"
+
+#, fuzzy
+#~| msgid "form__comment"
+#~ msgid "form__name"
+#~ msgstr "Коментар"
+
+#, fuzzy
+#~| msgid "checkout__go_to_checkout"
+#~ msgid "go_to_checkout"
+#~ msgstr "Оформити замовлення"
+
+#~ msgid "checkout__empty_cart"
+#~ msgstr "Корзина порожня"
+
+#~ msgid "company_name_empty"
+#~ msgstr "Введіть прізвище"
+
+#~ msgid "message__saved"
+#~ msgstr "Збережено"
+
+#~ msgid "account__orders_history"
+#~ msgstr "Історія замовлень"
+
+#, fuzzy
+#~| msgid "checkout__personal_information"
+#~ msgid "checkout__cooperation"
+#~ msgstr "Особисті дані"
+
+#~ msgid "products__thx_for_review"
+#~ msgstr "Дякуємо за Ваш відгук!"
+
+#~ msgid "products__product_delivery_heading"
+#~ msgstr "Умови для Росії та СНД"
+
+#~ msgid "product__reviews"
+#~ msgstr "Відгуки"
+
+#~ msgid "add_to_cart"
+#~ msgstr "В кошик"
+
+#~ msgid "products__review_text"
+#~ msgstr "Відгук"
+
+#~ msgid "product__select"
+#~ msgstr "Оберіть"
+
+#~ msgid "product__qty"
+#~ msgstr "Кількість"
+
+#~ msgid "products__code"
+#~ msgstr "Код товару"
+
+#~ msgid "products__no_reviews"
+#~ msgstr "Немає відгуків"
+
+#~ msgid "products_new"
+#~ msgstr "Новинки"
+
+#~ msgid "products_specials"
+#~ msgstr "Акції"
+
+#~ msgid "phone_manager"
+#~ msgstr "(менеджери, загальні питання)"
+
+#~ msgid "phone_cooperation"
+#~ msgstr "(співпраця)"
+
+#~ msgid "header__search"
+#~ msgstr "Пошук"
+
+#~ msgid "advantages"
+#~ msgstr "Пераваги"
+
+#~ msgid "button_feedback"
+#~ msgstr "Зворотній зв'язок"
+
+#~ msgid "button_read_more"
+#~ msgstr "Читати далі"
+
+#~ msgid "header__catalog"
+#~ msgstr "Каталог"
+
+#, fuzzy
+#~| msgid "No_products"
+#~ msgid "new_products"
+#~ msgstr "Немає товарів"
+
+#~ msgid "price_default"
+#~ msgstr "По даті (А-Я)"
+
+#~ msgid "price_new_to_old"
+#~ msgstr "По даті (Я-А)"
+
+#~ msgid "ukraine"
+#~ msgstr "Україна"
+
+#~ msgid "self"
+#~ msgstr "Самовивіз"
+
+#~ msgid "privatbank"
+#~ msgstr "Приватбанк"
+
+#~ msgid "cash"
+#~ msgstr "Накладний платіж"
+
+#~ msgid "russia_and_cis"
+#~ msgstr "Росія та СНД"
+
+#~ msgid "avia_post"
+#~ msgstr "Aвіа пошта"
+
+#~ msgid "dhl"
+#~ msgstr "DHL"
+
+#~ msgid "western_union"
+#~ msgstr "Western Union"
+
+#~ msgid "Дата замовлення"
+#~ msgstr "Статуси замовлення"

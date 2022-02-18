@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+{% spaceless %}
+{% load i18n static mainapp_tags %}
+{% get_available_languages as languages %}
+{% get_current_language as LANGUAGE_CODE %}
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    {% for lng in languages %}
+        {% for location in sitemaps %}
+            <sitemap>
+                <loc>{% if lng.0 == LANGUAGE_CODE %}{{ location }}{% else %}{{ location|add_language_to_link:lng.0 }}{% endif %}</loc>
+            </sitemap>
+        {% endfor %}
+    {% endfor %}
+</sitemapindex>
+{% endspaceless %}

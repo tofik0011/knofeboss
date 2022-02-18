@@ -1,0 +1,40 @@
+{% load i18n %}
+{% load thumbnail %}
+{% load currency_tags %}
+{% if products|length > 0 %}
+    {% for p in products %}
+        <a href="{{ p.link }}">
+            <div class="product_item {% if p.is_special %}special{% endif %}">
+                <div class="product_img">
+{#                    {% thumbnail p.image '100x100' crop="center" quality=55 as im %}#}
+{#                          <img src="{{ im.url }}" width="{{ im.width }}">#}
+{#                    {% endthumbnail %}#}
+                    <picture>
+                        {% thumbnail p.image '100x100' crop="center" quality=55 format="WEBP" as im %}
+                            <source srcset="{{ im.url }}" type="image/webp">
+                        {% endthumbnail %}
+                        {% thumbnail p.image '100x100' crop="center" quality=55 format="JPEG" as im %}
+                            <source srcset="{{ im.url }}" type="image/jpeg">
+                            <img src="{{ im.url }}" width="{{ im.width }}">
+                        {% endthumbnail %}
+                    </picture>
+                </div>
+                <div class="product_content">
+                    <div class="product_name">{{ p.name }}</div>
+                    <div class="product_category">{{ p.category }}</div>
+                    <div class="product_price">
+                        <div class="current">{% tag_convert_currency_price request p.current_price %}</div>
+                        {% if p.current_price != p.stable_price %}
+                            <div class="stable">{% tag_convert_currency_price request p.stable_price %}</div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </a>
+    {% endfor %}
+    {% if rest %}
+        <div class="rest_products go_to_search">Еще {{ rest }} товаров</div>
+    {% endif %}
+{% else %}
+    <div class="no_results">{% trans 'search_by_query_no_results' %}</div>
+{% endif %}

@@ -1,0 +1,29 @@
+{% load i18n %}
+{% load fb_versions %}
+{% load banner_tags %}
+{% load thumbnail %}
+{% tag_get_banner keyword as banner %}
+<style>
+    .first_screen .overlay {
+        background-color: {{ banner.overlay_color }};
+        opacity: {{ banner.overlay_opacity }};
+    }
+    .first_screen .text_container {
+        color: {{ banner.content_color }};
+        font-size: 30px;
+        font-weight: 300;
+        margin-bottom: 10px;
+    }
+    .first_screen .go_to_button {
+        color: {{ banner.content_color }};
+        border: 1px solid{{ banner.content_color }};
+    }
+</style>
+<div class="first_screen">
+
+    <div class="overlay">
+
+    </div>
+    <div class="photo_wrapper" style="background-image: url({% thumbnail banner.image '1500x500' crop='center' %})">
+    </div>
+</div>

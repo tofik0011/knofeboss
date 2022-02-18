@@ -1,0 +1,45 @@
+{% load i18n %}
+{% load products_tags %}
+{% if articles.paginator.num_pages > 1 %}
+    <div class="w-100 pagination-block">
+        <nav aria-label="Page navigation example" id="pagination">
+            <ul class="pagination justify-content-center m-0">
+                {% if articles.has_previous %}
+                    <li class="page_item  {% if not articles.has_previous %} disabled {% endif %}">
+                        <a class="page_link" href="{% if articles.has_previous %}{{ request.path }}?page={{ articles.previous_page_number }}{% endif %}">{% trans "prev" %}</a>
+                    </li>
+                {% endif %}
+                <li class="page_item {% if 1 == articles.number %} active {% endif %}">
+                    <a class="page_link" href="{{ request.path }}?page=1">1</a>
+                </li>
+
+                {% if articles.number > 2 %}
+                    <li class="page_item {% if articles.number|filter_minus:1 == articles.number %} active {% endif %}">
+                        <a class="page_link" href="{{ request.path }}?page={{ articles.number|filter_minus:1 }}">{{ articles.number|filter_minus:1 }}</a>
+                    </li>
+                {% endif %}
+
+                {% if articles.number != 1 and articles.number != articles.paginator.num_pages %}
+                    <li class="page_item {% if articles.number == articles.number %} active {% endif %}">
+                        <a class="page_link" href="{{ request.path }}?page={{ articles.number }}">{{ articles.number }}</a>
+                    </li>
+                {% endif %}
+
+                {% if articles.number < articles.paginator.num_pages|filter_minus:1 %}
+                    <li class="page_item {% if articles.number|filter_plus:1 == articles.number %} active {% endif %}">
+                        <a class="page_link" href="{{ request.path }}?page={{ articles.number|filter_plus:1 }}">{{ articles.number|filter_plus:1 }}</a>
+                    </li>
+
+                {% endif %}
+                <li class="page_item {% if articles.paginator.num_pages == articles.number %} active {% endif %}">
+                    <a class="page_link" href="{{ request.path }}?page={{ articles.paginator.num_pages }}">{{ articles.paginator.num_pages }}</a>
+                </li>
+                {% if articles.has_next %}
+                    <li class="page_item {% if not articles.has_next %} disabled {% endif %}">
+                        <a class="page_link" href="{% if articles.has_next %}{{ request.path }}?page={{ articles.next_page_number }}{% endif %}">{% trans "next" %}</a>
+                    </li>
+                {% endif %}
+            </ul>
+        </nav>
+    </div>
+{% endif %}

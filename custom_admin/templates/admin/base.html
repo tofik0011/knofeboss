@@ -1,0 +1,493 @@
+{% load i18n static %}<!DOCTYPE html>
+{% get_current_language as LANGUAGE_CODE %}{% get_current_language_bidi as LANGUAGE_BIDI %}
+<html lang="{{ LANGUAGE_CODE|default:"en-us" }}" {% if LANGUAGE_BIDI %}dir="rtl"{% endif %}>
+<head>
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="{% block stylesheet %}{% static "admin/css/base.css" %}{% endblock %}">
+    {% block extrastyle %}{% endblock %}
+    {% if LANGUAGE_BIDI %}
+        <link rel="stylesheet" type="text/css" href="{% block stylesheet_rtl %}{% static "admin/css/rtl.css" %}{% endblock %}">{% endif %}
+    {% block extrahead %}{% endblock %}
+    {% block responsive %}
+        <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="{% static "admin/css/responsive.css" %}">
+        {% if LANGUAGE_BIDI %}
+            <link rel="stylesheet" type="text/css" href="{% static "admin/css/responsive_rtl.css" %}">{% endif %}
+    {% endblock %}
+    {% block blockbots %}
+        <meta name="robots" content="NONE,NOARCHIVE">{% endblock %}
+</head>
+{% load i18n %}
+
+<body class="{% if is_popup %}popup {% endif %}{% block bodyclass %}{% endblock %}"
+      data-admin-utc-offset="{% now "Z" %}">
+
+<!-- Container -->
+<div id="container">
+
+    {% if not is_popup %}
+        <!-- Header -->
+        <div id="header">
+            <div id="branding">
+                {% block branding %}{% endblock %}
+            </div>
+            {% block usertools %}
+                {% if has_permission %}
+                    <div id="user-tools">
+                        {% block welcome-msg %}
+                            {% trans 'Welcome,' %}
+                            <strong>{% firstof user.get_short_name user.get_username %}</strong>.
+                        {% endblock %}
+                        {% block userlinks %}
+                            {% if site_url %}
+                                <a href="{{ site_url }}">{% trans 'View site' %}</a> /
+                            {% endif %}
+                            {% if user.is_active and user.is_staff %}
+                                {% url 'django-admindocs-docroot' as docsroot %}
+                                {% if docsroot %}
+                                    <a href="{{ docsroot }}">{% trans 'Documentation' %}</a> /
+                                {% endif %}
+                            {% endif %}
+                            {% if user.has_usable_password %}
+                                <a href="{% url 'admin:password_change' %}">{% trans 'Change password' %}</a> /
+                            {% endif %}
+                            <a href="{% url 'admin:logout' %}">{% trans 'Log out' %}</a>
+                        {% endblock %}
+                    </div>
+                {% endif %}
+            {% endblock %}
+            {% block nav-global %}{% endblock %}
+        </div>
+        <!-- END Header -->
+        {% block breadcrumbs %}
+            <div class="breadcrumbs">
+                <a href="{% url 'admin:index' %}">{% trans 'Home' %}</a>
+                {% if title %} &rsaquo; {{ title }}{% endif %}
+            </div>
+        {% endblock %}
+    {% endif %}
+
+    {% block messages %}
+        {% if messages %}
+            <ul class="messagelist">{% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message|capfirst }}</li>
+            {% endfor %}</ul>
+        {% endif %}
+    {% endblock messages %}
+
+    <!-- Content -->
+    <div id="content" class="{% block coltype %}colM{% endblock %}">
+        {% block pretitle %}{% endblock %}
+        {% block content_title %}{% if title %}<h1>{{ title }}</h1>{% endif %}{% endblock %}
+        {% block content %}
+            {% block object-tools %}{% endblock %}
+            {{ content }}
+        {% endblock %}
+        {% block sidebar %}{% endblock %}
+        <br class="clear">
+    </div>
+    <!-- END Content -->
+
+    {% block footer %}
+        <div id="footer"></div>{% endblock %}
+</div>
+<!-- END Container -->
+
+{#<link rel="stylesheet" href="{% static "/bootstrap/css/bootstrap.min.css" %}">#}
+{#<script src="{% static "/bootstrap/js/bootstrap.min.js" %}"></script>#}
+
+
+{#<div class="nav flex-row nav-pills" id="v-pills-tab" role="tablist" aria-orientation="horizontal">#}
+{#    <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Home</a>#}
+{#    <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Profile</a>#}
+{#</div>#}
+{#<div class="tab-content" id="v-pills-tabContent">#}
+{#    <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">ffff</div>#}
+{#    <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">asdasd</div>#}
+{#</div>#}
+<script src="{% static "/jquery/external/jquery/jquery.js" %}"></script>
+<!--#region LANGUAGES -->
+<script>
+    let model_name = "";
+    $.each($("body").attr('class').split(/\s+/), function (index, item) {
+        if (!item.indexOf('model-')) {
+            model_name = item.split('-')[1];
+        }
+    });
+
+    function openTab(evt, key) {
+        var i, tabcontent, tablinks;
+        {#tabcontent = document.getElementsByClassName("tabcontent");#}
+        {#for (i = 0; i < tabcontent.length; i++) {#}
+        {#    tabcontent[i].style.display = "none";#}
+        {# } #}
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+       $("div[class^='inline-related']div[id^='"+model_name+"language_set-']").each((key, e)=>{
+          $(e).css('display','none');
+       });
+        $("div[id='"+model_name+"language_set-" + key + "']").css('display', 'block');
+        evt.currentTarget.className += " active";
+    }
+
+    $(document).ready(function () {
+
+
+        $.fn.hasAttr = function (name) {
+            return this.attr(name) !== undefined;
+        };
+        let tabs_l = `
+                        <div class="tab" id="v-pills-tab">
+                        </div>
+                        `;
+
+        let tabs = $(`[id$="language_set-0"]`).before(tabs_l);
+
+        let languages_select = $(`[id^="id_"][id$="language_set-0-language"] option`).filter((key, e) => e.value !== "");
+        console.log(languages_select);
+        languages_select.map((key, value) => {
+            let activet = '';
+            let display = '';
+            if (key === 0) {
+                activet = 'active';
+                display = 'display: block;';
+            }
+            $("div[class~='inline-related']div[id$='language_set-" + key + "']").css('display', 'none');
+            $('#v-pills-tab').append(`
+                <div class="tablinks ${activet}" onclick="openTab(event,${key})">${value.innerHTML}</div>
+            `);
+            {#$('#v-pills-tabContent').append(`#}
+            {#    <div class="tabcontent" style="${display}" id="language-${key}-tab">${$(`[id$="language_set-${key}"]`).html()}</div>#}
+            {#`);#}
+
+            {#$(`[id^="id_"][id$="language_set-${key}-language"]`);#}
+            $(`[id^="id_"][id$="language_set-${key}-language"] option`).prop("selected", false);
+            console.log(key, key + 2);
+            $(`[id^="id_"][id$="language_set-${key}-language"] option:nth-child(${key + 2})`).prop("selected", true);
+            {#$(`[id$="language_set-${key}"]`).remove();#}
+        });
+        $("div[class^='inline-related']div[id^='"+model_name+"language_set-0']").css('display', 'block');
+    });
+
+
+</script>
+<style>
+
+    /* Style the tab */
+    .tab {
+        overflow: hidden;
+        border: 1px solid #ccc;
+        background-color: #f1f1f1;
+    }
+
+    /* Style the buttons inside the tab */
+    .tab .tablinks {
+        background-color: inherit;
+        float: left;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        padding: 14px 16px;
+        transition: 0.3s;
+        font-size: 17px;
+    }
+
+    /* Change background color of buttons on hover */
+    .tab .tablinks:hover {
+        background-color: #ddd;
+    }
+
+    /* Create an active/current tablink class */
+    .tab .tablinks.active {
+        background-color: #ccc;
+    }
+
+    /* Style the tab content */
+    .tabcontent {
+        display: none;
+        padding: 6px 12px;
+        border: 1px solid #ccc;
+        border-top: none;
+    }
+</style>
+<!--#endregion -->
+<!--#region FILTERS -->
+<script>
+    $(`select[id^=id_filterofproduct_set-]select[id$=-filter_fk]`).each(function () {
+        let fil_of_prod_id = $(this).attr('id').match(/id_filterofproduct_set-([0-9]+)-filter_fk/i);
+        if (fil_of_prod_id !== null) {
+            let filt_default_id = $(`#id_filterofproduct_set-${fil_of_prod_id[1]}-filter_value_fk option:selected`).val();
+            write_filt_values_to_select(filt_default_id, fil_of_prod_id[1]);
+        }
+    });
+
+    function get_fil_val_id_by_fil_id(fil_id) {
+        let filt_values_id = [];
+        $.ajax({
+            async: false,
+            type: "GET",
+            data: {'filter_id': fil_id},
+            url: '{% url 'get_filter_values_id_by_filter_id_json' %}',
+            success: function (data) {
+                filt_values_id = data;
+            }
+        });
+        return filt_values_id;
+    }
+
+    function write_filt_values_to_select(selected_value = null, fil_of_prod_id = null) {
+        let filt_id1 = document.querySelector(`#id_filterofproduct_set-${fil_of_prod_id}-filter_fk`);
+        let filt_id = filt_id1.options[filt_id1.selectedIndex].value;
+
+        if (filt_id == "") {
+            return;
+        }
+        let filt_values = get_fil_val_id_by_fil_id(filt_id);
+
+        let select_filt_values = $(`#id_filterofproduct_set-${fil_of_prod_id}-filter_value_fk`);
+
+        select_filt_values.find('option').remove();
+        select_filt_values.append(new Option("---------", ""));
+        for (let filt_value of filt_values) {
+            if (selected_value == filt_value.id) {
+                select_filt_values.append(new Option(filt_value.name, filt_value.id, true, true));
+            } else {
+                select_filt_values.append(new Option(filt_value.name, filt_value.id));
+            }
+        }
+        $(`#id_filterofproduct_set-${fil_of_prod_id}-attribute_value_fk`).html(select_filt_values.html());
+    }
+
+    function setEventFilters() {
+        $('select[id^=id_filterofproduct_set-]select[id$=-filter_fk]').change(function () {
+            let fil_of_prod_id = $(this).attr('id').match(/id_filterofproduct_set-([0-9]+)-filter_fk/i)[1];
+            write_filt_values_to_select(null, fil_of_prod_id);
+
+        });
+        $('body').on('click', '#filterofproduct_set-group tr.add-row > td > a', function () {
+            setTimeout(setEventFilters, 50);
+        });
+    }
+
+    setEventFilters();
+</script>
+<!--#endregion -->
+<!--#region ATTRIBUTES -->
+<script>
+    $('select[id^=id_attributeofproduct_set-]select[id$=-attribute_fk]').each(function () {
+        let att_of_prod_id = $(this).attr('id').match(/id_attributeofproduct_set-([0-9]+)-attribute_fk/i);
+        if (att_of_prod_id !== null) {
+            let attr_default_id = $(`#id_attributeofproduct_set-${att_of_prod_id[1]}-attribute_value_fk option:selected`).val();
+            write_attr_values_to_select(attr_default_id, att_of_prod_id[1]);
+        }
+    });
+
+    function get_att_val_id_by_att_id(att_id) {
+        let attr_values_id = [];
+        $.ajax({
+            async: false,
+            type: "GET",
+            data: {'attribute_id': att_id},
+            url: '{% url 'get_attribute_values_id_by_attribute_id_json' %}',
+            success: function (data) {
+                attr_values_id = data;
+            }
+        });
+        return attr_values_id;
+    }
+
+    function write_attr_values_to_select(selected_value = null, att_of_prod_id = null) {
+        // let attr_id = $('select[id ^= id_attributeofproduct_set-' + att_of_prod_id + '-attribute_fk] option:selected').val();
+        let attr_id1 = document.querySelector(`#id_attributeofproduct_set-${att_of_prod_id}-attribute_fk`);
+        let attr_id = attr_id1.options[attr_id1.selectedIndex].value;
+
+        if (attr_id == "") {
+            return;
+        }
+        let attr_values = get_att_val_id_by_att_id(attr_id);
+
+        let select_attr_values = $(`#id_attributeofproduct_set-${att_of_prod_id}-attribute_value_fk`);
+        select_attr_values.find('option').remove();
+        select_attr_values.append(new Option("---------", ""));
+        for (let attr_value of attr_values) {
+            /*(new Option("option text", "value"));*/
+            if (selected_value == attr_value.id) {
+                select_attr_values.append(new Option(attr_value.name, attr_value.id, true, true));
+            } else {
+                select_attr_values.append(new Option(attr_value.name, attr_value.id));
+            }
+        }
+        $(`#id_attributeofproduct_set-${att_of_prod_id}-attribute_value_fk`).html(select_attr_values.html());
+    }
+
+    function setEventAttributes() {
+
+        $('select[id^=id_attributeofproduct_set-]select[id$=-attribute_fk]').change(function () {
+            let att_of_prod_id = $(this).attr('id').match(/id_attributeofproduct_set-([0-9]+)-attribute_fk/i)[1];
+            write_attr_values_to_select(null, att_of_prod_id);
+        });
+        $('body').on('click', '#attributeofproduct_set-group tr.add-row > td > a', function () {
+            setTimeout(setEventAttributes, 50);
+        });
+    }
+
+    setEventAttributes();
+</script>
+<!--#endregion -->
+<!--#region OPTIONS -->
+<script>
+    $(`select[id^=id_optionofproduct_set-]select[id$=-option_fk]`).each(function () {
+        let option_of_prod_id = $(this).attr('id').match(/id_optionofproduct_set-([0-9]+)-option_fk/i);
+        if (option_of_prod_id !== null) {
+            let option_default_id = $(`#id_optionofproduct_set-${option_of_prod_id[1]}-option_value_fk option:selected`).val();
+            write_option_values_to_select(option_default_id, option_of_prod_id[1]);
+        }
+    });
+
+    function get_option_val_id_by_option_id(option_id) {
+        let option_values_id = [];
+        $.ajax({
+            async: false,
+            type: "GET",
+            data: {'option_id': option_id},
+            url: '{% url 'get_option_values_id_by_option_id_json' %}',
+            success: function (data) {
+                option_values_id = data;
+            }
+        });
+        return option_values_id;
+    }
+
+    function write_option_values_to_select(selected_value = null, option_of_prod_id = null) {
+        let option_id1 = document.querySelector(`#id_optionofproduct_set-${option_of_prod_id}-option_fk`);
+        let option_id = option_id1.options[option_id1.selectedIndex].value;
+
+        if (option_id == "") {
+            return;
+        }
+        let option_values = get_option_val_id_by_option_id(option_id);
+
+        let select_option_values = $(`#id_optionofproduct_set-${option_of_prod_id}-option_value_fk`);
+        select_option_values.find('option').remove();
+        select_option_values.append(new Option("---------", ""));
+        for (let option_value of option_values) {
+            if (parseInt(selected_value) === parseInt(option_value.id)) {
+                select_option_values.append(new Option(option_value.name, option_value.id, true, true));
+            } else {
+                select_option_values.append(new Option(option_value.name, option_value.id));
+            }
+        }
+        $(`#id_optionofproduct_set-${option_of_prod_id}-option_value_fk`).html(select_option_values.html());
+    }
+
+    function setEventOptions() {
+        $(`select[id^=id_optionofproduct_set-]select[id$=-option_fk]`).change(function () {
+            let option_of_prod_id = $(this).attr('id').match(/id_optionofproduct_set-([0-9]+)-option_fk/i)[1];
+            write_option_values_to_select(null, option_of_prod_id);
+        });
+        $('#optionofproduct_set-group tr.add-row > td > a').on('click', function () {
+            setTimeout(setEventOptions, 50);
+        });
+    }
+
+    setEventOptions();
+    console.log('new_admin_template')
+</script>
+<!--#endregion -->
+<!--#region CHECKOUT -->
+{#<script>#}
+{#    function get_option_of_product_by_product_id(product_id, selected_options = null) {#}
+{#        let option_of_products = [];#}
+{#        $.ajax({#}
+{#            async: false,#}
+{#            type: "GET",#}
+{#            data: {'product_id': product_id, 'option_ids[]': selected_options},#}
+{#            url: '{% url 'get_option_of_product_by_product_id' %}',#}
+{#            success: function (data) {#}
+{#                option_of_products = data;#}
+{#            }#}
+{#        });#}
+{#        return option_of_products;#}
+{#    }#}
+{##}
+{##}
+{#    function set_option_of_product(first = false, element = null) {#}
+{#        $('select[id ^= id_cartitem_set-]select[id $= -product_fk]').each((index, e) => {#}
+{#            if (first) {#}
+{#                let cart_item_selector_id = $(e).attr('id').match(/id_cartitem_set-([0-9]+)-product_fk/i);#}
+{#                if (cart_item_selector_id) {#}
+{#                    cart_item_selector_id = cart_item_selector_id[1];#}
+{#                    let first_selected = [];#}
+{#                    let product_id = $(e.selectedOptions[0]).val();#}
+{#                    let NEW_option_of_product_mtm = get_option_of_product_by_product_id(product_id);#}
+{#                    let SELECT_option_of_product_mtm = $('#id_cartitem_set-' + cart_item_selector_id + '-option_of_product_mtm');#}
+{#                    SELECT_option_of_product_mtm.find('option:selected').each((index, e) => {#}
+{#                        first_selected.push(parseInt($(e).val()));#}
+{#                    });#}
+{#                    SELECT_option_of_product_mtm.find('option').remove();#}
+{#                    for (let Noop of NEW_option_of_product_mtm) {#}
+{#                        let option = null;#}
+{#                        if (first_selected.indexOf(Noop.id) > -1) {#}
+{#                            option = new Option(Noop.option_build_name, Noop.id, true, true);#}
+{#                        } else {#}
+{#                            option = new Option(Noop.option_build_name, Noop.id);#}
+{#                        }#}
+{#                        option.setAttribute('data-option_id', Noop.option_id);#}
+{#                        option.setAttribute('data-option_value_id', Noop.option_value_id);#}
+{#                        SELECT_option_of_product_mtm.append(option);#}
+{#                    }#}
+{##}
+{#                    for (let Noop of NEW_option_of_product_mtm) {#}
+{#                        $('#id_cartitem_set-' + cart_item_selector_id + '-option_of_product_mtm option:not(:selected)[data-option_id ^= ' + Noop.option_id + ']').hide();#}
+{#                        if ($('#id_cartitem_set-' + cart_item_selector_id + '-option_of_product_mtm option:selected[data-option_id ^= ' + Noop.option_id + ']').length <= 0)#}
+{#                            $('#id_cartitem_set-' + cart_item_selector_id + '-option_of_product_mtm option:not(:selected):not(:visible)[data-option_id ^= ' + Noop.option_id + ']').show();#}
+{#                    }#}
+{#                }#}
+{##}
+{#            } else {#}
+{#                let cart_item_selector_id = $(element.target).attr('id').match(/id_cartitem_set-([0-9]+)-product_fk/i)[1];#}
+{#                let product_id = $(element.target.selectedOptions[0]).val();#}
+{#                let NEW_option_of_product_mtm = get_option_of_product_by_product_id(product_id);#}
+{##}
+{#                let SELECT_option_of_product_mtm = $('#id_cartitem_set-' + cart_item_selector_id + '-option_of_product_mtm');#}
+{#                SELECT_option_of_product_mtm.find('option').remove();#}
+{#                //SELECT_option_of_product_mtm.append(new Option("---------", ""));#}
+{#                for (let Noop of NEW_option_of_product_mtm) {#}
+{#                    let option = new Option(Noop.option_build_name, Noop.id);#}
+{#                    option.setAttribute('data-option_id', Noop.option_id);#}
+{#                    option.setAttribute('data-option_value_id', Noop.option_value_id);#}
+{#                    $('#id_cartitem_set-' + cart_item_selector_id + '-option_of_product_mtm').html(option);#}
+{#                }#}
+{#            }#}
+{#        });#}
+{#    }#}
+{##}
+{#    set_option_of_product(true);#}
+{##}
+{#    $("body").on('change', 'select[id ^= id_cartitem_set-]select[id $= -product_fk]', (e) => {#}
+{#        set_option_of_product(false, e);#}
+{#    });#}
+{##}
+{#    $("body").on('click', 'select[id ^= id_cartitem_set-]select[id $= -option_of_product_mtm] option', (e) => {#}
+{#        let cart_item_selector_id = $(e.target.parentNode).attr('id').match(/id_cartitem_set-([0-9]+)-option_of_product_mtm/i)[1];#}
+{#        let product_id = $("#id_cartitem_set-" + cart_item_selector_id + "-product_fk>option:selected").val();#}
+{#        let selected_options = [];#}
+{#        let NEW_option_of_product_mtm = get_option_of_product_by_product_id(product_id);#}
+{#        for (let Noop of NEW_option_of_product_mtm) {#}
+{#            $('#id_cartitem_set-' + cart_item_selector_id + '-option_of_product_mtm option:not(:selected)[data-option_id ^= ' + Noop.option_id + ']').hide();#}
+{#            if ($('#id_cartitem_set-' + cart_item_selector_id + '-option_of_product_mtm option:selected[data-option_id ^= ' + Noop.option_id + ']').length <= 0)#}
+{#                $('#id_cartitem_set-' + cart_item_selector_id + '-option_of_product_mtm option:not(:selected):not(:visible)[data-option_id ^= ' + Noop.option_id + ']').show();#}
+{#        }#}
+{#    });#}
+{#    $('body').on('click', '#cartitem_set-group .add-row a', function () {#}
+{#        console.log('asdasd');#}
+{#        setTimeout(function () {#}
+{#            set_option_of_product(true);#}
+{#        }, 1);#}
+{#    });#}
+{#</script>#}
+<!--#endregion -->
+</body>
+</html>

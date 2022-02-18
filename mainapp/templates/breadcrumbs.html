@@ -1,0 +1,19 @@
+{% load i18n %}
+<div class="breadcrumbs_block wrap_2">
+    <ol class="breadcrumbs_wrapper">
+        <li class="bc_item"><a href="{% url 'index' %}">{% trans "breadcrumb__home" %}</a></li>
+        {% block breadcrumbs %}
+            {% for bread in breadcrumbs %}
+                {% if forloop.last %}
+                    <li class="bc_item active">
+                        {{ bread.title }}
+                    </li>
+                {% else %}
+                    <li class="bc_item">
+                        <a href="{{ bread.link }}">{{ bread.title }}</a>
+                    </li>
+                {% endif %}
+            {% endfor %}
+        {% endblock %}
+    </ol>
+</div>

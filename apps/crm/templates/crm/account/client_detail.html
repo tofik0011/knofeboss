@@ -1,0 +1,9 @@
+{% extends 'crm/account/account.html' %}
+
+{% block body %}
+    {% block content %}
+        <a href="{% url 'crm__view__clients_list' %}">Back</a>
+        <p>{{ c.user_fk.first_name }} {{ c.user_fk.last_name }}</p>
+        <p>{{ c.user_fk.phone }}</p>
+    {% endblock content %}
+{% endblock body %}

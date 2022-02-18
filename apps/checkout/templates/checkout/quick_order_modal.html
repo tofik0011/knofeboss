@@ -1,0 +1,14 @@
+{% load i18n %}
+<div id="quick_order_modal" class="modal">
+    <div class="modal-content row">
+        <div class="col s12 title"> {% trans 'products__quick_order_title' %}</div>
+        <div class="col s12 m6"><input placeholder="{% trans 'account__first_name' %}" class="input_v1 js-name-input" type="text" data-product-id=""></div>
+        <div class="col s12 m6"> <input placeholder="{% trans 'phone' %}" class="input_v1 js-phone-input" type="text"></div>
+
+
+    </div>
+    <div class="modal-footer">
+        <a id="js-quick-order-submit" class="btn_v1" data-product-id="{{ product.id }}">{% trans 'submit' %}</a>
+        <a class="btn_flat modal-close btn_v2">{% trans 'close' %}</a>
+    </div>
+</div>

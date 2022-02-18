@@ -1,0 +1,84 @@
+{% extends "wrapper.html" %}
+{% load static %}
+{% load i18n %}
+{% load currency_tags %}
+{% load mainapp_tags %}
+{% load products_tags %}
+{% load thumbnail %}
+{% block title %}{{ category.seo_title }}{% endblock %}
+{% block description %}{{ category.seo_description }}{% endblock %}
+{% block body %}
+    {% if category.h1 != "" %}
+        <h1>{{ category.h1 }}</h1>
+    {% endif %}
+    min: {{ min_price }}
+    <br>
+    max: {{ max_price }}
+    <input id="category_id" hidden value="{{ category.id }}"/>
+    <div id="category" class="wrap_2 page__category">
+        {% if user.is_authenticated and user.is_staff %}
+            <a class="edit_object" href="/engine/products/category/{{ category.id }}/change/" target="_blank">
+                {% get_svg 'icons/i/edit.svg' as comparison_svg %}{{ comparison_svg|safe }}
+            </a>
+        {% endif %}
+        <div class="row">
+            <div class="col s12">
+                {% block breadcrumbs %}{% endblock %}
+                {% include "breadcrumbs.html" %}
+                {% block page_h1 %}
+                    <h1 class="category_name">{{ category }}</h1>
+                {% endblock %}
+            </div>
+            {% block left_menu %}
+                <div class="col s12 l4 xl3">
+                    {% include 'products/category_left_menu.html' %}
+                </div>
+            {% endblock %}
+            <div class="col s12 l8 xl9">
+                {% block search %}{% endblock %}
+                {% if category.image_banner != '' %}
+{#                                        <img  src="{{ category.image_banner.url }}">#}
+                    <picture>
+                        {% thumbnail category.image_banner "95x95" crop="center" quality=50 format="WEBP" as im %}
+                            <source srcset="{{ im.url }}" type="image/webp">
+                        {% endthumbnail %}
+                        {% thumbnail category.image_banner "95x95" crop="center" quality=50 format="JPEG" as im %}
+                            <source srcset="{{ im.url }}" type="image/jpeg">
+                            <img src="{{ im.url }}" width="{{ im.width }}" class="photo_banner_category" alt="">
+                        {% endthumbnail %}
+                    </picture>
+                {% endif %}
+                <div class="active_filters">
+                    <div id="js_active_filters_heading" class="min_heading">
+                        {% trans 'products__active_filters' %}
+                    </div>
+                    <div id="js_category_badges" class="filter_badges">
+                        {% include 'products/category_parts/badges.html' %}
+                    </div>
+                </div>
+                <div id="{% block id_content %}products{% endblock %}" class="row">
+                    {% include 'products/category_content_products.html' %}
+                </div>
+                <div class="content mt-4">
+                    {{ category.description|safe }}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block custom_varibles_js %}
+    <script>
+        {% if category.id %}
+            Object.assign(CONFIG_DATA.VALUES, {category_id: {{ category.id }}});
+        {% endif %}
+        Object.assign(CONFIG_DATA.VALUES, {
+            min_price: {% tag_convert_currency_price request min_price with_code=False %},
+            max_price: {% tag_convert_currency_price request max_price with_code=False %}
+        });
+        Object.assign(CONFIG_DATA.VALUES, {
+            category_min_price: {% tag_convert_currency_price request category_min_price with_code=False %},
+            category_max_price: {% tag_convert_currency_price request category_max_price with_code=False %}
+        });
+        Object.assign(CONFIG_DATA.VALUES, {category_page: {{ products_paginator.number }}});
+    </script>
+{% endblock %}

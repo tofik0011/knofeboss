@@ -1,0 +1,35 @@
+{% load fb_versions %}
+{% load mainapp_tags %}
+{% load thumbnail %}
+<div class="product_photos in_column">
+    <div class="photo">
+        <a data-fancybox="product_images" href="{% version product.image 'product_photo' %}" data-width="{{ product.image.width|filter_image_x2:2 }}"
+           data-height="{{ product.image.height|filter_image_x2:2 }}">
+{#            <img src="{{ product.image.url }}">#}
+            <picture>
+                {% thumbnail product.image '584x584' crop="center" quality=50 format="WEBP" as im %}
+                    <source srcset="{{ im.url }}" type="image/webp">
+                {% endthumbnail %}
+                {% thumbnail product.image '584x584' crop="center" quality=50 format="JPEG" as im %}
+                    <source srcset="{{ im.url }}" type="image/jpeg">
+                    <img src="{{ im.url }}" width="{{ im.width }}">
+                {% endthumbnail %}
+            </picture>
+        </a>
+    </div>
+    {% for image in product.images %}
+        <div class="photo">
+            <a data-fancybox="product_images" href="{% version image.image 'product_photo' %}" data-width="{{ image.image.width|filter_image_x2:2 }}"
+               data-height="{{ image.image.height|filter_image_x2:2 }}">
+{#                <img src="{{ image.image.url }}">#}
+                {% thumbnail image.image '90x130' crop="center" quality=90 format="WEBP" as im %}
+                    <source srcset="{{ im.url }}" type="image/webp">
+                {% endthumbnail %}
+                {% thumbnail image.image '90x130' crop="center" quality=90 format="JPEG" as im %}
+                    <source srcset="{{ im.url }}" type="image/jpeg">
+                    <img src="{{ im.url }}" width="{{ im.width }}" >
+                {% endthumbnail %}
+            </a>
+        </div>
+    {% endfor %}
+</div>

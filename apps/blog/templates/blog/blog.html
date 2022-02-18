@@ -1,0 +1,31 @@
+{% extends 'wrapper.html' %}
+{% load i18n %}
+{% load mainapp_tags %}
+{% block title %}{% tag_get_seo_data keyword='blog' as seo_data %}{{ seo_data.seo_title }}{% endblock %}
+{% block description %}{% tag_get_seo_data keyword='blog' as seo_data %}{{ seo_data.seo_description }}{% endblock %}
+{% block body %}
+       <div class="page__blog wrap_2">
+        {#        <h1>{% block blog_h1 %}{% trans 'blog__h1' %}{% endblock %}</h1>#}
+        <div class="categories_wrapper">
+            {% if categories %}
+                {#                <div class="categories_title">{% trans 'blog__categories_title' %}</div>#}
+                {% for cat in categories %}
+                    <div class="category">
+                        <a class="{% if cat.id == category.id %}active{% endif %}" href="{{ cat.get_absolute_url }}">
+                            <img src="{{ cat.image.url }}" alt="{{ cat.name }}">
+                            <div class="category_title">{{ cat.name }}</div>
+                        </a>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        </div>
+        <div class="articles_wrapper">
+            {% block articles %}
+                {% for article in articles %}
+                    {% include 'blog/article_min.html' %}
+                {% endfor %}
+            {% endblock %}
+        </div>
+        {% include 'mainapp/parts/pagination.html' with items=articles %}
+    </div>
+{% endblock %}

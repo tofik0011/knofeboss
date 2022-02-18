@@ -1,0 +1,23 @@
+{% extends 'wrapper.html' %}
+{% load account_tags %}
+{% load i18n %}
+{% block body %}
+    {% load mainapp_tags %}
+    {% load fb_versions %}
+    <div class="page__account wrap_2">
+        <div class="name_user">{{ request.user.first_name }} {{ request.user.last_name }}</div>
+        <div class="row">
+
+            <div class="col s12 l12">
+                {% block menu %}
+                    {% include 'account/parts/account_menu.html' %}
+                {% endblock %}
+            </div>
+            <div class="col s12 l12">
+                {% block content %}
+
+                {% endblock %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,76 @@
+{% load fb_versions %}
+{% load mainapp_tags %}
+{% load products_tags %}
+{% load currency_tags %}
+{% load thumbnail %}
+{#<div class="product_photos">#}
+{#    <div class="photo">#}
+{#        <a data-fancybox="product_images" href="{% version product.image 'product_photo' %}" data-width="{{ product.image.width|filter_image_x2:2 }}"#}
+{#           data-height="{{ product.image.height|filter_image_x2:2 }}">#}
+{#            <img src="{{ product.image.url }}">#}
+{#        </a>#}
+{#    </div>#}
+{#    {% for image in product.images %}#}
+{#        <div class="photo">#}
+{#            <a data-fancybox="product_images" href="{% version image.image 'product_photo' %}" data-width="{{ image.image.width|filter_image_x2:2 }}"#}
+{#               data-height="{{ image.image.height|filter_image_x2:2 }}">#}
+{#                <img src="{{ image.image.url }}">#}
+{#            </a>#}
+{#        </div>#}
+{#    {% endfor %}#}
+{#</div>#}
+
+<div class="product_photos default">
+    {% if price.discount_value %}
+        <div class="discount">
+            {% if price.discount_type == 'sum' %}-
+                {% tag_convert_currency_price request price.discount_value %}{% else %}
+                {{ price.discount_value }}{% endif %}
+        </div>
+    {% endif %}
+    <div class="main_carousel">
+        <div class="slide">
+            <a data-fancybox="gallery" class="product-images" href="{{ product.image.url }}">
+                {#                <img class="photo" src="{{ product.image.url }}">#}
+                <picture>
+                    {% thumbnail product.image '301x301' crop="center" quality=90 format="WEBP" as im %}
+                        <source srcset="{{ im.url }}" type="image/webp">
+                    {% endthumbnail %}
+                    {% thumbnail product.image '301x301' crop="center" quality=90 format="JPEG" as im %}
+                        <source srcset="{{ im.url }}" type="image/jpeg">
+                        <img src="{{ im.url }}" width="{{ im.width }}" class="photo">
+                    {% endthumbnail %}
+                </picture>
+            </a>
+        </div>
+        {% for image in product.images %}
+            <div class="slide">
+                <a data-fancybox="gallery" class="product-images" href="{{ image.image.url }}">
+                    {#                    <img class="photo" src="{{ image.image.url }}">#}
+                    {% thumbnail image.image '301x301' crop="center" quality=90 format="WEBP" as im %}
+                        <source srcset="{{ im.url }}" type="image/webp">
+                    {% endthumbnail %}
+                    {% thumbnail image.image '301x301' crop="center" quality=90 format="JPEG" as im %}
+                        <source srcset="{{ im.url }}" type="image/jpeg">
+                        <img src="{{ im.url }}" width="{{ im.width }}" class="photo">
+                    {% endthumbnail %}
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+    <div class="secondary_carousel">
+        {% thumbnail product.image '125x134' crop="center" quality=90 format="JPEG" as im %}
+            <img src="{{ im.url }}" width="{{ im.width }}" style="object-fit: cover;"
+                 class="featurette-image img-fluid mx-auto" data-holder-rendered="true">
+        {% endthumbnail %}
+        {% for image in product.images %}
+            {% thumbnail image.image '125x134' crop="center" quality=90 format="WEBP" as im %}
+            {% endthumbnail %}
+            {% thumbnail image.image '125x134' crop="center" quality=90 format="JPEG" as im %}
+                <img src="{{ im.url }}" width="{{ im.width }}" style="object-fit: cover;"
+                     class="featurette-image img-fluid mx-auto" data-holder-rendered="true">
+            {% endthumbnail %}
+        {% endfor %}
+    </div>
+
+</div>

@@ -1,0 +1,19 @@
+{% load i18n %}
+{% load mainapp_tags %}
+<div class="main_modal search_modal">
+    <div class="content search">
+{#        <a class="close_modal" href="#" onclick="$('.main_modal').hide();">#}
+{#            <img src="/media/icons/close.svg" alt="" height="30px" width="30px">#}
+{#        </a>#}
+{#        <div class="heading">#}
+{#            {% trans 'search_by_query_title' %}#}
+{#        </div>#}
+        <div class="search_input_wrapper">
+            <input class="input_v1" id="search_query" value="" placeholder="{% trans 'search_by_query_placeholder' %}" type="text">
+            <div class=" search_submit"><span class="search_submit_left_menu">{% get_svg 'icons/i/search.svg' as search_svg %} {{ search_svg|safe }}</span></div>
+        </div>
+{#        <div id="search_results">#}
+{##}
+{#        </div>#}
+    </div>
+</div>

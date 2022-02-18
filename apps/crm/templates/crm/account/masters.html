@@ -1,0 +1,14 @@
+{% extends 'crm/account/account.html' %}
+
+{% block body %}
+    {% block content %}
+         <a href="{% url 'crm' %}">Back</a>
+        <ul>
+            {% for c in masters %}
+                <li>
+                    <a href="{% url 'crm__view__master' user_id=c.user_fk.id %}">{{ c.user_fk.first_name }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% endblock content %}
+{% endblock body %}

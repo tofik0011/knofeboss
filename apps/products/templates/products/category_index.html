@@ -1,0 +1,14 @@
+
+{% load mainapp_tags %}
+{% load i18n %}
+
+    <div class="container page__catalog">
+        <h1 class="page__heading">{% trans 'products__catalog' %}</h1>
+        <div class="row">
+            {% for category in categories %}
+                <div class="col s12 m6 l4">
+                    {% include "products/category_min.html" %}
+                </div>
+            {% endfor %}
+        </div>
+    </div>

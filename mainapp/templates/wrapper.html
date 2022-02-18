@@ -1,0 +1,107 @@
+{% load static %}
+{% load i18n %}
+{% load mainapp_tags %}
+{% load currency_tags %}
+<!DOCTYPE html>
+<html lang="{{ LANGUAGE_CODE }}">
+<head>
+    <title>{% block title %}{% endblock %}</title>
+    <meta name="description" content="{% block description %}{% endblock %}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" href="/media/{% tag_get_favicon %}">
+    <style>
+        @font-face {
+            font-family: "FontAwesomeSolid";
+            src: url({% static 'fonts/fas.ttf' %});
+        }
+
+        @font-face {
+            font-family: "FontAwesome";
+            src: url({% static 'fonts/fa.ttf' %});
+        }
+
+        @font-face {
+            font-family: "Museo Sans Cyrl 100";
+            src: url("{% static '/fonts/museo/MuseoSansCyrl-100.woff2' %}") format("woff2");
+            font-style: normal;
+            font-weight: normal;
+        }
+
+        @font-face {
+            font-family: "Museo Sans Cyrl 300";
+            src: url("{% static '/fonts/museo/MuseoSansCyrl-300.woff2' %}") format("woff2");
+            font-style: normal;
+            font-weight: normal;
+        }
+
+        @font-face {
+            font-family: "Museo Sans Cyrl 500";
+            src: url("{% static '/fonts/museo/MuseoSansCyrl-500.woff2' %}") format("woff2");
+            font-style: normal;
+            font-weight: normal;
+        }
+
+        @font-face {
+            font-family: "Museo Sans Cyrl 700";
+            src: url("{% static '/fonts/museo/MuseoSansCyrl-700.woff2' %}") format("woff2");
+            font-style: normal;
+            font-weight: normal;
+        }
+
+        @font-face {
+            font-family: "Museo Sans Cyrl 900";
+            src: url("{% static '/fonts/museo/MuseoSansCyrl-900.woff2' %}") format("woff2");
+            font-style: normal;
+            font-weight: normal;
+        }
+
+        @font-face {
+            font-family: "Font Awesome 5 Free Solid";
+            src: url("{% static '/fonts/fas.ttf' %}") format("truetype");
+            font-style: normal;
+            font-weight: normal;
+        }
+        @font-face {
+            font-family: "SF Mono Medium";
+            src: url("{% static '/fonts/SFMONOMEDIUM.TTF' %}") format("truetype");
+            font-style: normal;
+            font-weight: normal;
+        }
+        @font-face {
+            font-family: "SFMono-Regular";
+            src: url("{% static '/fonts/SFMONOREGULAR.TTF' %}") format("truetype");
+            font-style: normal;
+            font-weight: normal;
+        }
+    </style>
+    {% tag_get_google_analytics as google %}
+    {{ google|safe }}
+    {% block head_custom_scripts %}{% endblock %}
+</head>
+
+<body>
+{% block header %}{% include "header.html" %}{% endblock %}
+{% tag_breadcrumbs request as breadcrumbs %}
+{% block breadcrumbs %}
+    {% if breadcrumbs %}
+        {% include "breadcrumbs.html" %}
+    {% endif %}
+{% endblock %}
+<div class="body">{% block body %}{% endblock %}</div>
+{% block footer %}
+    {% include 'footer.html' %}
+{% endblock %}
+
+{% include 'imports.html' %}
+{% include 'js_vars.html' %}
+
+{% block custom_varibles_js %}{% endblock %}
+<script src="{% static "js/materialize.min.js" %}" crossorigin="anonymous"></script>
+<script src="{% static 'js/script.js' %}"></script>
+{% block custom_scripts_js %}{% endblock %}
+</body>
+<div id="fountainG">
+    <div class="loader"></div>
+</div>
+</html>

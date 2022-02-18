@@ -1,0 +1,241 @@
+.page__account {
+  padding-top: 30px;
+}
+
+.page__login, .page__registration {
+  margin-top: 85px;
+
+  .btn_v1 {
+    border-radius: 5px;
+  }
+}
+
+.page__login, .page__registration, .page__password_reset {
+  .heading {
+    text-align: center;
+    font-size: 23px;
+    color: $text1;
+    line-height: 1.2em;
+    @media (min-width: 768px) {
+      font-size: 35px;
+    }
+  }
+
+  .tabs {
+    width: 100%;
+    display: flex;
+    margin-bottom: 20px;
+
+    a {
+      flex-basis: 50%;
+      padding: 15px;
+      color: $text3;
+      text-transform: uppercase;
+      font-size: $h5;
+      text-align: center;
+      transition: .1s;
+      font-weight: 500;
+      border-bottom: #ddd 1px solid;
+
+      &:hover {
+        background: #f7f7f7;
+      }
+
+      &.active {
+        color: $text1;
+        border-bottom: $c1 1px solid;
+        pointer-events: none;
+      }
+    }
+  }
+
+  .other_links {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  button[type=submit] {
+    width: 100%;
+  }
+
+  .col {
+    margin-top: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 400px;
+  }
+}
+
+.page__registration {
+  .col {
+    max-width: 600px;
+    margin-top: 0px;
+    @media (max-width: 600px) {
+      max-width: 400px;
+      padding: 0px 20px;
+    }
+    @media (max-width: 400px) {
+      padding: 0px 10px;
+    }
+  }
+
+  .success_message {
+    padding: 80px 10px 30px;
+
+    .circle {
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #ebebeb;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+
+      i {
+        color: green;
+        font-size: 50px;
+      }
+    }
+
+    .message {
+      font-size: 17px;
+      color: $text1;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+  }
+}
+
+.page__account {
+  #account_menu {
+    margin-bottom: 30px;
+
+    .menu_items {
+      padding: 10px 0;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+
+      .item {
+        color: $text3;
+        font-weight: 600;
+        font-size: 15px;
+        text-align: left;
+        transition: .1s;
+        padding: 8px 10px;
+        display: flex;
+        align-items: center;
+        //flex-basis: calc(100% / 5) !important;
+        white-space: nowrap;
+        margin-right: 15px;
+
+        i {
+          color: #ddd;
+          margin-right: 14px;
+          transition: .1s;
+        }
+
+        &:hover {
+          i {
+            color: darken($text3, 3%);
+          }
+        }
+
+        &.active {
+          i {
+            color: $c1;
+          }
+
+          pointer-events: none;
+          color: $text2;
+        }
+
+        @media (min-width: 993px) {
+          flex-basis: 100%!important;
+        }
+        @media (min-width: 576px) {
+          flex-basis: unset;
+        }
+      }
+    }
+  }
+
+  .cols_wrapper {
+
+    .content_page {
+      flex-basis: 100%;
+      @media (min-width: 992px) {
+        flex-basis: 65%;
+      }
+    }
+  }
+}
+
+.page__wishlist, .page__order_detail, .page__orders_history, .page__edit_profile, .page__account, .page__login, .page__registration, .page__password_reset, .page__delivery_address {
+  .page_heading {
+    margin-bottom: 30px;
+    font-size: 23px;
+    position: relative;
+    font-weight: 600;
+    line-height: 1.2;
+    padding-bottom: 10px;
+    @media (min-width: 768px) {
+      font-size: 29px;
+    }
+
+    &:before {
+      position: absolute;
+      content: "";
+      left: 0;
+      bottom: -8px;
+      background: $c1;
+      width: 30px;
+      height: 4px;
+    }
+  }
+
+  .min_heading {
+    font-weight: 700;
+    color: #c1c1c3;
+    font-size: 13px;
+  }
+}
+
+.page__edit_profile {
+  max-width: 400px;
+  margin: auto;
+}
+
+.page__edit_profile {
+  .success_message {
+    padding: 20px 10px;
+    text-align: center;
+    margin-bottom: 30px;
+
+    i {
+      color: green;
+      font-size: 37px;
+    }
+
+    .message {
+      color: $text1;
+      font-size: 21px;
+    }
+  }
+
+  #edit_profile_submit {
+    margin-top: 12px;
+  }
+
+  .min_heading {
+    font-size: 17px;
+    padding: 22px 0 0;
+    text-align: center;
+    color: $text3;
+  }
+}

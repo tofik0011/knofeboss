@@ -1,0 +1,53 @@
+{% load i18n %}
+{% load products_tags %}
+{% if products_paginator.paginator.num_pages > 1 %}
+
+    {% comment %}
+    {% if products_paginator.has_next %}
+        <a class="w-100 page-load-next" id="page_load_next" href="{% if products_paginator.has_next %}{{ request.path }}?page={{ products_paginator.next_page_number }}{% endif %}"><img
+                src="/media/icons/load-more.svg" alt="">{% trans 'products__load_more_btn' %}</a>
+    {% endif %}
+{% endcomment %}
+    <div class="pagination-block">
+        <nav aria-label="Page navigation example" id="pagination">
+            <ul class="pagination justify-content-center m-0">
+                {% if products_paginator.has_previous %}
+                    <li class="page_item {% if not products_paginator.has_previous %}disabled{% endif %}">
+                        <a class="page_link" href="{% if products_paginator.has_previous %}{{ request.path }}?page={{ products_paginator.previous_page_number }}{% endif %}">{% trans "prev" %}</a>
+                    </li>
+                {% endif %}
+                <li class="page_item {% if 1 == products_paginator.number %}active{% endif %}">
+                    <a class="page_link" href="{{ request.path }}?page=1">1</a>
+                </li>
+
+                {% if products_paginator.number > 2 %}
+                    <li class="page_item {% if products_paginator.number|filter_minus:1 == products_paginator.number %} active {% endif %}">
+                        <a class="page_link" href="{{ request.path }}?page={{ products_paginator.number|filter_minus:1 }}">{{ products_paginator.number|filter_minus:1 }}</a>
+                    </li>
+                {% endif %}
+
+                {% if products_paginator.number != 1 and products_paginator.number != products_paginator.paginator.num_pages %}
+                    <li class="page_item {% if products_paginator.number == products_paginator.number %} active {% endif %}">
+                        <a class="page_link" href="{{ request.path }}?page={{ products_paginator.number }}">{{ products_paginator.number }}</a>
+                    </li>
+                {% endif %}
+
+                {% if products_paginator.number < products_paginator.paginator.num_pages|filter_minus:1 %}
+                    <li class="page_item {% if products_paginator.number|filter_plus:1 == products_paginator.number %} active {% endif %}">
+                        <a class="page_link" href="{{ request.path }}?page={{ products_paginator.number|filter_plus:1 }}">{{ products_paginator.number|filter_plus:1 }}</a>
+                    </li>
+
+                {% endif %}
+                <li class="page_item {% if products_paginator.paginator.num_pages == products_paginator.number %} active {% endif %}">
+                    <a class="page_link" href="{{ request.path }}?page={{ products_paginator.paginator.num_pages }}">{{ products_paginator.paginator.num_pages }}</a>
+                </li>
+                {% if products_paginator.has_next %}
+                    <li class="page_item {% if not products_paginator.has_next %}disabled{% endif %}">
+                        <a class="page_link" href="{% if products_paginator.has_next %}{{ request.path }}?page={{ products_paginator.next_page_number }}{% endif %}">{% trans "next" %}</a>
+                    </li>
+                {% endif %}
+            </ul>
+        </nav>
+    </div>
+{% endif %}
+

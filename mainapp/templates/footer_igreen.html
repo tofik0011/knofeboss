@@ -1,0 +1,366 @@
+{% extends "wrapper.html" %}
+{% load i18n %}
+{% load static %}
+{% block footer %}
+
+    <div class="top_menu">
+        <div class="wrap_2">
+            <div class="top_menu_w">
+                <div class="categorys_main">
+                    <a href="#" class="category">Каталог</a>
+                    <a href="#" class="category">Структура компанії</a>
+                    <a href="#" class="category">Логістика</a>
+                    <a href="#" class="category">Співпраця</a>
+                    <a href="#" class="category">Ногеса</a>
+                    <a href="#" class="category">Про додаток</a>
+                    <a href="#" class="category">FAQ</a>
+                    <a href="#" class="category">Блог</a>
+                </div>
+                <div class="translate">
+                    <div class="currency display_translate">
+                        <div class="content">UAH</div>
+                        <div class="down_arrown">
+                            <img src="/media/icons/down_arrow.svg">
+                        </div>
+                    </div>
+                    <div class="language display_translate">
+                        <div class="content">Українська</div>
+                        <div>
+                            <img src="/media/icons/down_arrow.svg">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main_menu">
+        <div class="wrap_2">
+            <div class="menu_content">
+                <div class="logo">
+                    <img src="/media/icons/logo_menu.svg">
+                </div>
+                <div class="categories_menu">
+                    <a class="category" href="#">Розсада</a>
+                    <a class="category" href="#">Продукція для споживання</a>
+                    <a class="category" href="#">Мікрогрін</a>
+                    <a class="category" href="#">Гаджети</a>
+                    <a class="category" href="#">Розхідні матеріали</a>
+                </div>
+                <div class="icons_menu">
+                    <a href="#"><img src="/media/icons/search_icons.svg"></a>
+                    <a href="#"><img src="/media/icons/private_office_icons.svg"></a>
+{#                    <a href="#"><img src="/media/icons/preferences_icons.svg"></a>#}
+                    <a href="#"><img src="/media/icons/checkout_icons.svg"></a>
+                    <span>2</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% block banner %}
+        <div class="banner_igreen">
+            <img src="/media/design/banner_igreen_2.jpg">
+            <div class="content_baner">
+                <div class="text_banner">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec netus luctus tristique elit elementum
+                </div>
+                <div class="button_banner">
+                    <a class="button" href="#">Перейти в каталог</a>
+                </div>
+            </div>
+        </div>
+    {% endblock %}
+    {% block reasons %}
+        <div class="wrap_2">
+            <div class="reasons">
+                <div class="image"><img src="/media/design/reason.png" alt=""></div>
+                <div class="reasons_list">
+                    <div class="reason">
+                        <img src="/media/design/reason1.png" alt="">
+                        <div class="block_content">
+                            <div class="title">Причина 1</div>
+                            <div class="description">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas commodo duis in fringilla massa viverra vestibulum. Etiam fermentum nulla mauris tincidunt morbi.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="reason">
+                        <img src="/media/design/reason1.png" alt="">
+                        <div class="block_content">
+                            <div class="title">Причина 1</div>
+                            <div class="description">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas commodo duis in fringilla massa viverra vestibulum. Etiam fermentum nulla mauris tincidunt morbi.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="reason">
+                        <img src="/media/design/reason1.png" alt="">
+                        <div class="block_content">
+                            <div class="title">Причина 1</div>
+                            <div class="description">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas commodo duis in fringilla massa viverra vestibulum. Etiam fermentum nulla mauris tincidunt morbi.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="reason">
+                        <img src="/media/design/reason1.png" alt="">
+                        <div class="block_content">
+                            <div class="title">Причина 1</div>
+                            <div class="description">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas commodo duis in fringilla massa viverra vestibulum. Etiam fermentum nulla mauris tincidunt morbi.
+                            </div>
+                        </div>
+                    </div>
+                    <a class="button" href="#">Стати нашим партнером</a>
+                </div>
+            </div>
+        </div>
+    {% endblock %}
+    {% block categories_main_page %}
+        <div class="categories_main_page">
+            <div class="wrap_2">
+                <div class="title">
+                    Категорії
+                </div>
+                <div class="categories_list">
+                    {% for foo in "x"|rjust:"6" %}
+                        <div class="category">
+                            <img src="/media/category/category{{ forloop.counter }}.png" alt="">
+                            <div class="text">
+                                Продукція для споживання
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    {% endblock %}
+    {% block text_blocks_main_page %}
+        <div class="text_blocks_main_page">
+            <div class="title">Lorem ipsum dolor</div>
+            <div class="row_block">
+                <div class="wrap_2">
+                    <div class="block text_left">
+                        <div class="block_text text_left">
+                            <div class="title">Lorem ipsum dolor</div>
+                            <div class="text">
+                                <p>
+                                    Lorem ipsum dolor sit amet, id fuisset percipit vix, labitur salutandi ea vis. Vix ut
+                                    eius solum, at habemus accusam hendrerit pri. Ut per primis facilisi nominati, at
+                                    labores offendit quaerendum his, id offendit erroribus usu. Sea modo interpretaris ei,
+                                    cu eam eius paulo. Eam omnium conceptam at, tacimates adversarium vituperatoribus
+                                    ut quo, euripidis gloriatur persequeris no mel. Qui tincidunt consequuntur id, duo ne
+                                    quem dicat mollis.
+                                </p>
+                                <p>
+                                    Sed at zril nemore sententiae, ea modo dicat summo vis. Qui nonumy prodesset ea. Cu
+                                    harum quaestio iudicabit usu, in ceteros offendit vim. Wisi democritum in est. Nisl
+                                    rebum nam ad.
+                                </p>
+                                <p>
+                                    Ipsum decore causae pri at, sit ex etiam sonet. In docendi dolores democritum his,
+                                    ignota reprimique interpretaris an vel. Falli persequeris quo ex, liber elaboraret
+                                    usu et, aeterno civibus nominati eu mea. Ei mel sumo electram. Ut vide falli molestiae
+                                    eam, vide iusto principes ea nec.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="image"><img src="/media/design/text_block_1.png" alt=""/></div>
+                    </div>
+                </div>
+            </div>
+            <div class="row_block">
+                <div class="wrap_2">
+                    <div class="block text_right">
+                        <div class="block_text">
+                            <div class="title">Lorem ipsum dolor</div>
+                            <div class="text">
+                                <p>
+                                    Lorem ipsum dolor sit amet, id fuisset percipit vix, labitur salutandi ea vis. Vix ut
+                                    eius solum, at habemus accusam hendrerit pri. Ut per primis facilisi nominati, at
+                                    labores offendit quaerendum his, id offendit erroribus usu. Sea modo interpretaris ei,
+                                    cu eam eius paulo. Eam omnium conceptam at, tacimates adversarium vituperatoribus
+                                    ut quo, euripidis gloriatur persequeris no mel. Qui tincidunt consequuntur id, duo ne
+                                    quem dicat mollis.
+                                </p>
+                                <p>
+                                    Sed at zril nemore sententiae, ea modo dicat summo vis. Qui nonumy prodesset ea. Cu
+                                    harum quaestio iudicabit usu, in ceteros offendit vim. Wisi democritum in est. Nisl
+                                    rebum nam ad.
+                                </p>
+                                <p>
+                                    Ipsum decore causae pri at, sit ex etiam sonet. In docendi dolores democritum his,
+                                    ignota reprimique interpretaris an vel. Falli persequeris quo ex, liber elaboraret
+                                    usu et, aeterno civibus nominati eu mea. Ei mel sumo electram. Ut vide falli molestiae
+                                    eam, vide iusto principes ea nec.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="image"><img src="/media/design/text_block_1.png" alt=""/></div>
+                    </div>
+                </div>
+            </div>
+            <div class="row_block">
+                <div class="wrap_2">
+                    <div class="block text_left">
+                        <div class="block_text">
+                            <div class="title">Lorem ipsum dolor</div>
+                            <div class="text">
+                                <p>
+                                    Lorem ipsum dolor sit amet, id fuisset percipit vix, labitur salutandi ea vis. Vix ut
+                                    eius solum, at habemus accusam hendrerit pri. Ut per primis facilisi nominati, at
+                                    labores offendit quaerendum his, id offendit erroribus usu. Sea modo interpretaris ei,
+                                    cu eam eius paulo. Eam omnium conceptam at, tacimates adversarium vituperatoribus
+                                    ut quo, euripidis gloriatur persequeris no mel. Qui tincidunt consequuntur id, duo ne
+                                    quem dicat mollis.
+                                </p>
+                                <p>
+                                    Sed at zril nemore sententiae, ea modo dicat summo vis. Qui nonumy prodesset ea. Cu
+                                    harum quaestio iudicabit usu, in ceteros offendit vim. Wisi democritum in est. Nisl
+                                    rebum nam ad.
+                                </p>
+                                <p>
+                                    Ipsum decore causae pri at, sit ex etiam sonet. In docendi dolores democritum his,
+                                    ignota reprimique interpretaris an vel. Falli persequeris quo ex, liber elaboraret
+                                    usu et, aeterno civibus nominati eu mea. Ei mel sumo electram. Ut vide falli molestiae
+                                    eam, vide iusto principes ea nec.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="image"><img src="/media/design/text_block_1.png" alt=""/></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endblock %}
+
+    <div class="feedback_form">
+        <div class="content_feedback_form">
+            <div class="title_feedback_form">
+                <p class="text_feedback_title">З’явились питання?</p>
+                <p class="text_feedback_subtitle">Залишіть ваші контакти та ми
+                    з вами зв’яжемось</p>
+            </div>
+            <div class="content_feedback">
+                <div class="content_form ">
+                    <div class="input_content">
+                        <p>Ім'я</p>
+                        <input type="number" placeholder="Ім'я" class="input_feedback browser-default">
+                    </div>
+                    <div class="input_content">
+                        <p>Телефон</p>
+                        <input type="email" placeholder="Телефон" class="input_feedback browser-default">
+                    </div>
+                    <div class="input_content">
+                        <p>Email</p>
+                        <input type="text" placeholder="Email" class="input_feedback browser-default">
+                    </div>
+                </div>
+                <div class="content_form content_form_margin">
+                    <div class="input_content">
+                        <p>Місто</p>
+                        <input type="text" placeholder="Місто" class="input_feedback browser-default">
+                    </div>
+                    <div class="input_content">
+                        <p>Виберыть сегмент:</p>
+                        <input list="segment" type="text" placeholder="Місто" class="input_feedback browser-default">
+                        <datalist id="segment">
+                            <option value="Текст1">
+                            <option value="Текст2">
+                        </datalist>
+                    </div>
+
+                    <p>Яка продукція Вас цікавить?</p>
+                    <div class="input_content">
+                        <div class="radio_input">
+                            <div class="col_left_radio_input">
+                                <p>
+                                    <label>
+                                        <input name="product" type="radio" value="seedling" checked="checked"
+                                               class="with-gap">
+                                        <span>Резсада</span>
+                                    </label>
+                                </p>
+                                <p>
+                                    <label>
+                                        <input name="product" type="radio" value="vegetables" class="with-gap">
+                                        <span>Овочі</span>
+                                    </label>
+                                </p>
+                                <p>
+                                    <label>
+                                        <input name="product" type="radio" value="Microgreen" class="with-gap">
+                                        <span>Мікрогрін</span>
+                                    </label>
+                                </p>
+                            </div>
+                            <div class="col_right_radio_input">
+                                <p>
+                                    <label>
+                                        <input name="product" type="radio" value="salads_and_herbs" class="with-gap">
+                                        <span>Салати та пряні трави</span>
+                                    </label>
+                                </p>
+                                <p>
+                                    <label>
+                                        <input name="product" type="radio" value="edible_flowers" class="with-gap">
+                                        <span>Їстівні квіти</span>
+                                    </label>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="button_feedbback">
+                <button type="submit" class="button_submit_feedback"> Надіслати</button>
+            </div>
+        </div>
+        <div class="img_feedback_form">
+            <img src="/media/design/feedback_img.svg">
+        </div>
+    </div>
+    <footer id="footer_igreen">
+        <div id="content_footer">
+            <div class="icon_igren">
+                <img src="/media/icons/icon_igreen.svg">
+            </div>
+            <div class="content_flex">
+                <div class="li_content">
+                    <div class="icon_content_footer">
+                        <img src="/media/icons/phone_icon.svg">
+                    </div>
+                    <ul>
+                        {#                        <li>Телефон:</li>#}
+                        <li class="bold_li">+38 (096) 123 12 12</li>
+                    </ul>
+                </div>
+                <div class="li_content">
+                    <div class="icon_content_footer">
+                        <img src="/media/icons/e-mail_icon.svg">
+                    </div>
+                    <ul>
+                        {#                        <li>Email:</li>#}
+                        <li class="bold_li">Loremipsum@gmail.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="socials_network">
+                <div class="footer_icon_social_network">
+                    <div class="icon_social_network">
+                        <img src="/media/icons/instagram_icon.svg">
+                    </div>
+                    <div class="icon_social_network">
+                        <img src="/media/icons/facebook_icon.svg" class="facebook">
+                    </div>
+                    <div class="icon_social_network">
+                        <img src="/media/icons/youtube_icon.svg">
+                    </div>
+                </div>
+                <div>
+                    <a class="golden_web">Розробка сайту: Golden Web Digital</a>
+                </div>
+            </div>
+        </div>
+        <div class="green_bottom"></div>
+    </footer>
+{% endblock %}

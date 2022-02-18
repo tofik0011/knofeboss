@@ -1,0 +1,48 @@
+.notification {
+  position: fixed;
+  text-align: center;
+  top: -100px;
+  background: #fff;
+  width: 100%;
+  z-index: 2000;
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow: 1px 4px 9px 3px #0000001f;
+  border-radius: 10px;
+  max-width: 100%;
+  @media (min-width: 992px) {
+    width: auto;
+  }
+  .wrapper {
+        padding: 25px 20px 20px;
+    display: flex;
+    align-items: center;
+    .content {
+      flex-basis: 100%;
+      .heading {
+        font-size: 19px;
+        color: $text1;
+        margin-bottom: 14px;
+        font-family: 'Museo Sans Cyrl 500', Serif;
+        line-height: 1.2em;
+      }
+      .buttons {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        a {
+          @media (max-width: 575px) {
+            width: 100%;
+          }
+          font-size: 15px;
+          padding: 8px 18px;
+          border-radius: 50px;
+          line-height: 1.2em;
+          font-family: 'Museo Sans Cyrl 700', Serif;
+          margin: 4px 10px;
+        }
+      }
+    }
+  }
+
+}

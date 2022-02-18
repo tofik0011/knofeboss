@@ -1,0 +1,18 @@
+{% load i18n %}
+{% load fb_versions %}
+{% load banner_tags %}
+{% load thumbnail %}
+{% tag_get_banner keyword as banner %}
+
+<a href="{{ banner.button_link }}" class="simple_banner">
+    <picture>
+        {% thumbnail banner.image '1920x600' format="WEBP" crop='center' quality=90 as im %}
+            <source class="photo_background" srcset="{{ im.url }}" type="image/webp">
+        {% endthumbnail %}
+        {% thumbnail banner.image '1920x600' format="JPEG" crop='center' quality=90 as im %}
+            <source class="photo_background" srcset="{{ im.url }}" type="image/jpeg">
+            <img src="{{ im.url }}" alt="">
+        {% endthumbnail %}
+    </picture>
+{#    <img src="{% thumbnail banner.image '1920x600' crop='center' %}" alt="">#}
+</a>

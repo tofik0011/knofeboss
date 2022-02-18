@@ -1,0 +1,45 @@
+{% extends 'wrapper.html' %}
+{% load mainapp_tags %}
+{% block title %}{{ article.seo_title }}{% endblock %}
+{% block description %}{{ article.seo_description }}{% endblock %}
+{% block body %}
+    {% load i18n %}
+    {% load blog_tags %}
+    {% load mainapp_tags %}
+    {% load thumbnail %}
+    {% call_method article 'get_last_articles' limit=6 current_article_id=article.id as articles %}
+    <div class="page__article wrap_2 page__article_v2">
+        <div class="cols_wrapper">
+            <div class="article_body">
+                <h1 class="title">{{ article.name }}</h1>
+                <div class="content">{{ article.description|safe }}</div>
+            </div>
+{#            <div class="article_thumbnail">#}
+{#                <img src="{{ article.image.url }}" alt="">#}
+{#                <picture>#}
+{#                    {% thumbnail article.image "95x95" crop="center" quality=50 format="WEBP" as im %}#}
+{#                        <source srcset="{{ im.url }}" type="image/webp">#}
+{#                    {% endthumbnail %}#}
+{#                    {% thumbnail article.image "95x95" crop="center" quality=50 format="JPEG" as im %}#}
+{#                        <source srcset="{{ im.url }}" type="image/jpeg">#}
+{#                        <img src="{{ im.url }}" width="{{ im.width }}" alt="">#}
+{#                    {% endthumbnail %}#}
+{#                </picture>#}
+{#            </div>#}
+        </div>
+          <div class="other_articles other_articles_v2">
+            <div class="min_heading">  {% trans 'blog__other_articles' %} </div>
+          <hr class="hr_blog">
+            <div class="articles_wrapper">
+                {% for article in articles %}
+                    {% include 'blog/article_min_v2.html' %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    {% if user.is_authenticated and user.is_staff %}
+        <a class="edit_object" href="/engine/blog/article/{{ article.id }}/change/" target="_blank">
+            {% get_svg 'icons/i/edit.svg' as comparison_svg %}{{ comparison_svg|safe }}
+        </a>
+    {% endif %}
+{% endblock %}

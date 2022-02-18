@@ -1,0 +1,57 @@
+#footer {
+  margin-top: 80px;
+
+  .top {
+
+  }
+
+  .bottom {
+    background: $c1;
+    text-align: center;
+    padding: 12px;
+
+    .links {
+      a {
+        font-size: 17px;
+        color: #fff;
+        font-family: 'Museo Sans Cyrl 700', Serif;
+        margin-right: 20px;
+        white-space: nowrap;
+
+        &:not(:last-child) {
+
+        }
+      }
+    }
+
+    div {
+      display: inline-block;
+    }
+
+    .copyright {
+      white-space: nowrap;
+      opacity: .8;
+      color: #fff;
+    }
+  }
+
+}
+
+#up {
+  position: fixed;
+  bottom: 40px;
+  right: 30px;
+  height: 50px;
+  width: 50px;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  display: flex;
+  background: $c1;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: .2s;
+  &:hover {
+    background: darken($c1, 5%);
+  }
+}

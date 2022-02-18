@@ -1,0 +1,10 @@
+{% extends 'products/category.html' %}
+{% load i18n %}
+{% load mainapp_tags %}
+{% block page_h1 %}<h1 class="page__heading">{% trans 'products__search' %}</h1>{% endblock %}
+{% block search %}
+    <div class="section_heading search_heading">
+        <input type="text" id="search_in_search_page_input" class="input_v1" value="{{ query }}" placeholder="{% trans 'search_placeholder' %}">
+        <span class="search_submit_left_menu" id="search_in_search_page">{% get_svg 'icons/i/search.svg' as search_svg %} {{ search_svg|safe }}</span>
+    </div>
+{% endblock %}

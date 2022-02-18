@@ -1,0 +1,105 @@
+{% load i18n %}
+{% load fb_versions %}
+<style>
+    .items-table td {
+        border: none;
+    }
+
+    .items-table tr:nth-child(2n) {
+        background: #f4f4f4;
+    }
+
+</style>
+<div style="font-family: 'Montserrat', serif;" id="email">
+    <div style="width: 600px;margin: auto;" class="wrapper">
+        <div class="header">
+            <div style="color: #222;font-size: 24px;font-weight: 500;" class="title">{% if order.is_one_click == True %}{% trans 'one_click_order' %}{% else %}{% trans 'order' %}{% endif %} #{{ order.number }}</div>
+            <div style=" color: #999;margin-bottom: 20px;" class="sub-title">
+                <div class="order-date">{{ order.date }}</div>
+            </div>
+        </div>
+        <div class="body">
+            <table style="width: 100%;border: none;border-collapse: collapse;" class="items-table">
+                <thead>
+                <tr style="background: #ebebeb;">
+                    <td style="padding: 15px 25px;color: #666;font-size: 14px;text-align: center;">
+                        {% trans 'products__product' %}
+                    </td>
+                    <td style="padding: 15px 25px;color: #666;font-size: 14px;text-align: center;">
+                        {% trans 'products__product_code' %}
+                    </td>
+                    <td style="padding: 15px 25px;color: #666;font-size: 14px;text-align: center;">
+                        {% trans 'checkout__qty' %}
+                    </td>
+                    <td style="padding: 15px 25px;color: #666;font-size: 14px;text-align: center;">
+                        {% trans 'checkout__price' %}
+                    </td>
+                </tr>
+                </thead>
+                <tbody>
+                {% for item in items %}
+                    <tr>
+                        <td style="text-align: center;padding: 10px 15px">
+                            <img class="thumbnail" style="width: 150px;" src="{{ item.image }}" alt="">
+                            <span style="display: block; margin-top: 10px;" class="product-name">{{ item.name }}</span>
+                            <span style="display: block;font-size: 14px;color: #999;" class="product-option">{{ item.size.option_name }} {{ item.size.option_value_name }}</span>
+                        </td>
+                        <td style="text-align: center;padding: 10px 15px">
+                            <span class="code">{{ item.code }}</span>
+                        </td>
+                        <td style="text-align: center;padding: 10px 15px"><span class="qty">{{ item.qty }}</span></td>
+                        <td style="text-align: center;padding: 10px 15px">
+                            <span style="font-size: 12px;color: #999;display: block;" class="single-price">{{ item.single_price }} x{{ item.qty }}</span>
+                            <span style="font-weight: 500;color: #222;" class="total-price">{{ item.total_price }}</span>
+                        </td>
+                    </tr>
+                {% endfor %}
+                <tr style="background: #ebebeb;">
+                    <td style="padding: 15px 25px;text-align: left" colspan="3">
+                        <span>{% trans 'checkout__total_price' %}</span>
+                    </td>
+                    <td style="padding: 15px 25px;">
+                        <b>{{ order.total_price }}</b>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <table style="margin-top: 20px;padding: 15px;width: 100%;border-collapse: collapse;" class="order-details">
+                <tbody>
+                <tr>
+                    <td style=" background: #f9f9f9;
+        padding: 8px 10px;">{% trans 'checkout__recipient' %}</td>
+                    <td style=" background: #f2f2f2;
+        padding: 8px 10px;">{{ customer.first_name }} {{ customer.last_name }}</td>
+                </tr>
+                {% if order.delivery_type %}
+                <tr>
+                    <td style=" background: #f9f9f9;
+        padding: 8px 10px;">{% trans 'checkout__delivery_type' %}</td>
+                    <td style=" background: #f2f2f2;
+        padding: 8px 10px;">{{ order.delivery_type }}</td>
+                </tr>
+                {% endif %}
+                {% if order.delivery_address %}
+                <tr>
+                    <td style=" background: #f9f9f9;
+        padding: 8px 10px;">{% trans 'checkout__delivery_address' %}</td>
+                    <td style=" background: #f2f2f2;
+        padding: 8px 10px;">{{ order.delivery_address }}</td>
+                </tr>
+                {% endif %}
+                {% if order.payment_type %}
+                <tr>
+                    <td style=" background: #f9f9f9;
+        padding: 8px 10px;">{% trans 'checkout__payment_type' %}</td>
+                    <td style="background: #f2f2f2;
+        padding: 8px 10px;">{{ order.payment_type }}</td>
+                </tr>
+                {% endif %}
+                </tbody>
+            </table>
+        </div>
+        <div class="footer"></div>
+    </div>
+
+</div>

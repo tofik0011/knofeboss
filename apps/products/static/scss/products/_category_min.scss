@@ -1,0 +1,26 @@
+.category_min {
+  .category_img {
+    text-align: center;
+    img {
+      width: 100%;
+      overflow: hidden;
+      max-width: 75vw;
+      margin: auto;
+      object-fit: cover;
+    }
+  }
+  .category_description {
+    padding: 8px 10px;
+    .category_name {
+      text-align: center;
+      color: $text1;
+      font-weight: 600;
+      font-size: 19px;
+      line-height: 1.2em;
+      font-family: 'Museo Sans Cyrl 700', Serif;
+    }
+  }
+  &:hover {
+    text-decoration: none;
+  }
+}

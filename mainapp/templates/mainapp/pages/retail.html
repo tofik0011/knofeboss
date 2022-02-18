@@ -1,0 +1,45 @@
+{% extends "wrapper.html" %}
+{% load static %}
+{% load i18n %}
+{% load thumbnail %}
+{% load mainapp_tags %}
+{% block title %}{% tag_get_seo_data keyword='contacts' as seo_data %}{{ seo_data.seo_title }}{% endblock %}
+{% block description %}{% tag_get_seo_data keyword='contacts' as seo_data %}{{ seo_data.seo_description }}{% endblock %}
+{% block body %}
+    <div class="page__retail wrap_2">
+        <div class="page_heading">
+            {% trans 'retail__page_heading' %}
+        </div>
+        <div class="cols_wrapper">
+            <div class="region_list">
+                {% tag_get_text_content keyword='retail_districts' as tc %}
+                {{ tc.text|safe }}
+            </div>
+            <div class="map">
+{#                <img src="/media/design/map.png" alt="">#}
+                {% thumbnail "/media/design/map.png"|media_url:request "600" crop="center" quality=80 format="WEBP" as im %}
+                    <source srcset="{{ im.url }}" type="image/webp">
+                {% endthumbnail %}
+                {% thumbnail "/media/design/map.png"|media_url:request "600" crop="center" quality=80 format="JPEG" as im %}
+                    <source srcset="{{ im.url }}" type="image/jpeg">
+                    <img src="{{ im.url }}" alt="">
+                {% endthumbnail %}
+                <div class="contacts">
+
+                    {% if data.website %}
+                        <div class="stroke website">{% get_svg 'icons/www.svg' as www_svg %}{{ www_svg|safe }}<span>{{ data.website }}</span></div>
+                    {% endif %}
+                    {% if data.phone %}
+                        <div class="stroke phone">{% get_svg 'icons/phone.svg' as phone_svg %}{{ phone_svg|safe }}<span>{{ data.phone }}</span></div>
+                    {% endif %}
+                    {% if data.email %}
+                        <div class="stroke email">{% get_svg 'icons/mail.svg' as mail_svg %}{{ mail_svg|safe }}<span>{{ data.email }}</span></div>
+                    {% endif %}
+                    {% if data.address %}
+                        <div class="stroke address">{% get_svg 'icons/i/gps.svg' as gps_svg %}{{ gps_svg|safe }}<span>{{ data.address }}</span></div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

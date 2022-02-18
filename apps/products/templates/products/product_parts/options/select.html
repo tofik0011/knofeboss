@@ -1,0 +1,17 @@
+{% load i18n %}
+<div class="options">
+    {% for option in product.options %}
+        <div class="option">
+            <label for="option-{{ option.option_pk }}" data-product-id="{{ product.id }}" data-option-id="{{ option.option_pk }}" class="option-title">
+                {{ option.option_name }}{% if option.is_required %}*{% endif %}</label>
+            <select class="form-control option-values" name="option-{{ option.option_pk }}" id="option-{{ option.option_pk }}" data-product-id="{{ product.id }}"
+                    data-option-id="{{ option.option_pk }}">
+                <option value="-1">{% trans 'not_selected' %}</option>
+                {% for value in option.values %}
+                    <option data-product-id="{{ product.id }}" data-value-id="{{ value.option_value_pk }}" data-option-id="{{ option.option_pk }}"
+                    >{{ value.option_value_name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+    {% endfor %}
+</div>

@@ -1,0 +1,70 @@
+{% load i18n %}
+{% load currency_tags %}
+{% load mainapp_tags %}
+{% load thumbnail %}
+<div class="product_info">
+    <div class="product_name">{{ product }}</div>
+    <div class="price_data">
+        <div class="current_price {% if price.discount_value %}discounted{% endif %}">{% tag_convert_currency_price request price.current_price %}</div>
+        {% if price.discount_value %}
+            <div class="stable_price">{% tag_convert_currency_price request price.stable_price with_code=False %}</div>
+        {% endif %}
+    </div>
+    {% comment %}
+    <div class="product_rating">
+                <span class="stars">
+                    {% for i in "x"|rjust:5 %}
+                        <i class="material-icons {% if product.rating >= forloop.counter %}active{% endif %}">star</i>
+                    {% endfor %}
+                </span>
+        <a class="reviews_count">
+            {% trans 'products__of_reviews' %}: {{ product.get_reviews.paginator.count }}
+        </a>
+    </div>
+    {% endcomment %}
+    <div class="similar_products">
+        {% for p in product.similar_products %}
+            <a href="{{ p.get_absolute_url }}">
+                <picture>
+                    {% thumbnail p.image '90x130' crop="center"  format="WEBP" as im %}
+                        <source srcset="{{ im.url }}" type="image/webp">
+                    {% endthumbnail %}
+                    {% thumbnail p.image '90x130' crop="center" format="JPEG" as im %}
+                        <source srcset="{{ im.url }}" type="image/jpeg">
+                        <img src="{{ im.url }}" alt="" width="{{ im.width }}">
+                    {% endthumbnail %}
+                </picture>
+            </a>
+        {% endfor %}
+    </div>
+    {% include 'products/product_parts/options/badges.html' %}
+
+    <div class="buttons_bar">
+        {% if product.qty > 0 %}
+            <a data-product-id="{{ product.id }}" class="js-add-to-cart add_to_cart btn_v1"><i class="material-icons">add</i>{% trans 'products__add_to_cart' %}</a>
+        {% else %}
+            <a data-product-id="{{ product.id }}" disabled class="js-add-to-cart btn_v1">{% trans 'products__not_in_stock' %}</a>
+        {% endif %}
+
+        <a class="js-quick-order quick_order btn_v2" data-product-id="{{ product.id }}"><i class="material-icons">check</i>{% trans 'products__quick_order_btn' %}</a>
+{#        <a class="js-toggle-wishlist toggle_wishlist btn_v2 {% if product_status.in_wishlist %}active{% endif %}" data-product-id="{{ product.id }}"><i#}
+{#                class="material-icons">favorite_border</i>{% trans 'add_to_wishlist' %}</a>#}
+
+{#        <a href="#" class="btn_v2 add_to_comparison {% if product_status.in_comparison %}active{% endif %}" data-product-id="{{ product.id }}">#}
+{#            <i class="material-icons">compare_arrows</i>{% trans 'toggle' %}</a>#}
+
+    </div>
+
+{#    <table class="additional_info">#}
+{#        {% if product.article %}#}
+{#            <tr>#}
+{#                <td>{% trans 'products__article' %}</td>#}
+{#                <td>{{ product.article }}</td>#}
+{#            </tr>#}
+{#        {% endif %}#}
+{#        <tr>#}
+{#            <td>{% trans 'products__category' %}</td>#}
+{#            <td><a href="{{ product.category_fk.get_absolute_url }}">{{ product.category_fk }}</a></td>#}
+{#        </tr>#}
+{#    </table>#}
+</div>

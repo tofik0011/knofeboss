@@ -1,0 +1,130 @@
+{% extends "wrapper.html" %}
+{% load static %}
+{% load products_tags %}
+{% load mainapp_tags %}
+{% load i18n %}
+{% block title %}{% tag_get_seo_data keyword='mainpage' as seo_data %}{{ seo_data.seo_title }}{% endblock %}
+{% block description %}{% tag_get_seo_data keyword='mainpage' as seo_data %}{{ seo_data.seo_description }}{% endblock %}
+{% load thumbnail %}
+{% block body %}
+    {% load testimonials_tags %}
+    {% load blog_tags %}
+
+    {% tag_get_text_content keyword='mainpage_h1' as mainpage_h1 %}
+
+
+
+
+    {#    {% if user.is_authenticated %}#}
+    {#        <div class="authenticated_block authenticated">#}
+    {#            <p>Logged as {{ user.username }}</p>#}
+    {#            <a class="btn btn-primary" href="{% url 'logout' %}">Logout</a>#}
+    {#        </div>#}
+    {#    {% else %}#}
+    {#        <div class="authenticated_block">#}
+    {#            <a class="btn btn-primary" href="{% url 'social:begin' 'facebook' %}">Login with Facebook</a>#}
+    {#            <a class="btn btn-primary" href="{% url 'social:begin' 'google-oauth2' %}">Login with Google</a>#}
+    {#        </div>#}
+    {#    {% endif %}#}
+
+    {% if mainpage_h1 %}
+        <div id="mainpage_h1">
+            <div class="icon">{% get_svg 'icons/i/star.svg' as star_svg %}{{ star_svg|safe }}</div>
+            <div class="heading">{{ mainpage_h1.title|safe }}</div>
+            <div class="subheading">{{ mainpage_h1.text|safe }}</div>
+        </div>
+    {% endif %}
+    <div class="wrap_3">
+{#        <div id="categories_wall">#}
+{#            {% comment %}{% tag_get_category_wall as categories %}{% endcomment %}#}
+{#            {% for c in categories %}#}
+{#                <div class="category_item">#}
+{#                    <img src="{% thumbnail c.image '690x370' crop='center' quality=50 %}" alt="">#}
+{#                    <picture style="display: block;">#}
+{#                        {% thumbnail c.image "690x370" crop="center" quality=50 format="WEBP" as im %}#}
+{#                            <source srcset="{{ im.url }}" type="image/webp">#}
+{#                        {% endthumbnail %}#}
+{#                        {% thumbnail c.image "690x370" crop="center" quality=50 format="JPEG" as im %}#}
+{#                            <source srcset="{{ im.url }}" type="image/jpeg">#}
+{#                            <img src="{{ im.url }}" idth="{{ im.width }}">#}
+{#                        {% endthumbnail %}#}
+{#                    </picture>#}
+{#                    <div class="name">{{ c.name }}</div>#}
+{#                    <a href="{{ c.get_absolute_url }}" class="go_to">{% trans 'shop_now' %}<i#}
+{#                            class="fas fa-arrow-right"></i></a>#}
+{#                </div>#}
+{#            {% endfor %}#}
+{#        </div>#}
+        {% tag_get_products keyword="latest" as latest %}
+        {% tag_get_products keyword="popular" as popular %}
+        {% tag_get_products keyword="random" as random %}
+        {% tag_get_products keyword="specials" as specials %}
+        <h2 style="text-align: center">Новинки</h2>
+        {% include 'products/products_carousel.html' with products=latest %}
+        <hr class="hr" style="color: #F80000">
+        <h2 style="text-align: center"> Наш асортимент</h2>
+        <div style="
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+" class="wrap_2">
+            {% for cat in category_mainpage %}
+                <div>
+                    <a href="{{ cat.get_absolute_url }}">
+                        <picture>
+                            {% thumbnail cat.image "220x162" crop="center" quality=90 format="WEBP" as im %}
+                                <source srcset="{{ im.url }}" type="image/webp">
+                            {% endthumbnail %}
+                            {% thumbnail cat.image "220x162" crop="center" quality=90 format="PNG" as im %}
+                                <source srcset="{{ im.url }}" type="image/png">
+                                <img src="{{ im.url }}" alt="" width="">
+                            {% endthumbnail %}
+                        </picture>
+                    </a>
+                    <div style="
+    text-align: center;
+    font-size: 24px;
+">
+                        {{ cat.name }}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+        <hr class="hr" style="color: #F80000">
+
+        <h2 style="text-align: center"> Популярні</h2>
+        {% include 'products/products_carousel.html' with products=latest %}
+    </div>
+    <div style="background: rgba(230, 222, 222, 0.63);">
+        <div class="wrap_3">
+            <div style="padding-top: 50px; padding-bottom: 50px">
+                <h2>What is Lorem Ipsum?</h2>
+                <p>
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+                    industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type
+                    and
+                    scrambled it to make a type specimen book.
+                    It has survived not only five centuries, but also the leap into electronic typesetting, remaining
+                    essentially unchanged. It was popularised in the 1960s with the release of
+                    Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software
+                    like
+                    Aldus PageMaker including versions of Lorem Ipsum.
+                </p>
+            </div>
+        </div>
+    </div>
+    {% tag_last_articles limit=3 as last_articles %}
+    {% if last_articles|length > 0 %}
+      <div id="blog_widget">
+        <div class="heading">{% trans 'blog__last_articles' %}</div>
+        <div class="items_wrapper">
+
+          {% for article in last_articles %}
+            {% include 'blog/article_min.html' %}
+          {% endfor %}
+        </div>
+        <a href="{% url 'blog' %}" class="show_all">{% trans 'show_all' %}<i class="fas fa-arrow-right"></i></a>
+      </div>
+    {% endif %}
+{% endblock %}

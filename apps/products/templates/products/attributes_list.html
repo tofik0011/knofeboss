@@ -1,0 +1,78 @@
+{% comment %}
+ЦЕ ПОКИ НЕ ВИКОРИСТОВУЄТЬСЯ !!!
+{% endcomment %}
+{% load i18n %}
+{% load mainapp_tags %}
+{% load products_tags %}
+
+<div class="block-left-filter">
+    <div class='filter-attr-wrapper price'>
+        <a href="javascript:void(0)" class="filter-attr" data-attr-index="0">{% trans 'products__filter_price_range' %}</a>
+        <div class="filter-values" data-attr="0">
+            <div class="col-6 offset-3">
+                <label for="amount"><span id="min-price">{{ data.min_price }}</span> - <span id="max-price">{{ data.max_price }}</span></label>
+                <div id="price-range"></div>
+            </div>
+        </div>
+    </div>
+
+    {% for attribute in data.attributes %}
+        <div class='filter-attr-wrapper attribute'>
+            <a href="javascript:void(0)" class='filter-attr' data-attr-index="{{ attribute.attribute.id }}">{{ attribute.attribute.name }}</a>
+            <div class="filter-values {% if last_attribute_select|safe == attribute.attribute.id|safe %}show{% endif %}" data-attr="{{ attribute.attribute.id }}">
+                {% for attribute_value in attribute.attribute_values %}
+                    <div class='filter-value' id="value-{{ attribute.attribute.id }}-{{ attribute_value.id }}">
+                    <span class='filter-span-1'>
+                        <input {% if attribute_value.checked == 1 %}checked="checked"{% endif %} id="filter-{{ attribute.attribute.id }}-{{ attribute_value.id }}"
+                               data-attr_id="{{ attribute.attribute.id }}" data-attr_value_id="{{ attribute_value.id }}" class="filter-input-value" type='checkbox'>
+                    </span>
+                        <span class='filter-span-2'><label for="filter-{{ attribute.attribute.id }}-{{ attribute_value.id }}">   {{ attribute_value.name }}</label></span>
+                        <span class='filter-span-3'>
+{#            <span id="count-{{ attribute.attribute.id }}-{{ attribute_value.id }}" class="filter-value-qty" data-attr_id="{{ attribute.attribute.id }}"#}
+{#                  data-attr_value_id="{{ attribute_value.id }}">{{ attribute_value.count_products }}</span>#}
+        </span>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    {% endfor %}
+
+    {% for option in data.options %}
+        <div class='filter-attr-wrapper option'>
+            <a href="javascript:void(0)" class='filter-attr' data-option-index="{{ option.option.id }}">{{ option.option.name }}</a>
+            <div class="filter-values {% if last_option_select|safe == option.option.id|safe %}show{% endif %}" data-option="{{ option.option.id }}">
+                {% for option_value in option.option_values %}
+                    <div class='filter-value' id="option-value-{{ option.option.id }}-{{ option_value.id }}">
+                    <span class='filter-span-1'>
+                        <input {% if option_value.checked == 1 %}checked="checked"{% endif %} id="filter-option-{{ option.option.id }}-{{ option_value.id }}"
+                               data-option_id="{{ option.option.id }}" data-option_value_id="{{ option_value.id }}" class="filter-option-input-value" type='checkbox'>
+                    </span>
+                        <span class='filter-span-2'><label for="filter-option-{{ option.option.id }}-{{ option_value.id }}">   {{ option_value.name }}</label></span>
+                        <span class='filter-span-3'>
+{#            <span id="count-{{ option.option.id }}-{{ option_value.id }}" class="filter-value-qty" data-option_id="{{ option.option.id }}"#}
+{#                  data-option_value_id="{{ option_value.id }}">{{ option_value.count_products }}</span>#}
+        </span>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    {% endfor %}
+
+</div>
+{% tag_get_sorting_list as PRODUCTS_SORTING %}
+
+<div class="block-right-filter">
+    <select class="form-control" id="sorting">
+        {% for sort in PRODUCTS_SORTING %}
+            <option {% if sorting == sort.0 %}selected="selected"{% endif %} value="{{ sort.0 }}">{{ sort.1 }}</option>
+        {% endfor %}
+    </select>
+</div>
+<script>
+    Object.assign(CONFIG_DATA.VALUES, {
+        ARRAY_ATTRIBUTES: {{ data.attributes|safe }},
+        ARRAY_OPTIONS: {{ data.options|safe }},
+        ARRAY_PRODUCTS: {{ data.products_ids }},
+        ARRAY_PRODUCTS_FILTERED: {{ data.products_ids_filtered }}
+    });
+</script>

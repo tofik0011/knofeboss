@@ -1,0 +1,9 @@
+{% extends 'wrapper.html' %}
+{% block title %}{{ custom_page.seo_title }}{% endblock %}}
+{% block description %}{{ custom_page.seo_description }}{% endblock %}
+{% block body %}
+    <div class="wrap_2 page__custom">
+        <div class="page_heading">{{ custom_page.name|safe }}</div>
+        {{ custom_page.description|safe }}
+    </div>
+{% endblock %}

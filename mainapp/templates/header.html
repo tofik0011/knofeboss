@@ -1,0 +1,106 @@
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+{% load static %}
+{% load mainapp_tags %}
+{% load contacts_tags %}
+{% load currency_tags %}
+{% load checkout_tags %}
+{% load fb_versions %}
+{% load mptt_tags %}
+{% load thumbnail %}
+{% load mainapp_tags %}
+{% tag_get_all_currencies request as currencies %}
+{% tag_currency_get request as current_currency %}
+{% tag_get_menu as menu %}
+<div id="header">
+    <div>
+        <picture>
+            {% thumbnail "/media/design/holovna.png"|media_url:request "1920x780" crop="center" quality=80 format="WEBP" as im %}
+                <source srcset="{{ im.url }}" type="image/webp">
+            {% endthumbnail %}
+            {% thumbnail "/media/design/holovna.png"|media_url:request "600" crop="center" quality=80 format="JPEG" as im %}
+                <source srcset="{{ im.url }}" type="image/jpeg">
+                <img style="    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: -222;" src="{{ im.url }}" alt="umood">
+            {% endthumbnail %}
+        </picture>
+    </div>
+    <div class="wrap_3">
+        {% csrf_token %}
+        <div class="top">
+            <div class="cols_wrapper">
+                <a href="{% url 'index' %}" class="logo">
+                    {#                        <img src="/media/design/logo.png" style="width: 190px" alt="umood">#}
+                    <picture>
+                        {% thumbnail "/media/design/logoo.png"|media_url:request "100x100" crop="center" quality=80 format="WEBP" as im %}
+                            <source srcset="{{ im.url }}" type="image/webp">
+                        {% endthumbnail %}
+                        {% thumbnail "/media/design/logoo.png"|media_url:request "600" crop="center" quality=80 format="JPEG" as im %}
+                            <source srcset="{{ im.url }}" type="image/jpeg">
+                            <img src="{{ im.url }}" alt="umood">
+                        {% endthumbnail %}
+                    </picture>
+                </a>
+                <div class="right_col">
+
+                    <div id="language_toggle">
+                        {% get_available_languages as lng %}
+                        {% for item in lng %}
+                            <span class="language_item {% if item.0 == LANGUAGE_CODE %}current{% endif %}"
+                                  data-next="{{ request.path }}" data-code="{{ item.0 }}">
+                        {{ item.0 }}
+                        </span>
+                        {% endfor %}
+                    </div>
+                    <div id="mobile_menu_toggle" data-target="mobile_menu" class="sidenav-trigger">
+                        {% get_svg 'icons/menu2.svg' as menu_svg %} {{ menu_svg|safe }}
+                    </div>
+                    {% include 'mainapp/parts/mobile_menu.html' %}
+
+
+                </div>
+                <div class="middle_col">
+
+                    {% include 'mainapp/parts/main_menu_top.html' %}
+                </div>
+                <div class="left_col">
+
+                    <div class="profile_icon">
+                        <a href="{% url 'view__login' %}">
+
+                            <i class="tiny  icon_header icon_color   far fa-user">
+
+                            </i>
+                        </a>
+                    </div>
+                    <div class="chechkout">
+                        <a href="{% url 'view__checkout' %}"><i
+                                class="tiny icon_header icon_color  far fa-shopping-bag"> </i></a>
+                    </div>
+
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+ {% include 'banner/banner_widget.html' with keyword="mainpage" keyword_second="mainpage_second" keyword_third="mainpage_third" %}
+    <hr>
+    <div class="wrap_3">
+        <div class="bottom">
+            <div class="main_menu_bottom">
+                <div class="menu_center">
+
+
+                    {% include 'mainapp/parts/main_menu.html' %}
+
+                </div>
+                <i class=" icon_header far fa-search" id="search_toggle" style="color: white"></i>
+            </div>
+
+
+        </div>
+    </div>
+</div>

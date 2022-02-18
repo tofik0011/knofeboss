@@ -1,0 +1,106 @@
+{% extends 'wrapper.html' %}
+{% load static %}
+{% load i18n %}
+{% load mainapp_tags %}
+{% load currency_tags %}
+{% load checkout_tags %}
+{% load account_tags %}
+{% block page_title %}{% trans 'checkout' %}{% endblock %}
+{% block body %}
+    {% tag_get_cart_data request as cart_data %}
+    <div class="page__checkout container">
+        <div class="page__heading">{% trans 'checkout' %}</div>
+        <form action="{% url 'view__checkout' %}" method="post" novalidate>
+            <div class="row">
+                {% csrf_token %}
+                <div class="cart_col  col s12 m12 l8">
+                    {% tag_render_cart_items_html request as ci %}
+                    {{ ci.checkout }}
+                </div>
+                <div class="data_col data_col col s12 m8 l4 offset-m2">
+                    <div class="min_heading">{% get_svg 'icons/user.svg' as user_svg %} {{ user_svg|safe }} {% trans 'checkout__personal_information' %}</div>
+                    <div class="input-field"><label for="first_name">{% trans 'account__first_name' %}</label><input value="{{ request.user.first_name }}" type="text" name="first_name" class="input_v1" id="first_name"></div>
+                    <div class="input-field"><label for="last_name">{% trans 'account__last_name' %}</label><input value="{{ request.user.last_name }}" type="text" name="last_name" class="input_v1" id="last_name"></div>
+                    <div class="input-field"><label for="phone">{% trans 'phone' %}</label><input value="{{ request.user.account.phone }}" type="text" name="phone" class="input_v1" id="phone"></div>
+                    <div class="input-field"><label for="email">{% trans 'email' %}</label><input value="{{ request.user.username }}" type="text" name="email" class="input_v1" id="email"></div>
+                    <div class="line">
+                        <label for="delivery_type">{% trans 'checkout__delivery_type' %}</label>
+                        <select name="delivery_type" id="delivery_type">
+                            {% for d in delivery_types %}
+                                <option value="{{ d.0 }}">{{ d.1 }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div id="np_address" style="display: none">
+                        <div id="np_settlement_wrapper">
+                            <div class="input-field">
+                                <label for="np_settlement_input">{% trans 'checkout__settlement' %}</label>
+                                <input type="text" class="input_v1" id="np_settlement_input">
+                            </div>
+                            {#                                        <input type="text" placeholder="{% trans 'checkout__settlement' %}" class="input_v1" id="np_settlement_input">#}
+                        </div>
+                        <div id="np_warehouse_wrapper">
+                            <div class="input-field">
+                                <label for="np_warehouse_input">{% trans 'checkout__warehouse' %}</label>
+                                <input type="text" class="input_v1" id="np_warehouse_input">
+                            </div>
+
+                        </div>
+                    </div>
+                    <div id="custom_address" style="display: none">
+                        <div class="input-field">
+                            <label for="custom_obl_input">{% trans 'checkout__obl' %}</label>
+                            <input type="text" class="input_v1" id="custom_obl_input">
+                        </div>
+                        <div class="input-field">
+                            <label for="custom_settlement_input">{% trans 'checkout__settlement' %}</label>
+                            <input type="text" class="input_v1" id="custom_settlement_input">
+                        </div>
+                        <div class="input-field">
+                            <label for="custom_street_input">{% trans 'checkout__street' %}</label>
+                            <input type="text" class="input_v1" id="custom_street_input">
+                        </div>
+                        <div class="input-field">
+                            <label for="custom_house_input">{% trans 'checkout__house' %}</label>
+                            <input type="text" class="input_v1" id="custom_house_input">
+                        </div>
+                    </div>
+
+                    <div class="line">
+                        <label for="payment_type">{% trans 'checkout__payment_type' %}</label>
+                        <select name="payment_type" id="payment_type">
+                            {% for p in payment_types %}
+                                <option value="{{ p.0 }}">{{ p.1 }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="input-field">
+                        <textarea id="comment" class="materialize-textarea"></textarea>
+                        <label for="comment">{% trans 'checkout__comment' %}</label>
+                    </div>
+                    {% if min_order_price %}
+                        <div class="min_order_price">{% trans 'checkout__min_order_price' %} {% tag_convert_currency_price request min_order_price %}</div>
+                    {% endif %}
+                    <label class="line">
+                        <input type="checkbox" id="privacy_policy" class="filled-in" checked="checked"/>
+                        <span>{% trans 'checkout__police' %}</span>
+                    </label>
+                    <button type="submit" class="btn_v1 waves-effect waves-light btn-large" id="checkout_submit">{% trans 'checkout__submit_btn' %}</button>
+                </div>
+            </div>
+        </form>
+        <div class="modal fade" id="liqpay_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content" >
+                    <div class="modal-header text-center">
+                        <p>{% trans 'checkout__liqpay_continue_payment' %}</p>
+                    </div>
+                    <div class="modal-body text-center">
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

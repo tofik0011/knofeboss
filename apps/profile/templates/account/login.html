@@ -1,0 +1,23 @@
+{% extends "wrapper.html" %}
+{% load static %}
+{% load i18n %}
+{% block body %}
+    <div class="wrap_2 page__login">
+        <div class="col">
+            <div class="tabs">
+                 <a class="active" href="{% url 'view__login' %}">{% trans "account__login_title" %}</a>
+                <a href="{% url 'view__registration' %}">{% trans "account__register" %}</a>
+
+            </div>
+            {% csrf_token %}
+            <div class="input-field"><label for="email">{% trans 'email' %}</label><input type="text" name="email" class="input_v1" id="email"></div>
+            <div class="input-field"><label for="password">{% trans 'account__password' %}</label><input type="password" name="password" class="input_v1" id="password"></div>
+            <button class="btn_v1" type="submit" id="login_submit">{% trans "account__login_btn" %}</button>
+
+            <div class="other_links">
+                <a class="btn_v4" id="forgot-password" href="{% url 'password_reset' %}">{% trans 'account__forgot_password_btn' %}</a>
+                <a class="btn_v4" href="{% url 'view__registration' %}">{% trans 'account__register' %}</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

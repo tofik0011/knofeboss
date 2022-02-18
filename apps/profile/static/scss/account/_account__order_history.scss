@@ -1,0 +1,195 @@
+.page__orders_history {
+  .account_pagination {
+    margin: 30px auto 30px auto;
+    text-align: center;
+  }
+
+  .orders_list {
+    .no_orders {
+      text-align: center;
+      font-size: 19px;
+      color: $text2;
+    }
+
+    .order_item {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      min-height: 100px;
+      position: relative;
+      margin: 0 auto 10px auto;
+      padding: 20px 15px;
+      background: #fff;
+      border-radius: 5px;
+      transition: .2s;
+      @media (min-width: 576px) {
+        padding: 20px 30px;
+        align-items: center;
+      }
+
+      &:hover {
+        text-decoration: none;
+      }
+
+      & > div:not(.photo) {
+        padding: 8px 10px;
+        .min_heading {
+          font-size: 13px;
+          color: $text3;
+          text-transform: uppercase;
+          font-weight: 500;
+        }
+        .data {
+          color: $text2;
+          font-size: 15px;
+        }
+        @media (min-width: 992px) {
+          .min_heading {
+
+          }
+          .data {
+
+          }
+
+        }
+      }
+      @media (max-width: 767px) {
+        flex-wrap: wrap;
+        align-items: baseline;
+
+        & > div {
+          flex-basis: 50%;
+        }
+        .photo {
+          flex-basis: 100%;
+        }
+      }
+      @media (max-width: 575px) {
+        flex-wrap: wrap;
+        & > div {
+          flex-basis: 100%;
+        }
+      }
+    }
+  }
+}
+
+
+
+.page__order_detail {
+  #order_details {
+    & > div {
+      margin-bottom: 15px;
+      .min_heading {
+        text-transform: uppercase;
+        font-size: $h5;
+        font-weight: 500;
+        color: $text3;
+      }
+      .data {
+        padding: 2px 0;
+        font-size: $h4;
+        color: $text1;
+      }
+    }
+  }
+  .cols_wrapper {
+    .order_items {
+      flex-basis: 100%;
+      max-width: 100%;
+      @media (min-width: 992px) {
+        flex-basis: 60%;
+        max-width: 60%;
+      }
+      .order_cart_item {
+        flex-basis: 100%;
+        max-width: 100%;
+        padding: 10px 18px;
+        display: flex;
+        margin-bottom: 20px;
+        border-radius: 15px;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        @media (min-width: 576px) {
+          flex-wrap: nowrap;
+        }
+        .description {
+          padding: 10px 18px;
+          overflow: hidden;
+          flex-grow: 1;
+          @media (max-width: 575px) {
+            max-width: calc(100% - 80px);
+            flex-basis: calc(100% - 80px);
+          }
+
+          .cart_item_qty {
+            margin-top: 3px;
+            padding: 2px 8px;
+            background: $c1;
+            color: #fff;
+            font-size: 13px;
+            font-weight: 700;
+            border-radius: 30px;
+            display: inline-block;
+          }
+
+          .name {
+            font-weight: 700;
+            color: $text1;
+            font-size: 15px;
+            line-height: 1.2em;
+            max-height: 2.4em;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: block;
+            margin-bottom: 5px;
+          }
+
+          .options {
+            color: $text2;
+            font-size: 15px;
+            font-weight: 600;
+          }
+
+        }
+
+        .thumbnail {
+          position: relative;
+          @media (max-width: 575px) {
+            max-width: 75px;
+            flex-basis: 75px;
+          }
+
+          .product_image {
+            width: 75px;
+            height: 75px;
+            object-fit: cover;
+            overflow: hidden;
+            border-radius: 15px;
+          }
+        }
+
+        .price_data {
+          padding: 10px 0;
+          @media (max-width: 575px) {
+            flex-basis: 100%;
+          }
+          .current_price {
+            color: $text1;
+            font-size: 17px;
+            white-space: nowrap;
+          }
+
+          .single_item_price {
+            color: $text2;
+            font-size: 15px;
+            white-space: nowrap;
+          }
+        }
+
+      }
+    }
+  }
+
+}

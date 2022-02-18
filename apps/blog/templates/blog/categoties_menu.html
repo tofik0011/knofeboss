@@ -1,0 +1,15 @@
+{% load i18n %}
+{% url 'blog' as url %}
+<ul class="categories-tabs nav nav-pills flex-column">
+    <div class="text-center sub-title">{% trans "blog__categories" %}</div>
+    <li class="nav-item">
+        <a class="nav-link {% if request.path == url %}active{% endif %}"
+           href="{% url 'blog' %}">{% trans 'blog__all_categories' %}</a>
+    </li>
+    {% for cat in categories %}
+        <li class="nav-item">
+            <a class="nav-link {% if category.pk == cat.pk %}active{% endif %}"
+               href="{{ cat.link }}">{{ cat.name }}</a>
+        </li>
+    {% endfor %}
+</ul>

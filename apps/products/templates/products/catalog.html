@@ -1,0 +1,17 @@
+{% extends "wrapper.html" %}
+{% load mainapp_tags %}
+{% load i18n %}
+{% block title %}{% tag_get_seo_data keyword='catalog' as seo_data %}{{ seo_data.seo_title }}{% endblock %}
+{% block description %}{% tag_get_seo_data keyword='catalog' as seo_data %}{{ seo_data.seo_description }}{% endblock %}
+{% block body %}
+    <div class="container page__catalog">
+        <h1 class="page__heading">{% trans 'products__catalog' %}</h1>
+        <div class="row">
+            {% for category in categories %}
+                <div class="col s12 m6 l4">
+                    {% include "products/category_min.html" %}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

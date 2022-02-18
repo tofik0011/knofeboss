@@ -1,0 +1,68 @@
+{% extends "wrapper.html" %}
+{% load static %}
+{% load i18n %}
+{% load mainapp_tags %}
+{% block title %}{% tag_get_seo_data keyword='contacts' as seo_data %}{{ seo_data.title }}{% endblock %}
+{% block description %}{% tag_get_seo_data keyword='contacts' as seo_data %}{{ seo_data.description }}{% endblock %}
+{% block body %}
+    <div class="page__contacts wrap_2">
+
+        {% block breadcrumbs %}{% endblock %}
+        {% include 'breadcrumbs.html' %}
+
+        <div class="cols_wrapper">
+            <div class="address">
+                <div class="info-address">
+                    <div class="title">{% trans "kiev" %}</div>
+                    <div class="title-description">{% trans "kiev-description" %}</div>
+                    <div class="block-info">
+                         <div class="block-phones">
+                            <i class="material-icons">local_phone</i>
+                            <div class="phones">
+                                <div class="title">{% trans "phones" %}</div>
+                                <div>+38 (098) 407 77 10<br>+38 (044) 599 01 91</div>
+                            </div>
+                        </div>
+                        <div class="block-location">
+                            <i class="material-icons">location_on</i>
+                            <div class="production">
+                                <div class="title">{% trans "production-title" %}</div>
+                                <div>{% trans "location-info-kiev" %}</div>
+                            </div>
+                        </div>
+                       <div class="block-phones">
+                            <i class="material-icons">email</i>
+                            <div class="phones">
+                                <div class="title">Email</div>
+                                <div>LoremIpsum@gmail.com</div>
+                            </div>
+                        </div>
+                           <div class="block-phones">
+                            <i class="fab fa-instagram" style="font-size: 34px"></i>
+                            <div class="phones">
+                                <div class="title">Instagram</div>
+                                <div>@knife__boss</div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div id="map3" class="map"></div>
+            </div>
+
+
+
+
+        </div>
+    </div>
+    <script>
+        function myMap() {
+            var uluru2 = {lat: 50.45891168924316, lng: 30.36545970853202};
+            var mapCanvas2 = document.getElementById("map3");
+            var mapOptions2 = {center: new google.maps.LatLng(uluru2), zoom: 11};
+            var map2 = new google.maps.Map(mapCanvas2, mapOptions2);
+            var marker2 = new google.maps.Marker({position: uluru2, map: map2});
+        }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBlruTMhxwpHQKfMSyI7rj2fU9vQfqzEGY&callback=myMap" async defer></script>
+{% endblock %}

@@ -1,0 +1,113 @@
+{% extends 'wrapper.html' %}
+{% load thumbnail %}
+{% load i18n %}
+{% load products_comparison_tags %}
+{% block body %}
+    {% tag_get_comparison_products request as data %}
+    <div class="comparison_page">
+
+        {#        <div class="card">#}
+        {#            <div class="card-body"></div>#}
+        {#            <ul class="list-group list-group-flush">#}
+        {#                {% for attr in data.attributes %}#}
+        {#                    <li data-attr-id="{{ attr.attribute_fk_id }}" class="attr-name list-group-item">#}
+        {#                        {{ attr.name }}#}
+        {#                    </li>#}
+        {#                {% endfor %}#}
+        {#            </ul>#}
+        {#        </div>#}
+        {#        {% for pr in data.products %}#}
+        {#            <div class="card">#}
+        {#                <div class="card-body"><p>{{ pr.fields.name }}</p>#}
+        {#                    <div class="card-body">#}
+        {#                        <picture>#}
+        {#                            {% thumbnail pr.fields.image "75x112" crop="center" quality=85 format="WEBP" as im %}#}
+        {#                                <source srcset="{{ im.url }}" type="image/webp">#}
+        {#                            {% endthumbnail %}#}
+        {#                            {% thumbnail pr.fields.image "75x112" crop="center" quality=85 format="JPEG" as im %}#}
+        {#                                <source srcset="{{ im.url }}" type="image/jpeg">#}
+        {#                                <img src="{{ im.url }}" width="{{ im.width }}">#}
+        {#                            {% endthumbnail %}#}
+        {#                        </picture>#}
+        {#                        <ul class="list-group list-group-flush comparison_product">#}
+        {#                            <div>#}
+        {#                                {% for attr in data.attributes %}#}
+        {#                                    <li data-attr-id="{{ attr.attribute_fk_id }}" class="attr-name list-group-item">#}
+        {#                                        <td>{{ attr }}</td>#}
+        {#                                    </li>#}
+        {#                                {% endfor %}#}
+        {#                            </div>#}
+        {#                            <div>#}
+        {#                                {% for attr in pr.attrs %}#}
+        {#                                    <li data-attr-val-id="{{ attr.id }}" data-attr-id="{{ attr.id }}" class="attr-val list-group-item">#}
+        {#                                        {% for i in attr %}#}
+        {#                                            {{ i }}#}
+        {#                                        {% endfor %}#}
+        {#                                    </li>#}
+        {#                                {% endfor %}#}
+        {#                            </div>#}
+        {#                        </ul>#}
+        {#                    </div>#}
+        {#                    <button class="del-from-comparison btn btn-outline-info" data-product-id='{{ pr.fields.id }}'>Del</button>#}
+        {#                </div>#}
+        {#            </div>#}
+        {#        {% endfor %}#}
+        {#        <button class="rrr btn btn-outline-warning">Toggle</button>#}
+
+        <div class="comparison_table">
+            <div class="content_table">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th class="sticky-col first-col">{% trans 'name' %}</th>
+                        {% for pr in data.products %}
+                            <td class="header">{{ pr.fields.name }}
+                                <button class="del-from-comparison btn btn-outline-info"
+                                        data-product-id='{{ pr.fields.id }}'>x
+                                </button>
+                            </td>
+
+
+                        {% endfor %}
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <th class="sticky-col first-col">{% trans 'image' %}</th>
+                        {% for pr in data.products %}
+                            <td class="long">
+                                <picture>
+                                    {% thumbnail pr.fields.image "75x112" crop="center" quality=85 format="WEBP" as im %}
+                                        <source srcset="{{ im.url }}" type="image/webp">
+                                    {% endthumbnail %}
+                                    {% thumbnail pr.fields.image "75x112" crop="center" quality=85 format="JPEG" as im %}
+                                        <source srcset="{{ im.url }}" type="image/jpeg">
+                                        <img src="{{ im.url }}" width="{{ im.width }}">
+                                    {% endthumbnail %}
+                                </picture>
+                            </td>
+                        {% endfor %}
+                    </tr>
+                    {% for attr in data.attributes %}
+                        <tr>
+                            <th class="sticky-col first-col">{{ attr.name }}</th>
+                            {% for pr in data.products %}
+                                <td>
+                                    {% for attribute in pr.attributes %}
+                                        {% if attr.name == attribute.name %}
+                                            {{ attribute.value }}
+                                        {% endif %}
+                                    {% endfor %}</td>
+                            {% endfor %}
+                        </tr>
+                    {% endfor %}
+                    <th class="sticky-col first-col">{% trans 'price' %}</th>
+                    {% for pr in data.products %}
+                        <td>{{ pr.fields.price }}</td>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}

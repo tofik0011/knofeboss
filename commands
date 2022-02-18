@@ -1,0 +1,31 @@
+grep -rnw '/var/' -e 'user_confirm'
+python manage.py makemessages --all -i "*.txt*" -i "venv*"
+
+cd /projects/pythontest11/
+source venv/bin/activate
+python manage.py collectstatic --noinput
+
+pip3 install -r r.txt
+
+SELECT CONCAT('ALTER TABLE `', t.`TABLE_SCHEMA`, '`.`', t.`TABLE_NAME`, '` CONVERT TO CHARACTER SET utf8 COLLATE utf8_general_ci;') as sqlcode
+  FROM `information_schema`.`TABLES` t
+WHERE 1
+  AND t.`TABLE_SCHEMA` = 'pythontest11'
+ORDER BY 1
+
+
+Gmail Включить доступ для відправки
+https://www.google.com/accounts/DisplayUnlockCaptcha
+
+gettext
+http://mlocati.github.io/articles/gettext-iconv-windows.html
+
+pip install git+https://github.com/liqpay/sdk-python # Якщо лікпей видає ошибку
+
+https://mlocati.github.io/articles/gettext-iconv-windows.html # GETTEXT shared1
+
+
+
+
+##################################### ПОЛЕЗНЫЕ САЙТЫ ##################################
+https://mapstyle.withgoogle.com/ - Створення стилів для гугл карт

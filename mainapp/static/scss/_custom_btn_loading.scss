@@ -1,0 +1,71 @@
+$base: #212121;
+$color: silver;
+$accent: #fbfff4;
+
+.btn_v1, .btn_v2 {
+  position: relative;
+}
+
+.btn_v1.loading, .btn_v2.loading {
+  color: transparent !important;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  cursor: unset !important;
+  pointer-events: none;
+  &:hover {
+    color: transparent;
+  }
+  &:after {
+    content: '';
+    position: absolute;
+    left: calc(50% - 10px);
+    top: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    animation: rotate360 .5s infinite linear, exist .1s forwards ease;
+  }
+  &:before {
+    content: "";
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    left: calc(50% - 10px);
+    top: 50%;
+    position: absolute;
+    //border: 2px solid darken($color, 40%);
+
+    animation: rotate360 .5s infinite linear, exist .1s forwards ease;
+  }
+}
+
+.btn_v1.loading {
+  background: $c1 !important;
+  &:before {
+    border: 2px solid #dcdcdc75;
+    border-right: 3px solid $accent;
+  }
+}
+
+.btn_v2.loading {
+  background: $c3 !important;
+  &:before {
+    border: 2px solid #dcdcdc75;
+    border-right: 3px solid $c1;
+  }
+}
+
+@keyframes rotate360 {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes exist {
+  100% {
+    width: 20px;
+    height: 20px;
+    margin: -10px 6px 0 0;
+  }
+}

@@ -1,0 +1,116 @@
+{% extends "wrapper.html" %}
+{% load i18n %}
+{% load static %}
+{% load fb_versions %}
+{% load mainapp_tags %}
+{% load currency_tags %}
+{% load products_tags %}
+{% block head_custom_scripts %}
+    <meta property="og:url" content="{% tag_get_full_path request %}">
+    <meta property="og:title" content="{{ product.name }}">
+    <meta property="og:description" content="">
+    <meta property="og:image" content="{% tag_get_full_path request product.image.url %}">
+{% endblock %}
+{% block title %}{% tag_generation_product_title product as product_title %}{{ product_title|safe }}{% endblock %}
+{% block description %}{% tag_generation_product_description product as product_description %}{{ product_description|safe }}{% endblock %}
+{% block body %}
+    {% tag_count_visited_product request product.id as visited_counter %}
+    {% tag_check_product_current_status request product.id as product_status %}
+    <div class="page page__product">
+        {% with price=product.get_price %}
+            <div class="wrap_2">
+
+                {% if not user.is_authenticated and user.is_staff %}
+                    <div class="fixed-action-btn">
+                        <a class="btn-floating btn-large red" href="/engine/products/product/{{ product.id }}/change/">
+                            <i class="large material-icons">mode_edit</i>
+                        </a>
+                        {% comment %}
+                <ul>
+                    <li><a class="btn-floating red"><i class="material-icons">insert_chart</i></a></li>
+                    <li><a class="btn-floating yellow darken-1"><i class="material-icons">format_quote</i></a></li>
+                    <li><a class="btn-floating green"><i class="material-icons">publish</i></a></li>
+                    <li><a class="btn-floating blue"><i class="material-icons">attach_file</i></a></li>
+                </ul>
+                {% endcomment %}
+                    </div>
+                {% endif %}
+                <div class="row">
+                    <div class="col s8 offset-s1">
+                        {% block breadcrumbs %}{% endblock %}
+                        {% include "breadcrumbs.html" %}
+                    </div>
+                    <div class="col s12  m6 l5 offset-l1 xl4 offset-xl2">
+                        {% include 'products/product_parts/photos/photos__default.html' %}
+                    </div>
+                    <div class="col s12  m6 l6">
+                        {% include 'products/product_parts/info.html' %}
+                        <div class="row">
+{#                            <div class="col s12">#}
+{#                                <ul id="nav_product_data" class="tabs">#}
+{#                                    <li class="tab"><a href="#nav_attributes">{% trans 'products__attributes' %}</a></li>#}
+{#                                    <li class="tab"><a href="#nav_description">{% trans 'products__description' %}</a></li>#}
+{#                                    <li class="tab"><a class="active" href="#nav_reviews">{% trans 'products__reviews' %}</a></li>#}
+{#                                </ul>#}
+{#                            </div>#}
+                            <div class="col s12">
+                                <div class="product_attributes">
+                                    <table class="stripped">
+                                        <tbody>
+                                        {% for attribute in product.attributes %}
+                                            <tr>
+                                                <td class="attribute_name">{{ attribute.name }}</td>
+                                                <td>{{ attribute.value }}</td>
+                                            </tr>
+                                        {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <div  class="col s12">{{ product.description|safe }}</div>
+{#                            <div id="nav_reviews" class="col s12">#}
+{#                                {% with reviews=product.get_reviews %}#}
+{#                                    <div class="js-product-reviews-list product_reviews">#}
+{#                                        {% include 'products/reviews_list.html' %}#}
+{#                                    </div>#}
+{#                                    <div class="buttons">#}
+{#                                        <a class="btn_flat modal-trigger" href="#product_review_modal"><i class="material-icons">add</i>{% trans 'products__add_review' %}</a>#}
+{#                                        {% if reviews.paginator.count > reviews.paginator.per_page %}#}
+{#                                            <a class="btn_flat" id="js-load-more-reviews" data-product-id="{{ product.id }}" data-page="2">#}
+{#                                                <i class="material-icons">expand_more</i>{% trans 'products__load_more_btn' %}#}
+{#                                            </a>#}
+{#                                        {% endif %}#}
+{#                                    </div>#}
+{#                                {% endwith %}#}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bottom_section">
+{#                    {% tag_get_products keyword='latest' limit=8 as prods_by_article %}#}
+                    <div class="min_heading">
+                        {% trans 'products__similar_products' %}
+                    </div>
+                    <div class="products_carousel similar">
+                        <div class="navigation">
+                            <div class="prev"><i class="fas fa-angle-left"></i></div>
+                            <div class="next"><i class="fas fa-angle-right"></i></div>
+                        </div>
+                        <div class="products_wrapper" data-show="4">
+                            {% for pba in prods_by_article %}
+                                {% if pba.id != product.id %}
+                                    {% include 'products/product_min.html' with product=pba %}
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                {% include 'products/product_parts/add_review_modal.html' %}
+            </div>
+        {% endwith %}
+    </div>
+
+
+
+{% endblock %}

@@ -1,0 +1,23 @@
+
+
+{% for filter in category_filters %}
+    {% for filter_value in filter.filter_values %}
+        {% if filter_value.checked == 1 %}
+            {% include 'products/category_parts/badge.html' with type='filter' name=filter.filter.name value=filter_value.name id=filter.filter.id id_v=filter_value.id %}
+        {% endif %}
+    {% endfor %}
+{% endfor %}
+{% for option in category_options %}
+    {% for option_value in option.option_values %}
+        {% if option_value.checked == 1 %}
+            {% include 'products/category_parts/badge.html' with type='option' name=option.option.name value=option_value.name id=option.option.id id_v=option_value.id %}
+        {% endif %}
+    {% endfor %}
+{% endfor %}
+{% for attribute in category_attributes %}
+    {% for attribute_value in attribute.attribute_values %}
+        {% if attribute_value.checked == 1 %}
+            {% include 'products/category_parts/badge.html' with type='attribute' name=attribute.attribute.name value=attribute_value.name id=attribute.attribute.id id_v=attribute_value.id %}
+        {% endif %}
+    {% endfor %}
+{% endfor %}

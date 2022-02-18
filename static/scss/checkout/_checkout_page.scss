@@ -1,0 +1,147 @@
+.page__checkout {
+  .cols_wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    .min_heading {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      justify-content: center;
+      font-size: 19px;
+      color: #81858d;
+      font-family: 'Museo Sans Cyrl 700', serif;
+      margin-bottom: 15px;
+      svg {
+        height: 26px;
+        margin-right: 10px;
+        width: auto;
+      }
+    }
+    .cart_col {
+      flex-basis: 100%;
+      max-width: 100%;
+      .empty_cart {
+        color: $text3;
+        text-align: center;
+        font-size: 19px;
+      }
+      @media (min-width: 992px) {
+        flex-basis: calc(60% - 25px);
+        max-width: calc(60% - 25px);
+      }
+      @media (min-width: 1400px) {
+        flex-basis: calc(40% - 25px);
+        max-width: calc(40% - 25px);
+      }
+      .min_heading svg {
+        fill: $c3;
+      }
+    }
+    .data_col {
+      flex-basis: 100%;
+      max-width: 100%;
+      @media (min-width: 992px) {
+        flex-basis: 40%;
+        max-width: 40%;
+      }
+      @media (min-width: 1400px) {
+        flex-basis: 60%;
+        max-width: 60%;
+      }
+      display: flex;
+      flex-wrap: wrap;
+      .personal_data, .delivery_data {
+        flex-basis: 100%;
+        @media (min-width: 768px) {
+          flex-basis: 50%;
+          max-width: 50%;
+        }
+        @media (min-width: 992px) {
+          flex-basis: 100%;
+          max-width: 100%;
+        }
+        @media (min-width: 1400px) {
+          flex-basis: 50%;
+          max-width: 50%;
+        }
+      }
+      .line {
+        padding-bottom: 12px;
+        label {
+          color: $text2;
+          margin-bottom: 4px;
+        }
+      }
+
+      .personal_data {
+        padding: 0 15px;
+        margin-bottom: 40px;
+        .min_heading svg {
+          fill: $c4;
+        }
+      }
+      .delivery_data {
+        padding: 0 15px;
+        .min_heading svg {
+          fill: $c2;
+        }
+      }
+    }
+  }
+  .autocomplete-dropdown {
+    background-color: #fff;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+    overflow: auto;
+    max-height: 300px;
+
+    .dropdown-item {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      width: 100%;
+      padding: 0.35rem 0.8rem;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    .dropdown-item-none {
+      font-size: 16px;
+      cursor: default;
+      width: 100%;
+      overflow: hidden;
+      padding: 0.35rem 0.8rem;
+      color: #999;
+    }
+  }
+  .cart_total_price {
+    margin-left: 10px;
+    font-size: 23px;
+    font-family: 'Museo Sans Cyrl 700', Serif;
+  }
+  .cart_total_title {
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+  .min_order_price {
+    font-family: 'Museo Sans Cyrl 700', Serif;
+    color: $text1;
+    font-size: 17px;
+    text-align: center;
+  }
+  .min_order_rest {
+    font-family: 'Museo Sans Cyrl 700', Serif;
+    color: $text2;
+    font-size: 15px;
+    text-align: center;
+  }
+  #checkout_submit {
+    width: 100%;
+    border-radius: 10px;
+    margin-top: 10px;
+  }
+}

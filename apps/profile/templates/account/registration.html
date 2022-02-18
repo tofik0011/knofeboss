@@ -1,0 +1,51 @@
+{% extends "wrapper.html" %}
+{% load static %}
+{% load i18n %}
+{% block body %}
+    <div class="wrap_2 page__registration">
+        <div class="col">
+            <div class="tabs">
+                <a href="{% url 'view__login' %}">{% trans "account__login_title" %}</a>
+                <a class="active" href="{% url 'view__registration' %}">{% trans "account__register" %}</a>
+            </div>
+            <div class="row">
+                <div class="col s12 m6">
+                    <div class="input-field"><label for="email">{% trans 'email' %}
+                    </label>
+                        <input type="text" name="email" class="input_v1" id="email">
+                    </div>
+                    <div class="input-field"><label for="first_name">{% trans 'account__first_name' %}</label>
+                        <input type="text" name="first_name" class="input_v1" id="first_name"></div>
+                    <div class="input-field"><label for="last_name">{% trans 'account__last_name' %}</label>
+                        <input type="text" name="last_name" class="input_v1" id="last_name"></div>
+                    <label for="account_type">{% trans 'account__account_type' %}</label>
+                    <select name="account_type" id="account_type">
+                        {% for u in account_types %}
+                            <option value="{{ u.keyword }}">{{ u.type }}</option>
+                        {% endfor %}
+                    </select>
+
+                </div>
+                <div class="col s12 m6">
+                    <div class="input-field"><label for="phone">{% trans 'phone' %}</label>
+                        <input type="text" name="phone" class="input_v1" id="phone">
+                    </div>
+                    <div class="input-field"><label for="password">{% trans 'account__password' %}</label>
+                        <input type="password" name="password" class="input_v1" id="password">
+                    </div>
+                    <div class="input-field"><label for="re_password">{% trans 'account__password_confirm' %}</label>
+                        <input type="password" name="re_password" class="input_v1" id="re_password"></div>
+
+                </div>
+            </div>
+
+
+            <div class="text-center">
+                <button class="btn_v1" type="submit" id="registration_submit">{% trans "submit_register" %}</button>
+                <a class="link_btn" style="margin-top: 15px"
+                   href="{% url 'view__login' %}">{% trans "account__already_have_account" %}</a>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

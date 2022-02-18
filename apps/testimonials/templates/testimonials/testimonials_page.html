@@ -1,0 +1,34 @@
+{% extends "wrapper.html" %}
+
+{% load i18n %}
+{% load mainapp_tags %}
+{% block seo_title %}{% tag_get_seo_data 'testimonials' as seo %}{{ seo.seo_title }} {% endblock %}
+{% block seo_description %}{% tag_get_seo_data 'testimonials' as seo %}{{ seo.seo_description }} {% endblock %}
+{% load testimonials_tags %}
+{% block body %}
+    {% tag_get_testimonials qty=6 as testimonials %}
+    <div class="page-title">
+        <div class="container">
+            <h1>{% trans 'TestimonialsPage_Title' %}</h1>
+            {% include 'breadcrumbs.html' %}
+        </div>
+    </div>
+    <div class="container" id="testimonials-page">
+        <div class="add-new-testimonial">
+            <div class="add-new-testimonial-title">{% trans 'TestimonialsPage_AddNew_Title' %}</div>
+            <button class="add-new-testimonial-button btn btn-default" id="add-new-testimonial-button"
+                   >{% trans 'TestimonialsPage_AddNew_Button' %}  <i class="far fa-comment"></i></button>
+        </div>
+
+        <div class="card-columns">
+            {% for testimonial in testimonials %}
+                <div class="card">
+                    <div class="card-body">
+                        <div class="testimonial-text"> "{{ testimonial.text }}"</div>
+                        <div class="testimonial-author">{{ testimonial.author }}</div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

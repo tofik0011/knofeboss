@@ -1,0 +1,31 @@
+{% load thumbnail %}
+{% load mainapp_tags %}
+{% for review in reviews %}
+    <div class="review">
+
+        <picture>
+            {% thumbnail "/media/testimonials/unknown_user.jpg"|media_url:request "52x60" crop="center" quality=50 format="WEBP" as im %}
+                <source srcset="{{ im.url }}" type="image/webp">
+            {% endthumbnail %}
+            {% thumbnail "/media/testimonials/unknown_user.jpg"|media_url:request "52x60" crop="center" quality=50 format="JPEG" as im %}
+                <source srcset="{{ im.url }}" type="image/jpeg">
+                <img class="img" src="{{ im.url }}" width="{{ im.width }}">
+            {% endthumbnail %}
+        </picture>
+        <div class="content">
+            <div class="rating-mini">
+                <span class="{% if review.rating >= 1 %}active{% endif %}"></span>
+                <span class="{% if review.rating >= 2 %}active{% endif %}"></span>
+                <span class="{% if review.rating >= 3 %}active{% endif %}"></span>
+                <span class="{% if review.rating >= 4 %}active{% endif %}"></span>
+                <span class="{% if review.rating == 5 %}active{% endif %}"></span>
+            </div>
+            <div class="text">
+                {{ review.text }}
+            </div>
+            <div class="author">
+                {{ review.name }}, <span>{{ review.added_date|date:"d.m.Y" }}</span>
+            </div>
+        </div>
+    </div>
+{% endfor %}

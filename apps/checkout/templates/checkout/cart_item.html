@@ -1,0 +1,50 @@
+{% load fb_versions %}
+{% load currency_tags %}
+{% load i18n %}
+{% load thumbnail %}
+<div class="cart_item{% if item.stock_rest < item.qty %} out_of_stock{% endif %}" data-cart-item-id="{{ item.id }}">
+    <div class="top">
+        <a class="photo" href="{{ item.product_fk.get_absolute_url }}">
+{#            <img src="{% thumbnail item.product_fk.image '75x75' crop='center' quality=50 %}" alt="">#}
+            <picture>
+                {% thumbnail item.product_fk.image '75x75' crop="center" quality=50 format="WEBP" as im %}
+                    <source srcset="{{ im.url }}" type="image/webp">
+                {% endthumbnail %}
+                {% thumbnail item.product_fk.image '75x75' crop="center" quality=50 format="JPEG" as im %}
+                    <source srcset="{{ im.url }}" type="image/jpeg">
+                    <img src="{{ im.url }}" alt="" width="{{ im.width }}">
+                {% endthumbnail %}
+            </picture>
+        </a>
+        <div class="content">
+            <div class="name">{{ item.product_fk }}</div>
+            {% if item.options %}
+                <div class="options">{% for option in item.options %}{{ option.option_name }} {{ option.option_value_name }}{% endfor %}</div>
+{#                <div class="options">{% for option in item.option_of_product_mtm %}{{ option.option_fk.name }} {{ option.option_value_fk.value }}{% endfor %}</div>#}
+            {% endif %}
+            <div class="prices">
+                <div class="current_price">{% tag_convert_currency_price request item.current_price %}</div>
+                {% comment %}
+                <div class="single_item_price">{% tag_convert_currency_price request item.single_item_price %}</div>
+                {% endcomment %}
+            </div>
+        </div>
+    </div>
+    <div class="bottom">
+        <div class="qty_panel">
+            <span data-item-id="{{ item.id }}" class="minus"><i class="material-icons">remove</i></span>
+            <input type="text" class="item_qty input_v1" data-item-id="{{ item.id }}" value="{{ item.qty }}" id="checout_qty" readonly>
+            <span data-item-id="{{ item.id }}" class="plus"><i class="material-icons">add</i></span>
+        </div>
+        <div class="actions">
+        <span class="del_from_cart btn_v4" data-cart-item-id="{{ item.id }}">
+            <i class="material-icons">delete</i>
+        </span>
+            {% comment %}
+            <div class="stock_rest">
+                {% trans 'stock_left' %} {{ item.stock_rest }}
+            </div>
+            {% endcomment %}
+        </div>
+    </div>
+</div>

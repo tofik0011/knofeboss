@@ -1,0 +1,77 @@
+{% load fb_versions %}
+{% load mainapp_tags %}
+{% load currency_tags %}
+{% load products_tags %}
+{% load i18n %}
+{% tag_check_product_current_status request product.id as product_status %}
+{% load thumbnail %}
+<div class="product_min v1" data-product-min-id="{{ product.id }}">
+    <div class="product_thumbnail">
+        {% if product.qty == 0 %}
+            <div class="not_in_stock">{% get_svg 'icons/i/ban.svg' as ban_svg %}{{ ban_svg|safe }}{% trans 'products__not_in_stock' %}</div>
+        {% endif %}
+        <div class="buttons">
+            <div class="js-toggle-wishlist {% if product_status.in_wishlist %}active{% endif %}" data-product-id="{{ product.id }}">
+                <i class="material-icons">favorite</i></div>
+            <div class="add_to_comparison {% if product_status.in_comparison %}active{% endif %}" data-product-id="{{ product.id }}">
+                {% get_svg 'icons/i/repeat.svg' as comparison_svg %}{{ comparison_svg|safe }}</div>
+            {% if user.is_authenticated and user.is_staff %}
+                <a class="edit_product" href="/engine/products/product/{{ product.id }}/change/" target="_blank">
+                    <i class="fas fa-edit"></i></a>
+            {% endif %}
+        </div>
+        <div class="marks">
+            {{ product.discount }}
+            {% if product.is_new %}
+                <span class="new">{% trans 'products__new_mark' %}</span>
+            {% endif %}
+            {% if product.discount_value %}
+                <span class="special">{% if product.discount_type == "sum" %}- {% tag_convert_currency_price request product.discount_value  %}{% else %}{{ product.discount_value }}{% endif %}</span>
+            {% endif %}
+        </div>
+        <a href="{{ product.link }}">
+
+            <picture>
+                {% thumbnail product.image "300x460" crop="center" quality=85 format="WEBP" as im %}
+                    <source srcset="{{ im.url }}" type="image/webp">
+                {% endthumbnail %}
+                {% thumbnail product.image "300x460" crop="center" quality=85 format="JPEG" as im %}
+                    <source srcset="{{ im.url }}" type="image/jpeg">
+                    <img class="product_image" src="{{ im.url }}" width="{{ im.width }}" alt="{{ product.name }}">
+                {% endthumbnail %}
+            </picture>
+        </a>
+    </div>
+    <div class="product_body">
+        <div class="description">
+            <a href="{{ product.link }}" class="product_name">{{ product.name }}</a>
+            <div class="price_data">
+                <span class="current_price {% if product.discount_value %}discounted{% endif %}">
+                    {% tag_convert_currency_price request product.current_price %}
+                 </span>
+                {% if product.discount_value %}
+                    <span class="stable_price">{% tag_convert_currency_price request product.stable_price %}</span>
+                {% endif %}
+            </div>
+        </div>
+        {% if product.qty > 0 %}
+            <a data-product-id="{{ product.id }}" class="js_add_to_cart btn_v1" data-url="{{ product.link }}"><i class="far fa-shopping-cart" style="font-size: 29px"></i>{{ addtocart|safe }}</a>
+        {% else %}
+            <div class="js_add_to_cart btn-v1 disabled" data-url="{{ product.link }}"
+                 data-product-id="{{ product.id }}">{% get_svg 'icons/bad_line_bold.svg' as addtocart %}{{ addtocart|safe }}
+                {% trans 'products__not_in_stock' %}
+            </div>
+        {% endif %}
+        {% comment %}
+        {% if not request.user.account.approved %}
+            <div class="price_data">
+                <span class="current">{% tag_convert_currency_price request product.current_price %}</span>
+                {% if product.stable_price != product.current_price %}
+                    <span class="stable">{% tag_convert_currency_price request product.stable_price with_code=False %}</span>
+                {% endif %}
+            </div>
+        {% endif %}
+        {% endcomment %}
+    </div>
+
+</div>

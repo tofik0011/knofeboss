@@ -1,0 +1,27 @@
+{% load i18n %}
+{% load fb_versions %}
+{% load thumbnail %}
+<a href="{{ article.get_absolute_url }}" class="article_min_v2">
+    <div class="thumbnail">
+{#        <img src="{% thumbnail article.image '440x280' crop='center' quality=50 %}" alt="">#}
+        <picture>
+            {% thumbnail article.image "300x200" crop="center" quality=50 format="WEBP" as im %}
+                <source srcset="{{ im.url }}" type="image/webp">
+            {% endthumbnail %}
+            {% thumbnail article.image  "300x200" crop="center" quality=50 format="JPEG" as im %}
+                <source srcset="{{ im.url }}" type="image/jpeg">
+                <img src="{{ im.url }}" width="{{ im.width }}">
+            {% endthumbnail %}
+        </picture>
+    </div>
+<div class="padding_v2">
+    <div class="content">
+        <div class="name">{{ article.name }}</div>
+    </div>
+<div class="bottom_blog_min bottom_blog_min_v2">
+  <div style="width: 100%">
+    <button class="button_min_blog">Подробиці</button>
+    </div>
+</div>
+  </div>
+</a>

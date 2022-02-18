@@ -1,0 +1,8 @@
+{% load i18n %}
+<div class="autocomplete-dropdown">
+    {% for warehouse in warehouses %}
+        <div class="dropdown-item" data-ref="{{ warehouse.ref }}" data-city="{{ warehouse.city }}">{{ warehouse.name }}</div>
+    {% empty %}
+        <div class="dropdown-item-none">{% trans 'not_found' %}</div>
+    {% endfor %}
+</div>

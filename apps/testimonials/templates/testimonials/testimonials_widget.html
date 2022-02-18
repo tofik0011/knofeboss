@@ -1,0 +1,53 @@
+{% load i18n %}
+{% load testimonials_tags %}
+{% tag_get_reviews as reviews %}
+{% if reviews|length > 0 %}
+    <div id="testimonials">
+        <div class="container">
+            <div class="block-title">
+                <div class="left-col wow fadeInLeft">
+                    <div class="title-box">
+                        <div class="title-text"> {% trans 'Testimonials_BlockTitle' %}</div>
+                    </div>
+                    <a href="{% url 'view__view__reviews' %}" class="read-more custom-link">{% trans 'Testimonials_BlockTitle_ReadMore' %}</a>
+                </div>
+                <div class="arrows wow fadeIn">
+                    <button onclick="NextTestimonial()" class="btn-top"><span class="lnr lnr-chevron-up"></span></button>
+                    <button onclick="PrevTestimonial()" class="btn-down"><span class="lnr lnr-chevron-down"></span></button>
+                </div>
+
+
+            </div>
+            <div class="block-content wow fadeInRight">
+                <div class="block-testimonials">
+                    {% for r in reviews %}
+                        <div class="testimonial-item">
+                            <div class="testimonial-content">
+                                <div class="testimonial-text">{{ r.text }}</div>
+                                <div class="testimonial-about">{{ r.author }}, {{ r.city }}</div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+
+            </div>
+            <svg version="1.1" class="quote-svg"  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 508 508" style="enable-background:new 0 0 508 508;" xml:space="preserve">
+<g>
+	<g>
+		<path d="M507.9,155.5c0-66.8-54.1-120.9-120.9-120.9c-66.8,0-120.9,54.1-120.9,120.9S320.2,276.4,387,276.4
+			c13.7,0,26.9-2.4,39.2-6.6C399,425.9,277.2,526.6,390.1,443.7c125.1-91.9,118-284.5,117.9-288.1
+			C507.9,155.6,507.9,155.6,507.9,155.5z"/>
+		<path d="M241.9,155.5c0-66.8-54.1-120.9-120.9-120.9S0,88.7,0,155.5s54.1,120.9,120.9,120.9c13.7,0,26.9-2.4,39.2-6.6
+			C132.9,425.9,11.2,526.6,124,443.7c125.1-91.9,118-284.5,117.9-288.1C241.9,155.6,241.9,155.6,241.9,155.5z"/>
+	</g>
+</g>
+</svg>
+        </div>
+    </div>
+{% endif %}
+
+
+
+
+

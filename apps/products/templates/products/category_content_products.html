@@ -1,0 +1,17 @@
+{% load i18n %}
+{% if products %}
+    {% for product in products %}
+        <div class="col s6 m4 xl3">
+            {% include "products/product_min.html" %}
+        </div>
+    {% endfor %}
+    <div class="col s12">
+        {% include 'mainapp/parts/pagination.html' with items=products_paginator %}
+    </div>
+
+{% else %}
+    <div class="col s12">
+        <div class="no_products">{% trans 'no_products' %}</div>
+    </div>
+
+{% endif %}

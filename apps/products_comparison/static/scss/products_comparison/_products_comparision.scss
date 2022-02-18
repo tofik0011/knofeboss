@@ -1,0 +1,115 @@
+.comparison_product {
+  display: flex;
+}
+
+.comparison_page {
+
+
+  .comparison_table {
+    margin: 50px auto;
+    max-width: 1200px;
+    padding: 30px;
+    @media (max-width: 500px) {
+      padding: 10px;
+    }
+
+    .content_table {
+      position: relative;
+      overflow: auto;
+      border: none;
+      white-space: nowrap;
+
+      .header {
+        position: relative;
+        z-index: 1;
+        padding: 0px 40px 0px 20px;
+
+        .del-from-comparison {
+          position: absolute;
+          box-shadow: none;
+          right: 0;
+          top: 0;
+          margin-left: 10px;
+        }
+      }
+
+      table {
+        border-spacing: 0;
+        empty-cells: hide;
+      }
+
+      td, th {
+        padding: 8px 5px;
+        text-align: center;
+      }
+
+      tr:hover {
+
+        td {
+          font-weight: bold;
+          border-radius: 0px;
+          transition-duration: 0.6s;
+          background-color: #e5e9ff;
+
+          color: #c83240;
+        }
+
+        th {
+          background: #ae4650;
+          font-weight: bold;
+          border-radius: 0px;
+          transition-duration: 0.6s;
+        }
+      }
+
+      td {
+        padding: 0px 20px;
+        text-align: center;
+        border-bottom: 1px solid #F4EEE8;
+        transition: all 0.5s linear;
+      }
+
+      td:first-child {
+        text-align: left;
+        color: #3D3511;
+        font-weight: bold;
+      }
+
+      td:nth-child(even) {
+        background: #f6f6f6;
+      }
+
+      td:nth-child(odd) {
+        background: #e6e6e6;
+      }
+
+      th:nth-child(odd) {
+        color: #ffffff;
+        font-weight: bold;
+        background: #c83240;
+      }
+
+      th:nth-child(even) {
+        color: #ffffff;
+        font-weight: bold;
+        background: #c83240;
+        border-radius: inherit;
+      }
+
+      .sticky-col {
+        position: -webkit-sticky;
+        position: sticky;
+        background-color: white;
+        z-index: 2;
+      }
+
+      .first-col {
+        width: auto;
+        min-width: 100px;
+        max-width: 150px;
+        left: 0px;
+        text-align: right;
+      }
+    }
+  }
+}

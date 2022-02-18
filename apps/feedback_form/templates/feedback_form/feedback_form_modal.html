@@ -1,0 +1,26 @@
+{% load i18n %}
+<!-- Modal -->
+<div class="modal fade" id="feedback_form_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+     aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal_header"><i class="fas fa-briefcase"></i>{% trans 'form__heading' %}</div>
+            <div class="modal_body">
+                <div class="row">
+                    <div class="col s12 m6">
+                        <input class="input_v1" id="ff_name" placeholder="{% trans 'form__fio' %}" type="text">
+                        <input class="input_v1" id="ff_country" placeholder="{% trans 'form__country' %}" type="text">
+                        <input class="input_v1" id="ff_cooperation" placeholder="{% trans 'form__cooperation' %}" type="text"></div>
+                    <div class="col s12 m6">
+                        <input class="input_v1" id="ff_phone" placeholder="{% trans 'phone' %}" type="text">
+                        <input class="input_v1" id="ff_email" placeholder="{% trans 'email' %}" type="text">
+                        <input class="input_v1" id="ff_comment" placeholder="{% trans 'form__comment' %}" type="text"></div>
+                </div>
+                <div class="modal_footer">
+                    <a id="submit_form" href="#">{% trans 'form__submit' %}</a>
+                    <a class="close_form modal-close" data-dismiss="modal" href="#">{% trans 'form__close' %}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,77 @@
+{% load currency_tags %}
+{% load i18n %}
+<script>
+    {% tag_get_all_currencies_json request as currencies %}
+    {% tag_current_currency_json request as current_currency %}
+    {% tag_default_currency_json as default_currency %}
+    const CONFIG_DATA = {
+        URLS: {
+            wishlist_load_more: '{% url 'wishlist_load_more' %}',
+            add_to_comparison: '{% url 'add_to_comparison' %}',
+            del_from_comparison: '{% url 'del_from_comparison' %}',
+            add_to_wishlist: '{% url 'add_to_wishlist' %}',
+            del_from_wishlist: '{% url 'del_from_wishlist' %}',
+            view__registration: '{% url 'view__registration' %}',
+            view__login: '{% url 'view__login' %}',
+            view__edit_profile: '{% url 'view__edit_profile' %}',
+            view__checkout: '{% url 'view__checkout' %}',
+            np_get_cities: '{% url 'np_get_cities' %}',
+            np_get_warehouses: '{% url 'np_get_warehouses' %}',
+            get_product_price_by_options: '{% url 'get_product_price_by_options' %}',
+            load_more_reviews: '{% url 'load_more_reviews' %}',
+            add_review: '{% url 'add_review' %}',
+            get_product_option_price: '{% url 'get_product_option_price' %}',
+            add_one_click_order: '{% url 'add_one_click_order' %}',
+            change_item_qty: '{% url 'change_item_qty' %}',
+            remove_from_cart: '{% url 'remove_from_cart' %}',
+            api_google_map: '{% url 'api_google_map' %}',
+            add_to_cart: '{% url 'add_to_cart' %}',
+            render_quick_order_item: '{% url 'render_quick_order_item' %}',
+            get_template_catalog: '{% url 'get_template_catalog' %}',
+            get_template_products_cart: '{% url 'get_template_products_cart' %}',
+            currency_set: '{% url 'currency_set' %}',
+            lang: '{% url 'lang' %}',
+            search: '{% url 'view__search' %}',
+            search_product_by_query: '{% url 'search_product_by_query' %}',
+            {% comment %}feedback_form: '{% url 'feedback_form' %}',
+            newsletter_add_email: '{% url 'newsletter_add_email' %}',{% endcomment %}
+            {% comment %}repay: '{% url 'repay' %}',{% endcomment %}
+            account: '{% url 'view__account' %}',
+            account_password_reset: '{% url 'account_password_reset' %}',
+            feedback_form__add_message: '{% url 'feedback_form__add_message' %}',
+            login: '{% url 'view__login' %}',
+            view__testimonials_model: '{% url 'view__testimonials_model' %}',
+            add_testimonial: '{% url 'add_testimonial' %}'
+            {% comment %}add_order_success: '{% url 'add_order_success'  %}',
+                    add_order_success_liqPay: '{% url 'add_order_success' %}',{% endcomment %}
+            {% comment %}add_notify: '{% url 'add_notify' %}',
+            render_notify_when_available: '{% url 'render_notify_when_available' %}',{% endcomment %}
+        },
+        TRANS: {
+            account__add_to_wishlist_success_response: '{% trans 'account__add_to_wishlist_success_response' %}',
+            OneClickOrder_ErrorNoRequired: '{% trans 'OneClickOrder_ErrorNoRequired' %}',
+            OneClickOrder_SuccessMessage: '{% trans 'OneClickOrder_SuccessMessage' %}',
+            OneClickOrder_ErrorPhone: '{% trans 'OneClickOrder_ErrorPhone' %}',
+            contacts__form_success_msg: '{% trans 'contacts__form_success_msg' %}',
+            interface__unknown_error: '{% trans 'interface__unknown_error' %}',
+            Ok: '{% trans 'Ok' %}',
+            Login_error_title: '{% trans 'Login_error_title' %}',
+            Login_error_message: '{% trans 'Login_error_message' %}',
+            Registration_success_message: '{% trans 'Login_error_message' %}',
+            Registration_error_message: '{% trans 'Registration_error_message' %}',
+            not_selected: '{% trans 'not_selected' %}',
+            checkout__success_message: '{% trans 'checkout__success_message' %}',
+        },
+        CURRENCIES: {
+            CURRENT: {{ current_currency|safe }},
+            ALL: {{ currencies|safe }},
+            DEFAULT: {{ default_currency|safe }},
+        },
+        VALUES: {
+            ARRAY_OPTIONS: [],
+            ARRAY_ATTRIBUTES: [],
+            ARRAY_PRODUCTS: [],
+            ARRAY_PRODUCTS_FILTERED: [],
+        }
+    };
+</script>

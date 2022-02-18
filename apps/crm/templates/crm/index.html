@@ -1,0 +1,9 @@
+{% extends 'crm/wrapper.html' %}
+
+{% block body %}
+    <a href="{% url 'crm' %}">Back</a>
+    <a class="d-block" href="{% url 'crm__view__clients_list' %}">Clients</a>
+    <a class="d-block" href="{% url 'crm__view__masters_list' %}">Masters</a>
+    <a class="d-block" href="{% url 'crm__view__appointments_list' %}">Appointments</a>
+    <a class="d-block" href="{% url 'crm__view__procedures_list' %}">Procedures</a>
+{% endblock %}

@@ -1,0 +1,20 @@
+{% load i18n thumbnail %}
+<a href="{{ category.get_absolute_url }}" class="category_min">
+    <div class="category_img">
+{#        {% thumbnail category.image '690x370' crop="center" quality=55 as im %}#}
+{#            <img src="{{ im.url }}" width="{{ im.width }}">#}
+{#        {% endthumbnail %}#}
+        <picture>
+            {% thumbnail category.image '690x370' crop="center" quality=55 format="WEBP" as im %}
+                <source srcset="{{ im.url }}" type="image/webp">
+            {% endthumbnail %}
+            {% thumbnail category.image '690x370' crop="center" quality=55 format="JPEG" as im %}
+                <source srcset="{{ im.url }}" type="image/jpeg">
+                <img src="{{ im.url }}" alt="{{ article.name }}" width="{{ im.width }}">
+            {% endthumbnail %}
+        </picture>
+    </div>
+    <div class="category_description">
+        <p class="category_name">{{ category.name }}</p>
+    </div>
+</a>

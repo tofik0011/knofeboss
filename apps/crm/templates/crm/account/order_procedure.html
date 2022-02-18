@@ -1,0 +1,87 @@
+{% extends 'crm/account/account.html' %}
+
+{% block body %}
+    {% block content %}
+        <a href="{% url 'crm__view__procedures_list' %}">Back</a>
+        <div class="container">
+            <div class="row">
+                <div class="col-3">
+                    <div class="form-group">
+                        <select class="form-control" name="masters" id="master">
+                            {% for m in masters %}
+                                <option value="{{ m.id }}">{{ m }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <select class="form-control" name="procedures" id="procedure">
+                            {% for p in procedures %}
+                                <option {% if p.id == choosed_procedure_id %}selected="selected"{% endif %} value="{{ p.id }}">{{ p }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div id="date">
+
+                    </div>
+                    <div class="masters_schedule">
+
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" id="time" placeholder="time" type="text">
+                    </div>
+                    <button class="btn btn-primary" type="button" id="submit_procedure_appointment">Submit</button>
+                </div>
+            </div>
+        </div>
+        <script>
+
+            $('#date').datepicker({
+                inline: true,
+                onSelect: function (formattedDate, date, inst) {
+                    if (date) {
+                        $.ajax({
+                            type: "POST",
+                            url: "{% url 'api__get_master_schedule' %}",
+                            data: {
+                                'master_id': $('#master option:selected').val(),
+                                'date': formattedDate,
+                            },
+                            success: function (data) {
+                                console.log(data);
+                                if (data.success) {
+                                    $('.masters_schedule').text(JSON.stringify(data.schedule));
+                                } else {
+
+                                }
+                            }
+                        });
+                    }
+
+                },
+            });
+
+
+            $('body').on('click', "#submit_procedure_appointment", function (e) {
+                $.ajax({
+                    type: "POST",
+                    url: "{% url 'api__add_appointment' %}",
+                    data: {
+                        'procedure_id': $('#procedure option:selected').val(),
+                        'master_id': $('#master option:selected').val(),
+                        'client_id': 1,
+                        'date': null,
+                        'time': null,
+                    },
+                    success: function (data) {
+                        console.log(data);
+                        if (data.success) {
+
+                        } else {
+
+                        }
+                    }
+                });
+            });
+        </script>
+    {% endblock content %}
+{% endblock body %}

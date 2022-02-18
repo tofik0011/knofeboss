@@ -1,0 +1,67 @@
+{% load i18n %}
+{% load static %}
+{% load blog_tags %}
+{% load fb_versions %}
+{% load thumbnail %}
+{% tag_last_articles limit=3 as last_articles %}
+
+<div class="widget-blog">
+    <div class="container">
+        <div class="articles-carousel">
+            {% for article in last_articles %}
+                <div class="blog-item">
+                    <div class="row align-items-center">
+                        <div class="col-lg-5">
+                            <div class="thumbnail">
+                                <div class="navigation">
+                                    <a href="" class="prev"><i class="fas fa-chevron-left"></i></a>
+                                    <a href="" class="next"><i class="fas fa-chevron-right"></i></a>
+                                </div>
+{#                                <img src="{{ article.image.url }}" alt="{{ article.name }}">#}
+                                <picture>
+                                    {% thumbnail article.image "600x240" crop="center" quality=50 format="WEBP" as im %}
+                                        <source srcset="{{ im.url }}" type="image/webp">
+                                    {% endthumbnail %}
+                                    {% thumbnail article.image "600x240" crop="center" quality=50 format="JPEG" as im %}
+                                        <source srcset="{{ im.url }}" type="image/jpeg">
+                                        <img src="{{ im.url }}" alt="{{ article.name }}" width="{{ im.width }}">
+                                    {% endthumbnail %}
+                                </picture>
+                            </div>
+                        </div>
+                        <div class="col-lg-7">
+                            <div class="title-bg">Статьи</div>
+                            <div class="content">
+                                <div class="title-front"><a href="{{ article.link }}">{{ article.name }}</a></div>
+                                <div class="description pl-lg-4">{{ article.short_description|truncatechars:300 }}
+                                </div>
+                                <a href="{% url 'article' article.link %}" class="article-read-more">{% trans 'blog__article_read_more' %} <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+</div>
+
+<script>
+    $('#blog-widget .articles-carousel').slick({
+        infinite: true,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        fade: true,
+        arrows: false,
+    });
+
+    $('#blog-widget .prev').on('click', function (e) {
+        e.preventDefault();
+        $('#blog-widget .articles-carousel').slick('slickPrev');
+    });
+
+    $('#blog-widget .next').on('click', function (e) {
+        e.preventDefault();
+        $('#blog-widget .articles-carousel').slick('slickNext');
+    });
+</script>

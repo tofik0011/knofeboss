@@ -1,0 +1,35 @@
+{% load mainapp_tags %}
+{% load i18n %}
+{% load products_tags %}
+{% load static %}
+{% load contacts_tags %}
+{% tag_get_socials_networks as social_networks %}
+<div id="up" class="scale-transition scale-out">
+    <i class="material-icons">keyboard_arrow_up</i>
+</div>
+{#<div id="footer">#}
+{#    <div class="wrap_2">#}
+{#        <div class="row">#}
+{#            <div class="col s4 l4">#}
+{#                {% get_svg 'icons/phone.svg' as phone_svg %}{{ phone_svg|safe }}#}
+{#                <a href="#">(097) 195 37 33</a><br>#}
+{#                <a href="#">(097) 195 37 33</a>#}
+{#            </div>#}
+{#            <div class="col s4 l4">#}
+{#                {% get_svg 'icons/mail.svg' as mail_svg %}{{ mail_svg|safe }}#}
+{#                <a href="#">info@tatoshka.com.ua</a>#}
+{#            </div>#}
+{#            <div class="col s4 l4">#}
+{#                {% get_svg 'icons/i/gps.svg' as gps_svg %}{{ gps_svg|safe }}#}
+{#                <a>04086 г. Киев, ул. Елены Телиги, 39Б</a>#}
+{#            </div>#}
+{#        </div>#}
+{##}
+{#    </div>#}
+{#    <div class="bottom">#}
+{#        <a class="copyright" href="https://golden-web.org/" target="_blank">{% trans 'copyright' %}</a>#}
+{#    </div>#}
+{#</div>#}
+{% include 'feedback_form/feedback_form_modal.html' %}
+{% include 'checkout/quick_order_modal.html' %}
+{% include 'mainapp/modals/search_modal.html' %}

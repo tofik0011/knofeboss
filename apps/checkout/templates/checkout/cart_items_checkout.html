@@ -1,0 +1,23 @@
+{% load i18n %}
+{% load mainapp_tags %}
+{% load currency_tags %}
+{% load products_tags %}
+{% load fb_versions %}
+<div class="min_heading">{% get_svg 'icons/i/shopping_bag.svg' as bag_svg %} {{ bag_svg|safe }}{% trans 'checkout__cart' %} <span class="cart_total_price">{% tag_convert_currency_price request cart_total_price %}</span></div>
+{% if cart_items|length > 0 %}
+    {% if opt_message %}
+        <div class="opt_message">
+            {{ opt_message }}
+        </div>
+    {% endif %}
+    <div class="cart_items_checkout">
+        {% for item in cart_items %}
+            {% include 'checkout/cart_item.html' %}
+        {% endfor %}
+    </div>
+{% else %}
+    <div class="empty_cart">{% trans 'checkout__cart_is_empty' %}</div>
+{% endif %}
+
+
+

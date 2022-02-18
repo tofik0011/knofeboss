@@ -1,0 +1,26 @@
+{% load i18n %}
+<div id="product_review_modal" class="modal">
+    <div class="close">
+        <a href="" class="modal-close waves-effect waves-green btn-flat">x</a>
+    </div>
+    <div class="modal-content">
+        <div class="title">{% trans 'products__leave_review' %}</div>
+        <input id="js-review-author" class="input_v1" placeholder="{% trans 'account__first_name' %}" type="text">
+        <textarea id="js-review-text" class="input_v1" rows="6" style="resize: none;" placeholder="{% trans 'products__review' %}" type="text"></textarea>
+        <div class="rating-area">
+            <input type="radio" id="star-5" name="rating" value="5">
+            <label for="star-5"></label>
+            <input type="radio" id="star-4" name="rating" value="4">
+            <label for="star-4"></label>
+            <input type="radio" id="star-3" name="rating" value="3">
+            <label for="star-3"></label>
+            <input type="radio" id="star-2" name="rating" value="2">
+            <label for="star-2"></label>
+            <input type="radio" id="star-1" name="rating" value="1">
+            <label for="star-1"></label>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <a href="" data-product-id="{{ product.id }}" id="js-product-review-submit" class="btn_v1">{% trans 'products__leave_review' %}</a>
+    </div>
+</div>

@@ -1,0 +1,146 @@
+{% extends "wrapper.html" %}
+{% load static %}
+{% load i18n %}
+{% load mainapp_tags %}
+{% load thumbnail %}
+
+{% block body %}
+    <div class="page__production wrap_2">
+        <div class="page_heading">
+            {% trans 'retail__page_heading' %}
+        </div>
+        <div class="three_cols">
+            <div class="col">
+{#                <img class="icon" src="/media/design/about_production/production%20(6).jpg" alt="">#}
+                {% thumbnail "/media/design/about_production/production%20(6).jpg"|media_url:request "600" crop="center" quality=80 format="WEBP" as im %}
+                    <source srcset="{{ im.url }}" type="image/webp">
+                {% endthumbnail %}
+                {% thumbnail "/media/design/about_production/production%20(6).jpg"|media_url:request "600" crop="center" quality=80 format="JPEG" as im %}
+                    <source srcset="{{ im.url }}" type="image/jpeg">
+                    <img src="{{ im.url }}" class="icon" alt="">
+                {% endthumbnail %}
+                <div class="title">Конктрукторский цех</div>
+                <div class="description">Отдел дизайна - это начало производственного процесса
+                </div>
+            </div>
+            <div class="col">
+
+{#                <img class="icon" src="/media/design/about_production/production%20(5).jpg" alt="">#}
+                {% thumbnail "/media/design/about_production/production%20(5).jpg"|media_url:request "600" crop="center" quality=80 format="WEBP" as im %}
+                    <source srcset="{{ im.url }}" type="image/webp">
+                {% endthumbnail %}
+                {% thumbnail "/media/design/about_production/production%20(5).jpg"|media_url:request "600" crop="center" quality=80 format="JPEG" as im %}
+                    <source srcset="{{ im.url }}" type="image/jpeg">
+                    <img src="{{ im.url }}" class="icon" alt="">
+                {% endthumbnail %}
+                <div class="title">Конктрукторский цех</div>
+                <div class="description">Отдел дизайна - это начало производственного процесса
+                </div>
+            </div>
+            <div class="col">
+
+{#                <img class="icon" src="/media/design/about_production/production%20(4).jpg" alt="">#}
+                {% thumbnail "/media/design/about_production/production%20(4).jpg"|media_url:request "600" crop="center" quality=80 format="WEBP" as im %}
+                    <source srcset="{{ im.url }}" type="image/webp">
+                {% endthumbnail %}
+                {% thumbnail "/media/design/about_production/production%20(4).jpg"|media_url:request "600" crop="center" quality=80 format="JPEG" as im %}
+                    <source srcset="{{ im.url }}" type="image/jpeg">
+                    <img src="{{ im.url }}" class="icon" alt="">
+                {% endthumbnail %}
+                <div class="title">Конктрукторский цех</div>
+                <div class="description">Отдел дизайна - это начало производственного процесса
+                </div>
+            </div>
+        </div>
+{#        <img class="full_width" src="/media/design/about_production/production%20(3).jpg" alt="">#}
+        {% thumbnail "/media/design/about_production/production%20(3).jpg"|media_url:request "600" crop="center" quality=80 format="WEBP" as im %}
+            <source srcset="{{ im.url }}" type="image/webp">
+        {% endthumbnail %}
+        {% thumbnail "/media/design/about_production/production%20(3).jpg"|media_url:request "600" crop="center" quality=80 format="JPEG" as im %}
+            <source srcset="{{ im.url }}" type="image/jpeg">
+            <img src="{{ im.url }}" class="full_width" alt="">
+        {% endthumbnail %}
+        <div class="mirror_blocks">
+            <div class="block">
+                <div class="text">
+                    <div class="title">Качество в каждой строчке</div>
+                    <div class="description">
+                        Наличие высокотехнологичного оборудования позволяет нам контролировать качество на каждом этапе производства.
+                    </div>
+                </div>
+                <img src="/media/design/about_production/production%20(1).jpg" alt="" class="photo">
+                {% thumbnail "/media/design/about_production/production%20(1).jpg"|media_url:request "600" crop="center" quality=80 format="WEBP" as im %}
+                    <source srcset="{{ im.url }}" type="image/webp">
+                {% endthumbnail %}
+                {% thumbnail "/media/design/about_production/production%20(1).jpg"|media_url:request "600" crop="center" quality=80 format="JPEG" as im %}
+                    <source srcset="{{ im.url }}" type="image/jpeg">
+                    <img src="{{ im.url }}" class="photo" alt="">
+                {% endthumbnail %}
+            </div>
+            <div class="block">
+                <div class="text">
+                    <div class="title">Hoffman HF-200T/1100</div>
+                    <div class="description">
+                        Стационарная ленточная раскройная машина предназначена для выкраивания деталей из частей настила, предварительно разрезанного передвижными раскройными машинами. Использование
+                        такого оборудования позволяет достичь высокой точности кроя.
+                    </div>
+                </div>
+{#                <img src="/media/design/about_production/production%20(2).jpg" alt="" class="photo">#}
+                {% thumbnail "/media/design/about_production/production%20(2).jpg"|media_url:request "600" crop="center" quality=80 format="WEBP" as im %}
+                    <source srcset="{{ im.url }}" type="image/webp">
+                {% endthumbnail %}
+                {% thumbnail "/media/design/about_production/production%20(2).jpg"|media_url:request "600" crop="center" quality=80 format="JPEG" as im %}
+                    <source srcset="{{ im.url }}" type="image/jpeg">
+                    <img src="{{ im.url }}" class="photo" alt="">
+                {% endthumbnail %}
+            </div>
+            <div class="block">
+                <div class="text">
+                    <div class="title">YAMATO СF 230</div>
+                    <div class="description">
+                        Плоскошовная машина цепного стежка типа «интерлок. Высокая производительность и надежность промышленной техники YAMATO признана во всем мире.
+                    </div>
+                </div>
+                <img src="/media/design/about_production/production%20(7).jpg" alt="" class="photo">
+                {% thumbnail "/media/design/about_production/production%20(2).jpg"|media_url:request "600" crop="center" quality=80 format="WEBP" as im %}
+                    <source srcset="{{ im.url }}" type="image/webp">
+                {% endthumbnail %}
+                {% thumbnail "/media/design/about_production/production%20(2).jpg"|media_url:request "600" crop="center" quality=80 format="JPEG" as im %}
+                    <source srcset="{{ im.url }}" type="image/jpeg">
+                    <img src="{{ im.url }}" class="photo" alt="">
+                {% endthumbnail %}
+            </div>
+        </div>
+        <div class="cooperation">
+            {% get_svg 'icons/i/advantages/portfolio.svg' as a3_svg %}{{ a3_svg|safe }}
+            <div class="heading">
+                Сотрудичество
+            </div>
+            <div class="description">
+                Мы можем предложить вам два варианта сотрудничества
+            </div>
+            <div class="options">
+                <div class="option">
+                    <div class="number">01</div>
+                    <div class="text">Вы можете заказывать изделия со склада, предварительно ознакомившись с нашими моделями на сайте. А, если Вы являетесь нашим постоянным клиентом, то Вы можете
+                        получать прайсы с предзаказами, и делать заказы заранее. В таком случае Вы гарантированно получите свой заказ в нужном Вам количестве.
+                    </div>
+                </div>
+                <div class="option">
+                    <div class="number">02</div>
+                    <div class="text">Вы можете отправить нам свои специальные проекты. Наши специалисты разработают конструкции и технологию для исполнения Вашего заказа, и, после согласования
+                        образцов.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <img class="full_width" src="/media/design/about_production/production%20(8).jpg" alt="">
+        {% thumbnail "/media/design/about_production/production%20(8).jpg"|media_url:request "600" crop="center" quality=80 format="WEBP" as im %}
+            <source srcset="{{ im.url }}" type="image/webp">
+        {% endthumbnail %}
+        {% thumbnail "/media/design/about_production/production%20(8).jpg"|media_url:request "600" crop="center" quality=80 format="JPEG" as im %}
+            <source srcset="{{ im.url }}" type="image/jpeg">
+            <img src="{{ im.url }}" class="photo" alt="">
+        {% endthumbnail %}
+    </div>
+{% endblock %}

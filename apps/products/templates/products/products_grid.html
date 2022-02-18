@@ -1,0 +1,13 @@
+{% load static %}
+<div class="products_grid">
+    <div class="wrap_2">
+        <div class="products_wrapper" data-show="4">
+            {% for product in products %}
+                <div class="product_item">{% include 'products/product_min.html' %}</div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+
+

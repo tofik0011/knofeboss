@@ -1,0 +1,10 @@
+{% extends 'wraper.html' %}
+{% load i18n %}
+{% block body %}
+    <div class="page_liqpay_success">
+        <div class="container">
+                <div class="h2 mt-5 mb-3">{% trans 'checkout_your_order_will_be_processed_after_payment' %}</div>
+            <a href="{% url 'index' %}" class="btn-v3">{% trans '404__go_to_main_page' %}</a>
+        </div>
+    </div>
+{% endblock %}

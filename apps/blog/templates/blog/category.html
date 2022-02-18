@@ -1,0 +1,11 @@
+{% extends 'blog/blog.html' %}
+{% load i18n %}
+{% block title %}{{ category.seo_title }}{% endblock %}
+{% block description %}{{ category.seo_description }}{% endblock %}
+
+{% block blog_h1 %}{{ category.name }}{% endblock %}
+{% block articles %}
+    {% for article in articles %}
+        <div class="col-lg-6 mb-5">{% include 'blog/article_min.html' %}</div>
+    {% endfor %}
+{% endblock %}

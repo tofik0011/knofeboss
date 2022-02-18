@@ -1,0 +1,97 @@
+{% load i18n %}
+{% load currency_tags %}
+{% load products_tags %}
+{% load fb_versions %}
+{% load thumbnail %}
+<div class="cart-list-modal">
+    {% if data|length > 0 %}
+        {% for item in data %}
+            <div class="cart-item" data-cart-item-id="{{ item.cart_item.pk }}">
+                <a href="{{ item.product.link }}">
+{#                    <img src="{% version  '80x80' %}" width="100px"  alt="">#}
+                    <picture>
+                        {% thumbnail item.product.image '80x80' crop="center" quality=50 format="WEBP" as im %}
+                            <source srcset="{{ im.url }}" type="image/webp">
+                        {% endthumbnail %}
+                        {% thumbnail item.product.image '80x80' crop="center" quality=50 format="JPEG" as im %}
+                            <source srcset="{{ im.url }}" type="image/jpeg">
+                            <img src="{{ im.url }}" alt="" width="{{ im.width }}" class="img-thumbnail">
+                        {% endthumbnail %}
+                    </picture>
+                    <div class="name-options">
+                        <div class="name">{{ item.product.name }} <span>(x{{ item.cart_item.qty }})</span></div>
+                        <div class="options">{% for option in item.options %}{{ option.option_name }}: {{ option.option_value_name }}{% if not forloop.last %}, {% endif %} {% endfor %}</div>
+                    </div>
+                </a>
+                <div class="price-data">
+                    {% if item.cart_item.discount > 0 %}
+                        <span class="discount">-{{ item.cart_item.discount }}%</span>
+                    {% endif %}
+                    <div>
+                        <span class="new-price">{{ item.cart_item.current_price }}</span>
+                        {% if item.cart_item.discount > 0 %}<span class="old-price">{{ item.cart_item.stable_price }}</span>{% endif %}
+                    </div>
+                </div>
+                <button class="remove-from-cart btn-v2 btn" data-cart-item-id="{{ item.cart_item.pk }}">
+                    <i class="fas fa-trash"></i>
+                </button>
+            </div>
+            {% if forloop.last %}
+            {% else %}
+            <hr>
+            {% endif %}
+        {% endfor %}
+    {% else %}
+        {% trans 'Cart_EmptyCart' %}
+    {% endif %}
+</div>
+{#<table class="table cart-list-modal">#}
+{#    {% if data|length > 0 %}#}
+{#        <thead>#}
+{#        <tr>#}
+{#            <td>{% trans 'Cart_TableImage' %}</td>#}
+{#            <td>{% trans 'Cart_TableName' %}</td>#}
+{#            <td>{% trans 'Cart_TablePrice' %}</td>#}
+{#            <td>{% trans 'Cart_TableDelete' %}</td>#}
+{#        </tr>#}
+{#        </thead>#}
+{#        <tbody>#}
+{#        {% for item in data %}#}
+{#            <tr class="cart-item" data-cart-item-id="{{ item.cart_item.pk }}">#}
+{#                <td width="20%"><img src="{{ item.product.image.url }}" width="100px" class="img-thumbnail" alt=""></td>#}
+{#                <td>#}
+{#                    <a href="{{ item.product.link }}">#}
+{#                        <div class="name">{{ item.product.name }} </div>#}
+{#                        <div class="qty">(x{{ item.cart_item.qty }})</div>#}
+{#                    </a>#}
+{#                    <div class="options">{% for option in item.options %}{{ option.option_name }}: {{ option.option_value_name }}{% if not forloop.last %}, {% endif %} {% endfor %}</div>#}
+{#                </td>#}
+{#                <td>#}
+{#                    <div class="price-data">#}
+{#                        {% if item.cart_item.discount > 0 %}#}
+{#                            <span class="discount">-{{ item.cart_item.discount }}%</span>#}
+{#                        {% endif %}#}
+{#                        <div>#}
+{#                            <span class="new-price">{{ item.cart_item.current_price }}</span>#}
+{#                            {% if item.cart_item.discount > 0 %}<span class="old-price">{{ item.cart_item.stable_price }}</span>{% endif %}#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </td>#}
+{#                <td>#}
+{#                    <button class="remove-from-cart btn-v2 btn" data-cart-item-id="{{ item.cart_item.pk }}">#}
+{#                        <i class="fas fa-trash"></i>#}
+{#                    </button>#}
+{#                </td>#}
+{#            </tr>#}
+{#        {% endfor %}#}
+{#        <tr>#}
+{#            <td colspan="4">#}
+{#                <div class="cart-total-price text-center">{% trans 'Cart_CartTotalPrice' %} <span>{% tag_convert_currency_price request cart_total_price %}</span></div>#}
+{#            </td>#}
+{#        </tr>#}
+{#        </tbody>#}
+{#    {% else %}#}
+{#        {% trans 'Cart_EmptyCart' %}#}
+{#    {% endif %}#}
+{##}
+{#</table>#}
